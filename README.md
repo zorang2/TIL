@@ -1,4 +1,4 @@
-# TIL
+# TIL (Today I Learned)
 - 배우고 익힌 것을 저장하는 Repository
 
 ## Directory

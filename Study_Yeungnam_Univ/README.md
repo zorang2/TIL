@@ -7,7 +7,6 @@ Data on subjects taken by Yeungnam University from 2019 to 2021
 
 | 수강 학기  | 과목명(한글) | Subject (English)|
 |--|--|--|
-
 |2022-1|운영체제설계|(예정)|
 |2022-1|알고리즘|(예정)|
 |2022-1|프로그래밍언어|(예정)|

@@ -1,5 +1,5 @@
 # Yeungnam_Univ.
-Data on subjects taken by Yeungnam University from 2019 to 2021
+Data on subjects taken by Yeungnam University from 2019 to 2022 (total : 4years)
 
 # Course Taken List ( Software-Related )
 

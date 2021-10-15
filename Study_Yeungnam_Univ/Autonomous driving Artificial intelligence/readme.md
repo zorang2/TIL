@@ -1,1 +1,1 @@
-How to adjust the image using opencv.
+How to adjust the image & video using opencv.

@@ -5,7 +5,7 @@
 
 void sort(int[], int); /*selection sort*/
 
-void main(void)
+void main(void) //그냥 run하면 돌아감.
 {
 	int i, n;
 	int list[MAX_SIZE];

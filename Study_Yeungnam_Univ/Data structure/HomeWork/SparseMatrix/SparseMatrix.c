@@ -2,28 +2,28 @@
 #include<stdlib.h>
 #include<string.h>
 
-typedef struct { // í¬ì†Œí–‰ë ¬ì„ ì €ìž¥í•  êµ¬ì¡°ì²´
-	int row; // í–‰
-	int col; // ì—´
-	float value; // ê°’
+typedef struct { // Èñ¼ÒÇà·ÄÀ» ÀúÀåÇÒ ±¸Á¶Ã¼
+	int row; // Çà
+	int col; // ¿­
+	float value; // °ª
 } term;
 
-int Get_intData(); // ì •ìˆ˜ë¥¼ ìž…ë ¥ë°›ì•„ ë¦¬í„´í•´ì£¼ëŠ” í•¨ìˆ˜
-float Get_floatData(); // ì‹¤ìˆ˜ë¥¼ ìž…ë ¥ë°›ì•„ ë¦¬í„´í•´ì£¼ëŠ” í•¨ìˆ˜
+int Get_intData(); // Á¤¼ö¸¦ ÀÔ·Â¹Þ¾Æ ¸®ÅÏÇØÁÖ´Â ÇÔ¼ö
+float Get_floatData(); // ½Ç¼ö¸¦ ÀÔ·Â¹Þ¾Æ ¸®ÅÏÇØÁÖ´Â ÇÔ¼ö
 
-int InputSum(term *r, int total, int row, int col, float sum); // í–‰ë ¬ì˜ ê° ê³„ì‚° ê²°ê³¼ë¥¼ ì €ìž¥í•´ì£¼ëŠ” í•¨ìˆ˜
-void MatrixCpy(term *a, term *b, int i); // ë‘ í¬ì†Œí–‰ë ¬ì„ ë³µì‚¬í•´ì£¼ëŠ” í•¨ìˆ˜
+int InputSum(term *r, int total, int row, int col, float sum); // Çà·ÄÀÇ °¢ °è»ê °á°ú¸¦ ÀúÀåÇØÁÖ´Â ÇÔ¼ö
+void MatrixCpy(term *a, term *b, int i); // µÎ Èñ¼ÒÇà·ÄÀ» º¹»çÇØÁÖ´Â ÇÔ¼ö
 
-int Get_MatrixFromFile();   // fileì—ì„œ ë°ì´í„°ë¥¼ ì½ì–´ì˜¤ëŠ” í•¨ìˆ˜
-void Get_MatrixFromUser();  // í¬ì†Œí–‰ë ¬ì„ ì§ì ‘ìž…ë ¥ë°›ê¸°ìœ„í•œ í•¨ìˆ˜
-void Get_MatrixValue(term *Matrix, int MaxRow, int MaxCol, int MaxValue); // í¬ì†Œí–‰ë ¬ì„ ì €ìž¥í•´ì£¼ëŠ” í•¨ìˆ˜
-void Get_TransposeMatrix(term *orgMatrix, term *transMatrix, int MaxRow, int MaxCol, int MaxValue); // ì „ì¹˜í–‰ë ¬ì„ ë§Œë“œëŠ” í•¨ìˆ˜
-void Get_ResultOfMultiplication(term *M_A, term *M_B, term *trans, // ë‘ í¬ì†Œí–‰ë ¬ì„ ê³±í•´ì£¼ëŠ” í•¨ìˆ˜
+int Get_MatrixFromFile();   // file¿¡¼­ µ¥ÀÌÅÍ¸¦ ÀÐ¾î¿À´Â ÇÔ¼ö
+void Get_MatrixFromUser();  // Èñ¼ÒÇà·ÄÀ» Á÷Á¢ÀÔ·Â¹Þ±âÀ§ÇÑ ÇÔ¼ö
+void Get_MatrixValue(term *Matrix, int MaxRow, int MaxCol, int MaxValue); // Èñ¼ÒÇà·ÄÀ» ÀúÀåÇØÁÖ´Â ÇÔ¼ö
+void Get_TransposeMatrix(term *orgMatrix, term *transMatrix, int MaxRow, int MaxCol, int MaxValue); // ÀüÄ¡Çà·ÄÀ» ¸¸µå´Â ÇÔ¼ö
+void Get_ResultOfMultiplication(term *M_A, term *M_B, term *trans, // µÎ Èñ¼ÒÇà·ÄÀ» °öÇØÁÖ´Â ÇÔ¼ö
 								int MaxRowA, int MaxColA, int MaxValueA, int MaxRowB, int MaxColB, int MaxValueB);
 
-void fprint_Matrix(term *Matrix, int MaxR, int MaxC, int MaxV); // í–‰ë ¬ì„ ì¶œë ¥í•´ì£¼ëŠ” í•¨ìˆ˜
-void fprint_SpaseMatrix(term *Matrix, int MaxV); // í¬ì†Œí–‰ë ¬ì„ ì¶œë ¥í•´ì£¼ëŠ” í•¨ìˆ˜
-void fprint_WholeResult(term *MatrixA, term *MatrixB, term *MatrixT, term *MatrixR, // ì‚¬ìš©ëœ ëª¨ë“  í–‰ë ¬ì„ ì¶œë ¥í•´ì£¼ëŠ” í•¨ìˆ˜
+void fprint_Matrix(term *Matrix, int MaxR, int MaxC, int MaxV); // Çà·ÄÀ» Ãâ·ÂÇØÁÖ´Â ÇÔ¼ö
+void fprint_SpaseMatrix(term *Matrix, int MaxV); // Èñ¼ÒÇà·ÄÀ» Ãâ·ÂÇØÁÖ´Â ÇÔ¼ö
+void fprint_WholeResult(term *MatrixA, term *MatrixB, term *MatrixT, term *MatrixR, // »ç¿ëµÈ ¸ðµç Çà·ÄÀ» Ãâ·ÂÇØÁÖ´Â ÇÔ¼ö
 					   int MaxRA, int MaxCA, int MaxCB, int MaxA, int MaxB, int MaxR);
 
 int main()
@@ -31,13 +31,13 @@ int main()
 	int select, check;
 
 	printf("========================================\n");
-	printf("1. í™”ì¼ë¡œ ì½ì–´ì˜¤ê¸°    2. ì§ì ‘ ìž…ë ¥      \n");
+	printf("1. ÆÄÀÏ·Î ÀÐ¾î¿À±â    2. Á÷Á¢ ÀÔ·Â      \n");
 	printf("========================================\n");
 	select = Get_intData();
 
 	if(select == 1){
 		check = Get_MatrixFromFile();
-		if(check == 0) {printf("ìž˜ëª»ëœ íŒŒì¼ìž…ë‹ˆë‹¤.\n"); return 0;}
+		if(check == 0) {printf("Àß¸øµÈ ÆÄÀÏÀÔ´Ï´Ù.\n"); return 0;}
 	}
 
 	else if(select == 2){
@@ -50,46 +50,46 @@ int main()
 void Get_MatrixFromUser()
 {
 	////////////////////////////////////////////////////////////////////////////////////
-	/*ê³±ì…ˆì„ í•  ë‘ í–‰ë ¬ì„ ì§ì ‘ìž…ë ¥ë°›ì•„ì˜¤ëŠ” ê²½ìš° í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜ì´ë‹¤. ì´ í•¨ìˆ˜ëŠ” í–‰ë ¬A,Bì˜ /
-	/í–‰/ì—´ ë° ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì˜¨ í›„ ê° ì›ì†Œë¥¼ ì €ìž¥í•œë‹¤.ì €ìž¥ì´ ëë‚˜ë©´ Bí–‰ë ¬ì„ ì „ì¹˜í–‰ë ¬/
-	/ë¡œ ë³€í™˜í•œ í›„ ê³±ì…ˆì„ í•˜ë„ë¡ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤.                                      */
+	/*°ö¼ÀÀ» ÇÒ µÎ Çà·ÄÀ» Á÷Á¢ÀÔ·Â¹Þ¾Æ¿À´Â °æ¿ì È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù. ÀÌ ÇÔ¼ö´Â Çà·ÄA,BÀÇ /
+	/Çà/¿­ ¹× ¿ø¼ÒÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿Â ÈÄ °¢ ¿ø¼Ò¸¦ ÀúÀåÇÑ´Ù.ÀúÀåÀÌ ³¡³ª¸é BÇà·ÄÀ» ÀüÄ¡Çà·Ä/
+	/·Î º¯È¯ÇÑ ÈÄ °ö¼ÀÀ» ÇÏµµ·Ï ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.                                      */
 	////////////////////////////////////////////////////////////////////////////////////
 
-	int MRowA, MColA, MValueA; // í–‰ë ¬Aì˜ í–‰/ì—´/ê°’ì˜ ìˆ˜ë¥¼ ì €ìž¥í•  ë³€ìˆ˜
-	int MRowB, MColB, MValueB; // í–‰ë ¬Bì˜ í–‰/ì—´/ê°’ì˜ ìˆ˜ë¥¼ ì €ìž¥í•  ë³€ìˆ˜
-	term *Matrix_A; // í–‰ë ¬ A
-	term *Matrix_B; // í–‰ë ¬ B
-	term *Matrix_trans; // í–‰ë ¬Bì˜ ì „ì¹˜í–‰ë ¬
+	int MRowA, MColA, MValueA; // Çà·ÄAÀÇ Çà/¿­/°ªÀÇ ¼ö¸¦ ÀúÀåÇÒ º¯¼ö
+	int MRowB, MColB, MValueB; // Çà·ÄBÀÇ Çà/¿­/°ªÀÇ ¼ö¸¦ ÀúÀåÇÒ º¯¼ö
+	term *Matrix_A; // Çà·Ä A
+	term *Matrix_B; // Çà·Ä B
+	term *Matrix_trans; // Çà·ÄBÀÇ ÀüÄ¡Çà·Ä
 
-	/*í–‰ë ¬Aì˜ í–‰/ì—´/ê°’ì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„*/
-	printf("í–‰ë ¬Aì˜ í–‰ê°’ì„ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+	/*Çà·ÄAÀÇ Çà/¿­/°ªÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ*/
+	printf("Çà·ÄAÀÇ Çà°ªÀ» ÀÔ·ÂÇÏ½Ã¿À : ");
 	MRowA = Get_intData();
-	printf("í–‰ë ¬Aì˜ ì—´ê°’ì„ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+	printf("Çà·ÄAÀÇ ¿­°ªÀ» ÀÔ·ÂÇÏ½Ã¿À : ");
 	MColA = Get_intData();
-	printf("í–‰ë ¬Aì˜ value ê°¯ìˆ˜ë¥¼ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+	printf("Çà·ÄAÀÇ value °¹¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
 	MValueA = Get_intData();
 
-	/*í–‰ë ¬Aì˜ í¬ì†Œí–‰ë ¬ì„ ìƒì„±í•˜ëŠ” ë¶€ë¶„*/
+	/*Çà·ÄAÀÇ Èñ¼ÒÇà·ÄÀ» »ý¼ºÇÏ´Â ºÎºÐ*/
 	Matrix_A = (term *)malloc(MValueA * sizeof(term));
 	Get_MatrixValue(Matrix_A, MRowA, MColA, MValueA);
 
-	/*í–‰ë ¬Bì˜ í–‰/ì—´/ê°’ì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„*/
-	MRowB = MColA; // í–‰ë ¬Bì˜ í–‰ê°’ì€ í–‰ë ¬Aì˜ ì—´ê°’ê³¼ ë™ì¼
-	printf("í–‰ë ¬Bì˜ í–‰ê°’ì€ %d ìž…ë‹ˆë‹¤.\n", MRowB);
-	printf("í–‰ë ¬Bì˜ ì—´ê°’ì„ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+	/*Çà·ÄBÀÇ Çà/¿­/°ªÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ*/
+	MRowB = MColA; // Çà·ÄBÀÇ Çà°ªÀº Çà·ÄAÀÇ ¿­°ª°ú µ¿ÀÏ
+	printf("Çà·ÄBÀÇ Çà°ªÀº %d ÀÔ´Ï´Ù.\n", MRowB);
+	printf("Çà·ÄBÀÇ ¿­°ªÀ» ÀÔ·ÂÇÏ½Ã¿À : ");
 	MColB = Get_intData();
-	printf("í–‰ë ¬Bì˜ value ê°¯ìˆ˜ë¥¼ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+	printf("Çà·ÄBÀÇ value °¹¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
 	MValueB = Get_intData();
 
-	/*í–‰ë ¬Bì˜ í¬ì†Œí–‰ë ¬ì„ ìƒì„±í•˜ëŠ” ë¶€ë¶„*/
+	/*Çà·ÄBÀÇ Èñ¼ÒÇà·ÄÀ» »ý¼ºÇÏ´Â ºÎºÐ*/
 	Matrix_B = (term *)malloc(MValueB * sizeof(term));
 	Get_MatrixValue(Matrix_B, MRowB, MColB, MValueB);
 
-	/* í–‰ë ¬Bì˜ ì „ì¹˜í–‰ë ¬ì„ ìƒì„±í•˜ëŠ” ë¶€ë¶„*/
+	/* Çà·ÄBÀÇ ÀüÄ¡Çà·ÄÀ» »ý¼ºÇÏ´Â ºÎºÐ*/
 	Matrix_trans = (term *)malloc(MValueB * sizeof(term)); 
 	Get_TransposeMatrix(Matrix_B, Matrix_trans, MRowB, MColB, MValueB);
 
-	/*í–‰ë ¬ A,Bë¥¼ ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ì—¬ ê³±ì…ˆìˆ˜í–‰ ë¶€ë¶„*/
+	/*Çà·Ä A,B¸¦ ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ¿© °ö¼À¼öÇà ºÎºÐ*/
 	Get_ResultOfMultiplication(Matrix_A, Matrix_B, Matrix_trans, MRowA, MColA, MValueA, MRowB, MColB, MValueB);
 
 	free(Matrix_A);
@@ -100,10 +100,10 @@ void Get_MatrixFromUser()
 int Get_MatrixFromFile()
 {
 	////////////////////////////////////////////////////////////////////////////////////
-	/*ì´ í•¨ìˆ˜ëŠ” íŒŒì¼ë¡œ ë¶€í„° í–‰ë ¬ì„ ë°›ì•„ì˜¤ëŠ” ê²½ìš° ì‚¬ìš©ë˜ëŠ” í•¨ìˆ˜ì´ë‹¤.í•¨ìˆ˜ê°€ í˜¸ì¶œë˜ë©´ íŒŒì¼/
-	/array.datë¥¼ ì—´ì–´ ì²« ì—´ì—ì„œ í–‰/ì—´/ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì™€ì„œ ì €ìž¥í•œë‹¤.ê·¸ í›„ ì›ì†Œì˜ ê°¯ìˆ˜/
-	/ì—ë”°ë¼ì„œ íŒŒì¼ìƒì—ì„œ ê° ì›ì†Œ ì €ìž¥ì— í•„ìš”í•œ ë°ì´í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤. ì´ëŸ¬í•œ ë°©ì‹ìœ¼ë¡œ ë‘ í–‰/
-	/ë ¬ì„ ëª¨ë‘ ë°›ì•„ì˜¤ë©´ ì „ì¹˜í–‰ë ¬ì„ ìƒì„±í•˜ê³  ê³±ì…ˆì„ í•˜ê¸°ìœ„í•œ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ ì¤€ë‹¤.       */
+	/*ÀÌ ÇÔ¼ö´Â ÆÄÀÏ·Î ºÎÅÍ Çà·ÄÀ» ¹Þ¾Æ¿À´Â °æ¿ì »ç¿ëµÇ´Â ÇÔ¼öÀÌ´Ù.ÇÔ¼ö°¡ È£ÃâµÇ¸é ÆÄÀÏ/
+	/array.dat¸¦ ¿­¾î Ã¹ ¿­¿¡¼­ Çà/¿­/¿ø¼ÒÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿Í¼­ ÀúÀåÇÑ´Ù.±× ÈÄ ¿ø¼ÒÀÇ °¹¼ö/
+	/¿¡µû¶ó¼­ ÆÄÀÏ»ó¿¡¼­ °¢ ¿ø¼Ò ÀúÀå¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ¸¦ ¹Þ¾Æ¿Â´Ù. ÀÌ·¯ÇÑ ¹æ½ÄÀ¸·Î µÎ Çà/
+	/·ÄÀ» ¸ðµÎ ¹Þ¾Æ¿À¸é ÀüÄ¡Çà·ÄÀ» »ý¼ºÇÏ°í °ö¼ÀÀ» ÇÏ±âÀ§ÇÑ ÇÔ¼ö¸¦ È£ÃâÇØ ÁØ´Ù.       */
 	////////////////////////////////////////////////////////////////////////////////////
 
 	term *MatrixA, *MatrixB, *Matrix_trans;
@@ -112,45 +112,45 @@ int Get_MatrixFromFile()
 	char strbuf[10];
 	FILE *in;
 
-	in = fopen("array.dat", "r"); // í–‰ë ¬ì´ ì €ìž¥ëœ íŒŒì¼ì„ ì˜¤í”ˆí•œë‹¤.
+	in = fopen("array.dat", "r"); // Çà·ÄÀÌ ÀúÀåµÈ ÆÄÀÏÀ» ¿ÀÇÂÇÑ´Ù.
 	wcnt = 0;
 
 	while(wcnt < 2){
-		// ìµœëŒ€ í–‰ ë° ì—´ì˜ ê°’, ì›ì†Œìˆ˜ë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„
+		// ÃÖ´ë Çà ¹× ¿­ÀÇ °ª, ¿ø¼Ò¼ö¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ
 		if(fscanf(in, "%s", strbuf)){
 
-			// í–‰ë ¬ì˜ í–‰ì‚¬ì´ì¦ˆë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„.
-			if(wcnt == 0){ // Aí–‰ë ¬
+			// Çà·ÄÀÇ Çà»çÀÌÁî¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ.
+			if(wcnt == 0){ // AÇà·Ä
 				MRowA = atoi(strbuf);
-				if(MRowA < 1) { fclose(in); return 0; } // í–‰ ì‚¬ì´ì¦ˆëŠ” 1ë³´ë‹¤ ìž‘ìœ¼ë©´ ì•ˆëœë‹¤.
+				if(MRowA < 1) { fclose(in); return 0; } // Çà »çÀÌÁî´Â 1º¸´Ù ÀÛÀ¸¸é ¾ÈµÈ´Ù.
 			}
-			else{ // Bí–‰ë ¬
+			else{ // BÇà·Ä
 				MRowB = atoi(strbuf);
 				if(MRowB < 1) { fclose(in); return 0; }
 			}
 		}
 		else { fclose(in); return 0; }
 
-			// í–‰ë ¬ì˜ ì—´ì‚¬ì´ì¦ˆë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„.
+			// Çà·ÄÀÇ ¿­»çÀÌÁî¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ.
 		if(fscanf(in, "%s", strbuf)){
-			if(wcnt == 0){ // Aí–‰ë ¬
+			if(wcnt == 0){ // AÇà·Ä
 				MColA = atoi(strbuf);
-				if(MColA < 1) { fclose(in); return 0; } // ì—´ ì‚¬ì´ì¦ˆëŠ” 1ë³´ë‹¤ ìž‘ìœ¼ë©´ ì•ˆëœë‹¤.
+				if(MColA < 1) { fclose(in); return 0; } // ¿­ »çÀÌÁî´Â 1º¸´Ù ÀÛÀ¸¸é ¾ÈµÈ´Ù.
 			}
-			else{ // Bí–‰ë ¬
+			else{ // BÇà·Ä
 				MColB = atoi(strbuf);
 				if(MColB < 1) { fclose(in); return 0; }
 			}
 		}
 		else { fclose(in); return 0; }
 
-			// ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„
+			// ¿ø¼ÒÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ
 		if(fscanf(in, "%s", strbuf)){
-			if(wcnt == 0){ // Aí–‰ë ¬
+			if(wcnt == 0){ // AÇà·Ä
 				MValA = atoi(strbuf);
-				if(MValA < 0) { fclose(in); return 0; } // ì›ì†Œì˜ ìˆ˜ëŠ” ìŒìˆ˜ì´ë©´ ì•ˆëœë‹¤.
+				if(MValA < 0) { fclose(in); return 0; } // ¿ø¼ÒÀÇ ¼ö´Â À½¼öÀÌ¸é ¾ÈµÈ´Ù.
 			}
-			else{ // Bí–‰ë ¬
+			else{ // BÇà·Ä
 				MValB = atoi(strbuf);
 				if(MValB < 0) { fclose(in); return 0; }
 			}
@@ -160,22 +160,22 @@ int Get_MatrixFromFile()
 		// end of get MaxData
 
 		mcnt = 0;
-		// ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì™”ìœ¼ë¯€ë¡œ ì´ë¥¼ ì´ìš©í•˜ì—¬ í¬ì†Œí–‰ë ¬ ë°°ì—´ì˜ ì‚¬ì´ì¦ˆë¥¼ ìž¡ì•„ì¤€ë‹¤.
+		// ¿ø¼ÒÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿ÔÀ¸¹Ç·Î ÀÌ¸¦ ÀÌ¿ëÇÏ¿© Èñ¼ÒÇà·Ä ¹è¿­ÀÇ »çÀÌÁî¸¦ Àâ¾ÆÁØ´Ù.
 		if(wcnt == 0) {
-			MV = MValA;  // Aí–‰ë ¬ ì €ìž¥ì„ ìœ„í•œ ê³µê°„ì„ ë©”ëª¨ë¦¬ì— ìž¡ì•„ì¤€ë‹¤.
+			MV = MValA;  // AÇà·Ä ÀúÀåÀ» À§ÇÑ °ø°£À» ¸Þ¸ð¸®¿¡ Àâ¾ÆÁØ´Ù.
 			MatrixA = (term *)malloc((MValA) * sizeof(term));
 		}
 		else {
-			MV = MValB; // Bí–‰ë ¬ ì €ìž¥ì„ ìœ„í•œ ê³µê°„ì„ ë©”ëª¨ë¦¬ì— ìž¡ì•„ì¤€ë‹¤.
+			MV = MValB; // BÇà·Ä ÀúÀåÀ» À§ÇÑ °ø°£À» ¸Þ¸ð¸®¿¡ Àâ¾ÆÁØ´Ù.
 			MatrixB = (term *)malloc((MValB) * sizeof(term));
 		}
 
-		// í¬ì†Œí–‰ë ¬ì„ ìƒì„±í•˜ëŠ” ë¶€ë¶„.
-		while(mcnt < MV){ // whileë¬¸ì€ ì›ì†Œì˜ ê°¯ìˆ˜ë§Œí¼ë§Œ ë™ìž‘í•œë‹¤.
+		// Èñ¼ÒÇà·ÄÀ» »ý¼ºÇÏ´Â ºÎºÐ.
+		while(mcnt < MV){ // while¹®Àº ¿ø¼ÒÀÇ °¹¼ö¸¸Å­¸¸ µ¿ÀÛÇÑ´Ù.
 
 			if(fscanf(in, "%s", strbuf)){
 
-				// í–‰ì„ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„. í–‰ì€ í–‰ë ¬ì˜ ì‚¬ì´ì¦ˆë¥¼ ë„˜ì–´ì„œë©´ ì•ˆë˜ë©°, ìŒìˆ˜ë„ ë‚˜ì˜¤ë©´ ì•ˆëœë‹¤.
+				// ÇàÀ» ¹Þ¾Æ¿À´Â ºÎºÐ. ÇàÀº Çà·ÄÀÇ »çÀÌÁî¸¦ ³Ñ¾î¼­¸é ¾ÈµÇ¸ç, À½¼öµµ ³ª¿À¸é ¾ÈµÈ´Ù.
 				if(wcnt == 0){ // get matrixA data
 					MatrixA[mcnt].row = atoi(strbuf);
 					if(MatrixA[mcnt].row >= MRowA) { fclose(in); return 0; }
@@ -189,14 +189,14 @@ int Get_MatrixFromFile()
 			}
 			else { fclose(in); return 0; }
 
-			// ì—´ì„ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„. ì—´ì€ í–‰ë ¬ì˜ ì‚¬ì´ì¦ˆë¥¼ ë„˜ì–´ì„œë©´ ì•ˆë˜ë©°, ìŒìˆ˜ë„ ë‚˜ì˜¤ë©´ ì•ˆëœë‹¤.
+			// ¿­À» ¹Þ¾Æ¿À´Â ºÎºÐ. ¿­Àº Çà·ÄÀÇ »çÀÌÁî¸¦ ³Ñ¾î¼­¸é ¾ÈµÇ¸ç, À½¼öµµ ³ª¿À¸é ¾ÈµÈ´Ù.
 			if(fscanf(in, "%s", strbuf)){
 				if(wcnt == 0){ // get matrixA data
 					MatrixA[mcnt].col = atoi(strbuf);
 					if(MatrixA[mcnt].col >= MColA) { fclose(in); return 0; }
 					else if(MatrixA[mcnt].col < 0) { fclose(in); return 0; }
 
-					for(i = 0; i < mcnt; i++){ // ì—´ê¹Œì§€ ë°›ì€ í›„ì—ëŠ” ì •ë ¬ëœ ë°ì´í„°ì¸ì§€ í™•ì¸í•˜ì—¬ ì¤€ë‹¤.
+					for(i = 0; i < mcnt; i++){ // ¿­±îÁö ¹ÞÀº ÈÄ¿¡´Â Á¤·ÄµÈ µ¥ÀÌÅÍÀÎÁö È®ÀÎÇÏ¿© ÁØ´Ù.
 						if(MatrixA[i].row == MatrixA[mcnt].row){
 							if(MatrixA[i].col >= MatrixA[mcnt].col) { fclose(in); return 0; }
 						}
@@ -218,7 +218,7 @@ int Get_MatrixFromFile()
 			}
 			else { fclose(in); return 0; }
 
-			// ì›ì†Œë¥¼ ë°›ì•„ì˜¤ëŠ” ë¶€ë¶„. ì›ì†ŒëŠ” 0ì´ë©´ í¬ì†Œí–‰ë ¬ì˜ ì •ì˜ ìœ„ë°˜ì´ë¯€ë¡œ ì €ìž¥í•˜ì§€ ì•ŠëŠ”ë‹¤. 
+			// ¿ø¼Ò¸¦ ¹Þ¾Æ¿À´Â ºÎºÐ. ¿ø¼Ò´Â 0ÀÌ¸é Èñ¼ÒÇà·ÄÀÇ Á¤ÀÇ À§¹ÝÀÌ¹Ç·Î ÀúÀåÇÏÁö ¾Ê´Â´Ù. 
 			if(fscanf(in, "%s", strbuf)){
 				if(wcnt == 0){ // get matrixA data
 					MatrixA[mcnt].value = (float)atof(strbuf);
@@ -241,11 +241,11 @@ int Get_MatrixFromFile()
 
 	fclose(in);
 
-	/* í–‰ë ¬Bì˜ ì „ì¹˜í–‰ë ¬ì„ ìƒì„±í•˜ëŠ” ë¶€ë¶„*/
+	/* Çà·ÄBÀÇ ÀüÄ¡Çà·ÄÀ» »ý¼ºÇÏ´Â ºÎºÐ*/
 	Matrix_trans = (term *)malloc(MValB * sizeof(term)); 
 	Get_TransposeMatrix(MatrixB, Matrix_trans, MRowB, MColB, MValB);
 
-	/*í–‰ë ¬ A,Bë¥¼ ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ì—¬ ê³±ì…ˆìˆ˜í–‰ ë¶€ë¶„*/
+	/*Çà·Ä A,B¸¦ ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ¿© °ö¼À¼öÇà ºÎºÐ*/
 	Get_ResultOfMultiplication(MatrixA, MatrixB, Matrix_trans, MRowA, MColA, MValA, MRowB, MColB, MValB);
 
 	free(MatrixA);
@@ -258,51 +258,51 @@ int Get_MatrixFromFile()
 void Get_MatrixValue(term *Matrix, int MaxRow, int MaxCol, int MaxValue)
 {
 	////////////////////////////////////////////////////////////////////////////////////
-	/*ê³±ì…ˆ ê³„ì‚°ì„ í•  ë‘ í–‰ë ¬ì„ ë°›ì•„ ì˜¤ëŠ” í•¨ìˆ˜. ìµœì´ˆìž…ë ¥ëœ í–‰/ì—´ ê°’ì„ ì´ìš©í•˜ì—¬ ì´ë¥¼ ë„˜ëŠ”/
-	/ê°’ì´ ìž…ë ¥ë  ê²½ìš°ëŠ” ì˜¤ë¥˜ì²˜ë¦¬ë¥¼ í•˜ê³  ë‹¤ì‹œ ìž…ë ¥í•˜ê²Œ í•œë‹¤. ìž…ë ¥ëœ valueì˜ ê°¯ìˆ˜ ë§Œí¼ ë§Œ/
-	/forë¬¸ì„ ìˆ˜í–‰í•˜ì—¬ ê° ê°’ì„ ìž…ë ¥ë°›ì•„ì˜¨ë‹¤.                                           */
+	/*°ö¼À °è»êÀ» ÇÒ µÎ Çà·ÄÀ» ¹Þ¾Æ ¿À´Â ÇÔ¼ö. ÃÖÃÊÀÔ·ÂµÈ Çà/¿­ °ªÀ» ÀÌ¿ëÇÏ¿© ÀÌ¸¦ ³Ñ´Â/
+	/°ªÀÌ ÀÔ·ÂµÉ °æ¿ì´Â ¿À·ùÃ³¸®¸¦ ÇÏ°í ´Ù½Ã ÀÔ·ÂÇÏ°Ô ÇÑ´Ù. ÀÔ·ÂµÈ valueÀÇ °¹¼ö ¸¸Å­ ¸¸/
+	/for¹®À» ¼öÇàÇÏ¿© °¢ °ªÀ» ÀÔ·Â¹Þ¾Æ¿Â´Ù.                                           */
 	////////////////////////////////////////////////////////////////////////////////////
 
 	int j;
 	int i = 0;
 
-	while(i < MaxValue){ // MaxValue ë§Œí¼ ë§Œ ìˆ˜í–‰ëœë‹¤.
+	while(i < MaxValue){ // MaxValue ¸¸Å­ ¸¸ ¼öÇàµÈ´Ù.
 		int tRow, tCol, flag = 1;
-		printf("ìž…ë ¥í•  Valueì˜ í–‰ ê°’ì„ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+		printf("ÀÔ·ÂÇÒ ValueÀÇ Çà °ªÀ» ÀÔ·ÂÇÏ½Ã¿À : ");
 		tRow = Get_intData();
-		printf("ìž…ë ¥í•  Valueì˜ ì—´ ê°’ì„ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+		printf("ÀÔ·ÂÇÒ ValueÀÇ ¿­ °ªÀ» ÀÔ·ÂÇÏ½Ã¿À : ");
 		tCol = Get_intData();
 		
-		if(tRow < MaxRow){ // ìµœëŒ€ í–‰ê°’ì„ í™•ì¸í•œë‹¤.
-			if(tCol < MaxCol){ // ìµœëŒ€ ì—´ê°’ì„ í™•ì¸í•œë‹¤. 
+		if(tRow < MaxRow){ // ÃÖ´ë Çà°ªÀ» È®ÀÎÇÑ´Ù.
+			if(tCol < MaxCol){ // ÃÖ´ë ¿­°ªÀ» È®ÀÎÇÑ´Ù. 
 				Matrix[i].col = tCol;
 				Matrix[i].row = tRow;
 
-				for(j = 0; j < i; j++){ // í¬ì†Œí–‰ë ¬ì— í–‰/ì—´ê°’ì´ ì •ë ¬ë˜ì„œ ë“¤ì–´ê°”ëŠ”ì§€ë¥¼ í™•ì¸í•œë‹¤.
+				for(j = 0; j < i; j++){ // Èñ¼ÒÇà·Ä¿¡ Çà/¿­°ªÀÌ Á¤·ÄµÇ¼­ µé¾î°¬´ÂÁö¸¦ È®ÀÎÇÑ´Ù.
 					if(Matrix[j].row == Matrix[i].row){
 						if(Matrix[j].col >= Matrix[i].col){
-							printf("ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.\n");
+							printf("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n");
 							flag = 0;
 						}
 					}
 					else if(Matrix[j].row > Matrix[i].row){
-						printf("ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.\n");
+						printf("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n");
 						flag = 0;
 					}
 				}
 
 				if(flag){
-					printf("Valueë¥¼ ìž…ë ¥í•˜ì‹œì˜¤ : ");
+					printf("Value¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
 					Matrix[i].value = Get_floatData();
-					i++; // ìž…ë ¥ì´ ì •ìƒì ìœ¼ë¡œ ì´ë£¨ì–´ì§„ ê²½ìš° ë‹¤ìŒ ê°’ì„ ìž…ë ¥ë°›ê¸° ìœ„í•´ iê°’ ì¦ê°€ì‹œí‚´.
+					i++; // ÀÔ·ÂÀÌ Á¤»óÀûÀ¸·Î ÀÌ·ç¾îÁø °æ¿ì ´ÙÀ½ °ªÀ» ÀÔ·Â¹Þ±â À§ÇØ i°ª Áõ°¡½ÃÅ´.
 				}
 				else continue;
 			}
 
-			else printf("ì—´ê°’ì„ ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
+			else printf("¿­°ªÀ» Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù.\n");
 		} // end of if
 
-		else printf("í–‰ê°’ì„ ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
+		else printf("Çà°ªÀ» Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù.\n");
 	} // end of while
 
 }
@@ -310,40 +310,40 @@ void Get_MatrixValue(term *Matrix, int MaxRow, int MaxCol, int MaxValue)
 void Get_TransposeMatrix(term *orgMatrix, term *transMatrix, int MaxRow, int MaxCol, int MaxValue)
 {
 	//////////////////////////////////////////////////////////////////////////////////////////////
-	/* í–‰ë ¬Bì˜ ì „ì¹˜í–‰ë ¬ì„ êµ¬í•´ì£¼ëŠ” í•¨ìˆ˜. row_termsëŠ” ìž…ë ¥ë˜ìžˆëŠ” ê° í–‰ì— í•´ë‹¹í•˜ëŠ” valueì˜ ê°¯ìˆ˜ë¥¼  /
-	/ ì €ìž¥í•˜ëŠ” ë°°ì—´ì´ë©°, starting_posëŠ” ì „ì¹˜í–‰ë ¬ì˜ ê° í–‰ì— í–‰ì„ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ë˜ë©´ì„œ ì €ìž¥ë ìˆ˜ ìžˆë„/
-	/ ë¡ í˜„ìž¬ì˜ í–‰ì´ ì „ì¹˜í–‰ë ¬ì—ì„œ ì €ìž¥ë  ìœ„ì¹˜ë¥¼ ì§€ì •í•´ì£¼ëŠ” ë°°ì—´ì´ë‹¤. ìµœì´ˆ starting_posëŠ” row_term/
-	/ ì„ ì´ìš©í•˜ì—¬ ì´ˆê¸°ê°’ì„ ìž…ë ¥í•˜ê³ , í•´ë‹¹í•˜ëŠ” í–‰ì— ë°ì´í„°ê°€ ë“¤ì–´ê°€ë©´ ê°’ì„ ì¦ê°€ì‹œí‚¤ë©´ì„œ ì‹œìž‘ìœ„ì¹˜ë¥¼/
-	/ ìœ ì§€í•´ì¤€ë‹¤. ì „ì¹˜í–‰ë ¬ì€ rowì™€ colì„ ë°”ê¾¸ì–´ ì €ìž¥í•œ í–‰ë ¬ì´ ëœë‹¤.                             */
+	/* Çà·ÄBÀÇ ÀüÄ¡Çà·ÄÀ» ±¸ÇØÁÖ´Â ÇÔ¼ö. row_terms´Â ÀÔ·ÂµÇÀÖ´Â °¢ Çà¿¡ ÇØ´çÇÏ´Â valueÀÇ °¹¼ö¸¦  /
+	/ ÀúÀåÇÏ´Â ¹è¿­ÀÌ¸ç, starting_pos´Â ÀüÄ¡Çà·ÄÀÇ °¢ Çà¿¡ ÇàÀ» ±âÁØÀ¸·Î Á¤·ÄµÇ¸é¼­ ÀúÀåµÉ¼ö ÀÖµµ/
+	/ ·Ï ÇöÀçÀÇ ÇàÀÌ ÀüÄ¡Çà·Ä¿¡¼­ ÀúÀåµÉ À§Ä¡¸¦ ÁöÁ¤ÇØÁÖ´Â ¹è¿­ÀÌ´Ù. ÃÖÃÊ starting_pos´Â row_term/
+	/ À» ÀÌ¿ëÇÏ¿© ÃÊ±â°ªÀ» ÀÔ·ÂÇÏ°í, ÇØ´çÇÏ´Â Çà¿¡ µ¥ÀÌÅÍ°¡ µé¾î°¡¸é °ªÀ» Áõ°¡½ÃÅ°¸é¼­ ½ÃÀÛÀ§Ä¡¸¦/
+	/ À¯ÁöÇØÁØ´Ù. ÀüÄ¡Çà·ÄÀº row¿Í colÀ» ¹Ù²Ù¾î ÀúÀåÇÑ Çà·ÄÀÌ µÈ´Ù.                             */
 	//////////////////////////////////////////////////////////////////////////////////////////////
 
 	int *row_terms, *starting_pos;
 	int i, j;
-	int MRowT, MColT, MValueT; // ì „ì¹˜í–‰ë ¬ì˜ í–‰/ì—´/ì›ì†Œ ê°¯ìˆ˜ë¥¼ ì €ìž¥í•  ë³€ìˆ˜
+	int MRowT, MColT, MValueT; // ÀüÄ¡Çà·ÄÀÇ Çà/¿­/¿ø¼Ò °¹¼ö¸¦ ÀúÀåÇÒ º¯¼ö
 
 	row_terms = (int *)malloc(MaxCol * sizeof(int));
 	starting_pos = (int *)malloc(MaxCol * sizeof(int));
 
-	/*ì „ì¹˜í–‰ë ¬ì€ í–‰ë ¬Bì˜ ì—´,í–‰,ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ í–‰,ì—´,ì›ì†Œì˜ ê°¯ìˆ˜ë¡œ í•œë‹¤. */
+	/*ÀüÄ¡Çà·ÄÀº Çà·ÄBÀÇ ¿­,Çà,¿ø¼ÒÀÇ °¹¼ö¸¦ Çà,¿­,¿ø¼ÒÀÇ °¹¼ö·Î ÇÑ´Ù. */
 	MRowT = MaxCol;
 	MColT = MaxRow;
 	MValueT = MaxValue;
 
-	if(MaxValue > 0){ // ì›ì†Œê°€ ì¡´ìž¬í•˜ëŠ” ê²½ìš° ìˆ˜í–‰ëœë‹¤.
+	if(MaxValue > 0){ // ¿ø¼Ò°¡ Á¸ÀçÇÏ´Â °æ¿ì ¼öÇàµÈ´Ù.
 
-		for(i = 0; i < MaxCol; i++) row_terms[i] = 0; // row_terms ì´ˆê¸°í™”
-		for(i = 0; i < MaxValue; i++) row_terms[orgMatrix[i].col]++; // row_termsì— ê° í–‰ ì›ì†Œì˜ ê°¯ìˆ˜ ì €ìž¥.
+		for(i = 0; i < MaxCol; i++) row_terms[i] = 0; // row_terms ÃÊ±âÈ­
+		for(i = 0; i < MaxValue; i++) row_terms[orgMatrix[i].col]++; // row_terms¿¡ °¢ Çà ¿ø¼ÒÀÇ °¹¼ö ÀúÀå.
 
-		starting_pos[0] = 0;  // ì²« ì €ìž¥ ìœ„ì¹˜ëŠ” 0ìœ¼ë¡œ ì´ˆê¸°í™”
+		starting_pos[0] = 0;  // Ã¹ ÀúÀå À§Ä¡´Â 0À¸·Î ÃÊ±âÈ­
 
-		for(i = 1; i < MaxCol; i++) // row_termsë¥¼ ì´ìš©í•˜ì—¬ ê° í–‰ì˜ ì‹œìž‘ ìœ„ì¹˜ ì €ìž¥.
+		for(i = 1; i < MaxCol; i++) // row_terms¸¦ ÀÌ¿ëÇÏ¿© °¢ ÇàÀÇ ½ÃÀÛ À§Ä¡ ÀúÀå.
 			starting_pos[i] = starting_pos[i-1] + row_terms[i-1];
 
-		for(i = 0; i < MaxValue; i++){ // ì „ì¹˜í–‰ë ¬ì— í–‰ë ¬Bì˜ ì›ì†Œìˆ˜ ë§Œí¼ ê° ê°’ì„ ì €ìž¥í•œë‹¤.
-			j = starting_pos[orgMatrix[i].col]++; // ì‹œìž‘ìœ„ì¹˜ë¥¼ jì— ì €ìž¥í•˜ê³  starting_posê°’ ì¦ê°€ì‹œí‚´.
-			transMatrix[j].row = orgMatrix[i].col; //ì „ì¹˜í–‰ë ¬ì˜ í–‰ì— í–‰ë ¬Bì˜ ì—´ê°’ì„ ì €ìž¥.
-			transMatrix[j].col = orgMatrix[i].row; //ì „ì¹˜í–‰ë ¬ì˜ ì—´ì— í–‰ë ¬Bì˜ í–‰ê°’ì„ ì €ìž¥.
-			transMatrix[j].value = orgMatrix[i].value; //ì›ì†Œ ì €ìž¥.
+		for(i = 0; i < MaxValue; i++){ // ÀüÄ¡Çà·Ä¿¡ Çà·ÄBÀÇ ¿ø¼Ò¼ö ¸¸Å­ °¢ °ªÀ» ÀúÀåÇÑ´Ù.
+			j = starting_pos[orgMatrix[i].col]++; // ½ÃÀÛÀ§Ä¡¸¦ j¿¡ ÀúÀåÇÏ°í starting_pos°ª Áõ°¡½ÃÅ´.
+			transMatrix[j].row = orgMatrix[i].col; //ÀüÄ¡Çà·ÄÀÇ Çà¿¡ Çà·ÄBÀÇ ¿­°ªÀ» ÀúÀå.
+			transMatrix[j].col = orgMatrix[i].row; //ÀüÄ¡Çà·ÄÀÇ ¿­¿¡ Çà·ÄBÀÇ Çà°ªÀ» ÀúÀå.
+			transMatrix[j].value = orgMatrix[i].value; //¿ø¼Ò ÀúÀå.
 		} // end of for
 
 	} // end of if
@@ -356,57 +356,57 @@ void Get_ResultOfMultiplication(term *M_A, term *M_B, term *trans,
 								int MaxRowA, int MaxColA, int MaxValueA, int MaxRowB, int MaxColB, int MaxValueB)
 {
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	/*í–‰ë ¬Aì™€ í–‰ë ¬Bë¥¼ ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ì—¬ ê³±ì…ˆ í›„ ê·¸ ê²°ê³¼ë¥¼ Resultì— ì €ìž¥í•´ì£¼ëŠ” í•¨ìˆ˜. í–‰ë ¬ì˜ ê³±ì…ˆì€  /
-	/ ì²« í–‰ë ¬ì€ í–‰ìˆœì„œë¡œ ë‘ë²ˆì§¸ í–‰ë ¬ì€ ì—´ ìˆœì„œë¡œ ì´ë™í•˜ë©´ì„œ ê³±ì…ˆì„ ìˆ˜í–‰í•˜ê²Œ ë˜ë¯€ë¡œ ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ /
-	/ ë©´ ê³±ì…ˆì„ í•˜ê¸°ê°€ ìˆ˜ì›”í•´ ì§„ë‹¤. ì´ í•¨ìˆ˜ì—ì„œëŠ” ì „ì¹˜í–‰ë ¬ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ì•„ì™€ ê³±ì…ˆì— ì´ìš©í•˜ë©°, ì‹œìž‘ /
-	/ í–‰ì˜ ê° ì—´ê°’ê³¼ ëŒ€ì‘í•˜ëŠ” ì „ì¹˜í–‰ë ¬ì˜ í•´ë‹¹í•˜ëŠ” í–‰ì˜ ì—´ê°’ë“¤ì„ ê³±í•œ í›„ ìµœì¢…ì ìœ¼ë¡œ ë”í•´ì„œ ê²°ê³¼ë¥¼ ì‚°ì¶œ/
-	/ í•˜ê²Œ ëœë‹¤. ê³±ì…ˆì„ ìˆ˜í–‰í•˜ëŠ” í–‰ë ¬Aì˜ í–‰ê°’ì€ ë³€ìˆ˜ rowë¡œ ìœ ì§€í•˜ë©°, í•´ë‹¹ í–‰ì´ í¬ì†Œí–‰ë ¬ìƒì—ì„œ ì‹œìž‘ë˜ /
-	/ ëŠ” ìœ„ì¹˜ëŠ” ë³€ìˆ˜ row_beginìœ¼ë¡œ ìœ ì§€í•œë‹¤. ì „ì¹˜í–‰ë ¬ì˜ ê³„ì‚°ì´ ìˆ˜í–‰ë˜ê³ ìžˆëŠ” í–‰ì€ ë³€ìˆ˜ colë¡œ ìœ ì§€í•˜ë©°,/
-	/ í•´ë‹¹ í–‰ì—ì„œì˜ ì—´ì€ jë¡œ ìœ ì§€í•´ ì¤€ë‹¤. í–‰ë ¬Aì™€ ì „ì¹˜í–‰ë ¬ì˜ ì—´ê°’ì´ ë™ì¼í•œ ê²½ìš°ë¡œì„œ ì›ì†Œê°€ ì¡´ìž¬í•˜ë©´, /
-	/ ê³±ì…ˆì„ í•˜ì—¬ sumì— ë”í•´ì¤€ë‹¤. ê³„ì‚°ì— ì´ìš©ë˜ëŠ” í–‰ë ¬ì€ í¬ì†Œí–‰ë ¬ë¡œ ì €ìž¥ë˜ì–´ ìžˆìœ¼ë¯€ë¡œ í–‰ë ¬A,Bì˜ ì›ì†Œ /
-	/ ê°¯ìˆ˜ ë§Œí¼ë§Œ ê° forë¬¸ì„ ìˆ˜í–‰í•˜ë©´ ëœë‹¤. ì €ìž¥ë˜ëŠ” í–‰ë ¬ Resultë„ í¬ì†Œí–‰ë ¬ì´ì§€ë§Œ ì´ˆê¸°ì—ëŠ” ì›ì†Œê°€ ëª‡ /
-	/ ê°œ ë“¤ì–´ê°€ì•¼ í•˜ëŠ”ì§€ ì•Œ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ í–‰ë ¬A,Bì˜ ì›ì†Œìˆ˜ë¥¼ í•©í•œ ë§Œí¼ ë©”ëª¨ë¦¬ë¥¼ ìž¡ì•„ì£¼ê³  ëª¨ìžë¥´ê²Œ ë˜ëŠ” /
-	/ ê²½ìš°ëŠ” í˜„ìž¬ í¬ê¸°ì˜ 2ë°°ë§Œí¼ ë©”ëª¨ë¦¬ë¥¼ ëŠ˜ë ¤ì£¼ëŠ” ì‹ìœ¼ë¡œ í¬ì†Œí–‰ë ¬ì„ ìž¡ì•„ì¤€ë‹¤.                      */
+	/*Çà·ÄA¿Í Çà·ÄB¸¦ ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ¿© °ö¼À ÈÄ ±× °á°ú¸¦ Result¿¡ ÀúÀåÇØÁÖ´Â ÇÔ¼ö. Çà·ÄÀÇ °ö¼ÀÀº  /
+	/ Ã¹ Çà·ÄÀº Çà¼ø¼­·Î µÎ¹øÂ° Çà·ÄÀº ¿­ ¼ø¼­·Î ÀÌµ¿ÇÏ¸é¼­ °ö¼ÀÀ» ¼öÇàÇÏ°Ô µÇ¹Ç·Î ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ /
+	/ ¸é °ö¼ÀÀ» ÇÏ±â°¡ ¼ö¿ùÇØ Áø´Ù. ÀÌ ÇÔ¼ö¿¡¼­´Â ÀüÄ¡Çà·ÄÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Þ¾Æ¿Í °ö¼À¿¡ ÀÌ¿ëÇÏ¸ç, ½ÃÀÛ /
+	/ ÇàÀÇ °¢ ¿­°ª°ú ´ëÀÀÇÏ´Â ÀüÄ¡Çà·ÄÀÇ ÇØ´çÇÏ´Â ÇàÀÇ ¿­°ªµéÀ» °öÇÑ ÈÄ ÃÖÁ¾ÀûÀ¸·Î ´õÇØ¼­ °á°ú¸¦ »êÃâ/
+	/ ÇÏ°Ô µÈ´Ù. °ö¼ÀÀ» ¼öÇàÇÏ´Â Çà·ÄAÀÇ Çà°ªÀº º¯¼ö row·Î À¯ÁöÇÏ¸ç, ÇØ´ç ÇàÀÌ Èñ¼ÒÇà·Ä»ó¿¡¼­ ½ÃÀÛµÇ /
+	/ ´Â À§Ä¡´Â º¯¼ö row_beginÀ¸·Î À¯ÁöÇÑ´Ù. ÀüÄ¡Çà·ÄÀÇ °è»êÀÌ ¼öÇàµÇ°íÀÖ´Â ÇàÀº º¯¼ö col·Î À¯ÁöÇÏ¸ç,/
+	/ ÇØ´ç Çà¿¡¼­ÀÇ ¿­Àº j·Î À¯ÁöÇØ ÁØ´Ù. Çà·ÄA¿Í ÀüÄ¡Çà·ÄÀÇ ¿­°ªÀÌ µ¿ÀÏÇÑ °æ¿ì·Î¼­ ¿ø¼Ò°¡ Á¸ÀçÇÏ¸é, /
+	/ °ö¼ÀÀ» ÇÏ¿© sum¿¡ ´õÇØÁØ´Ù. °è»ê¿¡ ÀÌ¿ëµÇ´Â Çà·ÄÀº Èñ¼ÒÇà·Ä·Î ÀúÀåµÇ¾î ÀÖÀ¸¹Ç·Î Çà·ÄA,BÀÇ ¿ø¼Ò /
+	/ °¹¼ö ¸¸Å­¸¸ °¢ for¹®À» ¼öÇàÇÏ¸é µÈ´Ù. ÀúÀåµÇ´Â Çà·Ä Resultµµ Èñ¼ÒÇà·ÄÀÌÁö¸¸ ÃÊ±â¿¡´Â ¿ø¼Ò°¡ ¸î /
+	/ °³ µé¾î°¡¾ß ÇÏ´ÂÁö ¾Ë ¼ö ¾øÀ¸¹Ç·Î Çà·ÄA,BÀÇ ¿ø¼Ò¼ö¸¦ ÇÕÇÑ ¸¸Å­ ¸Þ¸ð¸®¸¦ Àâ¾ÆÁÖ°í ¸ðÀÚ¸£°Ô µÇ´Â /
+	/ °æ¿ì´Â ÇöÀç Å©±âÀÇ 2¹è¸¸Å­ ¸Þ¸ð¸®¸¦ ´Ã·ÁÁÖ´Â ½ÄÀ¸·Î Èñ¼ÒÇà·ÄÀ» Àâ¾ÆÁØ´Ù.                      */
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	int i, j, total, row_Begin, row, col;
-	/*iëŠ” í–‰ë ¬Aì˜ ì—´ì„ ë”°ë¼ê°ˆ ë³€ìˆ˜ 
-	  jëŠ” ì „ì¹˜í–‰ë ¬ì˜ ì—´ì„ ë”°ë¼ê°ˆ ë³€ìˆ˜
-	  totalì€ Resultí–‰ë ¬ì˜ ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ìœ„í•œ ë³€ìˆ˜
-	  row_beginì€ ê³±ì…ˆì„ ìˆ˜í–‰í•  í•´ë‹¹ í–‰ì˜ í¬ì†Œí–‰ë ¬ ìƒì˜ ìœ„ì¹˜ë¥¼ ìœ ì§€í•  ë³€ìˆ˜
-	  rowëŠ” í˜„ìž¬ ê³±ì…ˆì´ ìˆ˜í–‰ë˜ê³  ìžˆëŠ” í˜•ë ¬A ìƒì˜ í–‰ì„ ë‚˜íƒ€ë‚¼ ë³€ìˆ˜
-	  colì€ í˜„ìž¬ ê³±ì…ˆì´ ìˆ˜í–‰ë˜ê³  ìžˆëŠ” ì „ì¹˜í–‰ë ¬ ìƒì˜ í–‰ì„ ë‚˜íƒ€ë‚¼ ë³€ìˆ˜*/
+	/*i´Â Çà·ÄAÀÇ ¿­À» µû¶ó°¥ º¯¼ö 
+	  j´Â ÀüÄ¡Çà·ÄÀÇ ¿­À» µû¶ó°¥ º¯¼ö
+	  totalÀº ResultÇà·ÄÀÇ ¿ø¼ÒÀÇ °¹¼ö¸¦ À§ÇÑ º¯¼ö
+	  row_beginÀº °ö¼ÀÀ» ¼öÇàÇÒ ÇØ´ç ÇàÀÇ Èñ¼ÒÇà·Ä »óÀÇ À§Ä¡¸¦ À¯ÁöÇÒ º¯¼ö
+	  row´Â ÇöÀç °ö¼ÀÀÌ ¼öÇàµÇ°í ÀÖ´Â Çü·ÄA »óÀÇ ÇàÀ» ³ªÅ¸³¾ º¯¼ö
+	  colÀº ÇöÀç °ö¼ÀÀÌ ¼öÇàµÇ°í ÀÖ´Â ÀüÄ¡Çà·Ä »óÀÇ ÇàÀ» ³ªÅ¸³¾ º¯¼ö*/
 
-	int MaxResult; // Result í–‰ë ¬ì˜ í¬ê¸°ë¥¼ ë‚˜íƒ€ë‚¼ ë³€ìˆ˜ 
-	float sum; // ê° ê³±ì…ˆì˜ ê²°ê³¼ë“¤ì„ ë”í•´ì„œ ì €ìž¥í•  ë³€ìˆ˜
+	int MaxResult; // Result Çà·ÄÀÇ Å©±â¸¦ ³ªÅ¸³¾ º¯¼ö 
+	float sum; // °¢ °ö¼ÀÀÇ °á°úµéÀ» ´õÇØ¼­ ÀúÀåÇÒ º¯¼ö
 	term *Result, *temp;
 
 	total = 0;
-	row_Begin = 0; // ì‹œìž‘ í–‰ì˜ ìœ„ì¹˜
-	row = M_A[0].row; // ì‹œìž‘ í–‰ì˜ ì§€ì •
+	row_Begin = 0; // ½ÃÀÛ ÇàÀÇ À§Ä¡
+	row = M_A[0].row; // ½ÃÀÛ ÇàÀÇ ÁöÁ¤
 	sum = 0;
-	MaxResult = MaxValueA + MaxValueB; // ì´ˆê¸° ê²°ê³¼í–‰ë ¬ì˜ í¬ê¸°
+	MaxResult = MaxValueA + MaxValueB; // ÃÊ±â °á°úÇà·ÄÀÇ Å©±â
 
-	if(MaxColA != MaxRowB){ // í–‰ë ¬Aì˜ ì—´ê³¼ í–‰ë ¬Bì˜ í–‰ì´ ë‹¤ë¥´ë©´ ì˜¤ë¥˜ì²˜ë¦¬
-		printf("ìž˜ëª»ëœ í–‰ë ¬ìž…ë‹ˆë‹¤.\n");
+	if(MaxColA != MaxRowB){ // Çà·ÄAÀÇ ¿­°ú Çà·ÄBÀÇ ÇàÀÌ ´Ù¸£¸é ¿À·ùÃ³¸®
+		printf("Àß¸øµÈ Çà·ÄÀÔ´Ï´Ù.\n");
 		return;
 	}
 
 	Result = (term *)malloc((MaxResult) * sizeof(term));
 
-	for(i = 0; i < MaxValueA;){ // í–‰ë ¬Aì˜ ì›ì†Œ ìˆ˜ ë§Œí¼ ìˆ˜í–‰
-		col = trans[0].row; // ì „ì¹˜í–‰ë ¬ì˜ ê³„ì‚°ì„ ì‹œìž‘í•  í–‰ ì§€ì •.
+	for(i = 0; i < MaxValueA;){ // Çà·ÄAÀÇ ¿ø¼Ò ¼ö ¸¸Å­ ¼öÇà
+		col = trans[0].row; // ÀüÄ¡Çà·ÄÀÇ °è»êÀ» ½ÃÀÛÇÒ Çà ÁöÁ¤.
 
 		for(j = 0; j <= MaxValueB;){ 
-			// ì „ì¹˜í–‰ë ¬ì˜ ì›ì†Œìˆ˜ + 1 ë§Œí¼ ìˆ˜í–‰. ê²°ê³¼í–‰ë ¬ì— ì €ìž¥í•˜ëŠ” ê²½ìš°ë¥¼ ìœ„í•´ í•œë²ˆ ë” forë¬¸ì´ ë„ëŠ” ê²ƒìž„.
+			// ÀüÄ¡Çà·ÄÀÇ ¿ø¼Ò¼ö + 1 ¸¸Å­ ¼öÇà. °á°úÇà·Ä¿¡ ÀúÀåÇÏ´Â °æ¿ì¸¦ À§ÇØ ÇÑ¹ø ´õ for¹®ÀÌ µµ´Â °ÍÀÓ.
 
-			if(M_A[i].row != row){ // ê³„ì‚° ë  í–‰ì´ ì•„ë‹Œê²½ìš°.
-				if(sum != 0){ // ì´ì „ê¹Œì§€ ë”í•´ì§„ ê°’ì´ ìžˆë‹¤ë©´ ì´ë¥¼ ì €ìž¥í•œë‹¤.
-					if(total < MaxResult){ // ê²°ê³¼í–‰ë ¬ì˜ ê³µê°„ì´ ë‚¨ì•„ìžˆëŠ” ê²½ìš°
-						total = InputSum(Result, total, row, col, sum); // ê³±ì…ˆì˜ ê²°ê³¼ë¥¼ ê²°ê³¼í–‰ë ¬ì— ì €ìž¥
-						sum = 0; // ì´ˆê¸°í™”
+			if(M_A[i].row != row){ // °è»ê µÉ ÇàÀÌ ¾Æ´Ñ°æ¿ì.
+				if(sum != 0){ // ÀÌÀü±îÁö ´õÇØÁø °ªÀÌ ÀÖ´Ù¸é ÀÌ¸¦ ÀúÀåÇÑ´Ù.
+					if(total < MaxResult){ // °á°úÇà·ÄÀÇ °ø°£ÀÌ ³²¾ÆÀÖ´Â °æ¿ì
+						total = InputSum(Result, total, row, col, sum); // °ö¼ÀÀÇ °á°ú¸¦ °á°úÇà·Ä¿¡ ÀúÀå
+						sum = 0; // ÃÊ±âÈ­
 					}
-					else { // ê²°ê³¼ í–‰ë ¬ì— ê³µê°„ì´ ë¶€ì¡±í•œ ê²½ìš° ë©”ëª¨ë¦¬ë¥¼ ë‘ë°°ë¡œ ìž¡ì•„ì¤€ í›„ ì €ìž¥.
+					else { // °á°ú Çà·Ä¿¡ °ø°£ÀÌ ºÎÁ·ÇÑ °æ¿ì ¸Þ¸ð¸®¸¦ µÎ¹è·Î Àâ¾ÆÁØ ÈÄ ÀúÀå.
 						temp = (term *)malloc(MaxResult * sizeof(term));
 						MatrixCpy(temp, Result, MaxResult);
 						free(Result);
@@ -421,18 +421,18 @@ void Get_ResultOfMultiplication(term *M_A, term *M_B, term *trans,
 					}// dynamic memory
 				} // end of storesum
 
-				i = row_Begin; // í–‰ë ¬Aì˜ ê³„ì‚° ìˆ˜í–‰ ìœ„ì¹˜ë¥¼ ë‹¤ì‹œ ìž¡ì•„ì¤Œ
-				for(;trans[j].row == col; j++); // ì „ì¹˜í–‰ë ¬ì˜ ë‹¤ìŒ í–‰ìœ¼ë¡œ ì´ë™
-				col = trans[j].row; // ì „ì¹˜í–‰ë ¬ì˜ ê³„ì‚° ì‹œìž‘ìœ„ì¹˜ ë‹¤ì‹œ ì§€ì •.
+				i = row_Begin; // Çà·ÄAÀÇ °è»ê ¼öÇà À§Ä¡¸¦ ´Ù½Ã Àâ¾ÆÁÜ
+				for(;trans[j].row == col; j++); // ÀüÄ¡Çà·ÄÀÇ ´ÙÀ½ ÇàÀ¸·Î ÀÌµ¿
+				col = trans[j].row; // ÀüÄ¡Çà·ÄÀÇ °è»ê ½ÃÀÛÀ§Ä¡ ´Ù½Ã ÁöÁ¤.
 			} // end of if
 
-			else if(trans[j].row != col){ // ê³„ì‚°ë  ì „ì¹˜í–‰ë ¬ì˜ í–‰ì´ ì•„ë‹Œê²½ìš°.
-				if(sum != 0){ // ê³„ì‚°ê²°ê³¼ê°€ ì¡´ìž¬í•œë‹¤ë©´ ê²°ê³¼í–‰ë ¬ì— ì €ìž¥í•´ì¤Œ.
+			else if(trans[j].row != col){ // °è»êµÉ ÀüÄ¡Çà·ÄÀÇ ÇàÀÌ ¾Æ´Ñ°æ¿ì.
+				if(sum != 0){ // °è»ê°á°ú°¡ Á¸ÀçÇÑ´Ù¸é °á°úÇà·Ä¿¡ ÀúÀåÇØÁÜ.
 					if(total < MaxResult){
 						total = InputSum(Result, total, row, col, sum);
 						sum = 0;
 					}
-					else { // ê²°ê³¼í–‰ë ¬ì˜ ê³µê°„ì´ ë¶€ì¡±í•œ ê²½ìš° ë‘ë°°ë¡œ ëŠ˜ë ¤ì£¼ê³  ê²°ê³¼ë¥¼ ì €ìž¥í•´ì¤Œ.
+					else { // °á°úÇà·ÄÀÇ °ø°£ÀÌ ºÎÁ·ÇÑ °æ¿ì µÎ¹è·Î ´Ã·ÁÁÖ°í °á°ú¸¦ ÀúÀåÇØÁÜ.
 						temp = (term *)malloc(MaxResult * sizeof(term));
 						MatrixCpy(temp, Result, MaxResult);
 						free(Result);
@@ -445,44 +445,44 @@ void Get_ResultOfMultiplication(term *M_A, term *M_B, term *trans,
 						sum = 0;
 					}// dynamic memory
 				} // end of storesum
-				i = row_Begin; // í–‰ë ¬Aì˜ ê³„ì‚° ì‹œìž‘ ìœ„ì¹˜ ì§€ì •.
-				col = trans[j].row; // ì „ì¹˜í–‰ë ¬ì˜ ê³„ì‚° ì‹œìž‘ ìœ„ì¹˜ ë‹¤ì‹œ ì§€ì •.
+				i = row_Begin; // Çà·ÄAÀÇ °è»ê ½ÃÀÛ À§Ä¡ ÁöÁ¤.
+				col = trans[j].row; // ÀüÄ¡Çà·ÄÀÇ °è»ê ½ÃÀÛ À§Ä¡ ´Ù½Ã ÁöÁ¤.
 			} // end of else if
 
-			else{ // ê³„ì‚°ë  í–‰ì´ ì¡´ìž¬í•œë‹¤ë©´ ê³„ì‚°ì„ ìˆ˜í–‰í•˜ëŠ” ë¶€ë¶„.
-				if(M_A[i].col < trans[j].col) { i++; } // ì „ì¹˜í–‰ë ¬ì˜ ì—´ë³´ë‹¤ í–‰ë ¬Aì˜ ì—´ì´ ìž‘ì€ ê²½ìš° í–‰ë ¬Aì˜ iê°’ì„ ì¦ê°€ì‹œí‚´.
+			else{ // °è»êµÉ ÇàÀÌ Á¸ÀçÇÑ´Ù¸é °è»êÀ» ¼öÇàÇÏ´Â ºÎºÐ.
+				if(M_A[i].col < trans[j].col) { i++; } // ÀüÄ¡Çà·ÄÀÇ ¿­º¸´Ù Çà·ÄAÀÇ ¿­ÀÌ ÀÛÀº °æ¿ì Çà·ÄAÀÇ i°ªÀ» Áõ°¡½ÃÅ´.
 
-				else if(M_A[i].col == trans[j].col){ // í–‰ë ¬Aì˜ ì—´ê³¼ ì „ì¹˜í–‰ë ¬ì˜ ì—´ì´ ë™ì¼í•˜ë‹¤ë©´ ê³„ì‚° ìˆ˜í–‰.
+				else if(M_A[i].col == trans[j].col){ // Çà·ÄAÀÇ ¿­°ú ÀüÄ¡Çà·ÄÀÇ ¿­ÀÌ µ¿ÀÏÇÏ´Ù¸é °è»ê ¼öÇà.
 					sum += (M_A[i].value * trans[j].value); i++; j++;
 				}
 			
-				else { j++; } // í–‰ë ¬Aì˜ ì—´ê°’ì´ í°ê²½ìš°ëŠ” ì „ì¹˜í–‰ë ¬ì˜ jê°’ì„ ì¦ê°€ì‹œí‚´.
+				else { j++; } // Çà·ÄAÀÇ ¿­°ªÀÌ Å«°æ¿ì´Â ÀüÄ¡Çà·ÄÀÇ j°ªÀ» Áõ°¡½ÃÅ´.
 			} // end of else
 
 		} // end of B for
 
-		for(; M_A[i].row == row; i++); // ë‹¤ìŒ ê³„ì‚°ì„ ìš°í•´ í–‰ë ¬Aì˜ ë‹¤ìŒ í–‰ìœ¼ë¡œ ì´ë™.
-		row_Begin = i; // ê³„ì‚°í•  í–‰ì˜ í¬ì†Œí–‰ë ¬ ìƒì˜ ì‹œìž‘ìœ„ì¹˜ë¥¼ ë‹¤ì‹œ ì§€ì •.
-		row = M_A[i].row; // ê³„ì‚°í•  í–‰ê°’ì„ ë‹¤ì‹œ ì§€ì •.
+		for(; M_A[i].row == row; i++); // ´ÙÀ½ °è»êÀ» ¿ìÇØ Çà·ÄAÀÇ ´ÙÀ½ ÇàÀ¸·Î ÀÌµ¿.
+		row_Begin = i; // °è»êÇÒ ÇàÀÇ Èñ¼ÒÇà·Ä »óÀÇ ½ÃÀÛÀ§Ä¡¸¦ ´Ù½Ã ÁöÁ¤.
+		row = M_A[i].row; // °è»êÇÒ Çà°ªÀ» ´Ù½Ã ÁöÁ¤.
 
 	} // end of A for
 
 	fprint_WholeResult(M_A, M_B, trans, Result, MaxRowA, MaxColA, MaxColB, MaxValueA, MaxValueB, total);
-			// ëª¨ë“  ê²°ê³¼ë¥¼ í™”ë©´ì— ì¶œë ¥.
+			// ¸ðµç °á°ú¸¦ È­¸é¿¡ Ãâ·Â.
 	free(Result);
 }
 
 int InputSum(term *r, int total, int row, int col, float sum)
 {
 	////////////////////////////////////////////////////////////
-	/*í–‰ë ¬A ë° ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ì—¬ ê³±ì…ˆì„ ìˆ˜í–‰í•œ ê²°ê³¼ë¥¼ Result /
-	/ í–‰ë ¬ì— ì €ìž¥í•´ì£¼ëŠ” í•¨ìˆ˜.                                 */
+	/*Çà·ÄA ¹× ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ¿© °ö¼ÀÀ» ¼öÇàÇÑ °á°ú¸¦ Result /
+	/ Çà·Ä¿¡ ÀúÀåÇØÁÖ´Â ÇÔ¼ö.                                 */
 	////////////////////////////////////////////////////////////
 
 	r[total].row = row;
 	r[total].col = col;
 	r[total].value = sum;
-	total++; // Resultí–‰ë ¬ì˜ ì›ì†Œìˆ˜ë¥¼ ì¦ê°€ì‹œí‚´.
+	total++; // ResultÇà·ÄÀÇ ¿ø¼Ò¼ö¸¦ Áõ°¡½ÃÅ´.
 
 	return total;
 }
@@ -490,7 +490,7 @@ int InputSum(term *r, int total, int row, int col, float sum)
 void MatrixCpy(term *a, term *b, int i)
 {
 	///////////////////////////////////////////////
-	/*í¬ì†Œí–‰ë ¬aë¥¼ í¬ì†Œí–‰ë ¬bì— ë³µì‚¬í•˜ëŠ” í•¨ìˆ˜.     */
+	/*Èñ¼ÒÇà·Äa¸¦ Èñ¼ÒÇà·Äb¿¡ º¹»çÇÏ´Â ÇÔ¼ö.     */
 	///////////////////////////////////////////////
 
 	int k;
@@ -505,48 +505,48 @@ void fprint_WholeResult(term *MatrixA, term *MatrixB, term *MatrixT, term *Matri
 					   int MaxRA, int MaxCA, int MaxCB, int MaxA, int MaxB, int MaxR)
 {
 	///////////////////////////////////////////////////////////////////////////////
-	/*í”„ë¡œê·¸ëž¨ì— ì‚¬ìš©ëœ ëª¨ë“  í¬ì†Œí–‰ë ¬ ë° ì •ìƒì ì¸ í–‰ë ¬ì˜ ëª¨ìŠµì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜.   */
+	/*ÇÁ·Î±×·¥¿¡ »ç¿ëµÈ ¸ðµç Èñ¼ÒÇà·Ä ¹× Á¤»óÀûÀÎ Çà·ÄÀÇ ¸ð½ÀÀ» Ãâ·ÂÇÏ´Â ÇÔ¼ö.   */
 	///////////////////////////////////////////////////////////////////////////////
 
 	FILE *out;
 	
 
-	/*í¬ì†Œí–‰ë ¬ë“¤ì„ ì¶œë ¥*/
-	out = fopen("a.out", "w"); // ì¶œë ¥ fileì˜ ì´ë¦„ì€ a.outì´ë‹¤.
-	fprintf(out, "\nìž…ë ¥í•œ í–‰ë ¬Aì˜ í¬ì†Œí–‰ë ¬ í‘œí˜„ \n");
+	/*Èñ¼ÒÇà·ÄµéÀ» Ãâ·Â*/
+	out = fopen("a.out", "w"); // Ãâ·Â fileÀÇ ÀÌ¸§Àº a.outÀÌ´Ù.
+	fprintf(out, "\nÀÔ·ÂÇÑ Çà·ÄAÀÇ Èñ¼ÒÇà·Ä Ç¥Çö \n");
 	fclose(out);
 	fprint_SpaseMatrix(MatrixA, MaxA);
 	out = fopen("a.out", "a");
-	fprintf(out, "ìž…ë ¥í•œ í–‰ë ¬Bì˜ í¬ì†Œí–‰ë ¬ í‘œí˜„ \n");
+	fprintf(out, "ÀÔ·ÂÇÑ Çà·ÄBÀÇ Èñ¼ÒÇà·Ä Ç¥Çö \n");
 	fclose(out);
 	fprint_SpaseMatrix(MatrixB, MaxB);
 	out = fopen("a.out", "a");
-	fprintf(out, "ìž…ë ¥í•œ í–‰ë ¬Bì˜ ì „ì¹˜í–‰ë ¬ í‘œí˜„ \n");
+	fprintf(out, "ÀÔ·ÂÇÑ Çà·ÄBÀÇ ÀüÄ¡Çà·Ä Ç¥Çö \n");
 	fclose(out);
 	fprint_SpaseMatrix(MatrixT, MaxB);
 	out = fopen("a.out", "a");
-	fprintf(out, "ê³„ì‚° ê²°ê³¼í–‰ë ¬ì˜ í¬ì†Œí–‰ë ¬ í‘œí˜„ \n");
+	fprintf(out, "°è»ê °á°úÇà·ÄÀÇ Èñ¼ÒÇà·Ä Ç¥Çö \n");
 	fclose(out);
 	fprint_SpaseMatrix(MatrixR, MaxR);
 
-	/*í–‰ë ¬A, í–‰ë ¬B, ê²°ê³¼í–‰ë ¬ì„ ì¶œë ¥*/
+	/*Çà·ÄA, Çà·ÄB, °á°úÇà·ÄÀ» Ãâ·Â*/
 	out = fopen("a.out", "a");
-	fprintf(out, "ìž…ë ¥í•œ ë‘ í–‰ë ¬ : \n");
+	fprintf(out, "ÀÔ·ÂÇÑ µÎ Çà·Ä : \n");
 	fclose(out);
 	fprint_Matrix(MatrixA, MaxRA, MaxCA, MaxA);
 	fprint_Matrix(MatrixB, MaxCA, MaxCB, MaxB);
 	out = fopen("a.out", "a");
-	fprintf(out, "ê³„ì‚° ê²°ê³¼ í–‰ë ¬ : \n");
+	fprintf(out, "°è»ê °á°ú Çà·Ä : \n");
 	fclose(out);
 	fprint_Matrix(MatrixR, MaxRA, MaxCB, MaxR);
-	printf("ê²°ê³¼File a.outì´ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+	printf("°á°úFile a.outÀÌ »ý¼ºµÇ¾ú½À´Ï´Ù.\n");
 }
 
 void fprint_Matrix(term *Matrix, int MaxR, int MaxC, int MaxV)
 {
 	//////////////////////////////////////////////////////////
-	/*í–‰ë ¬ì˜ ì „ì²´ ëª¨ìŠµì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜. í¬ì†Œí–‰ë ¬ ìƒì— ì›ì†Œê°€ /
-	/ ì—†ëŠ” ê²½ìš°ëŠ” 0ì„ ì¶œë ¥í•˜ì—¬ ì¤€ë‹¤.                        */
+	/*Çà·ÄÀÇ ÀüÃ¼ ¸ð½ÀÀ» Ãâ·ÂÇÏ´Â ÇÔ¼ö. Èñ¼ÒÇà·Ä »ó¿¡ ¿ø¼Ò°¡ /
+	/ ¾ø´Â °æ¿ì´Â 0À» Ãâ·ÂÇÏ¿© ÁØ´Ù.                        */
 	//////////////////////////////////////////////////////////
 
 	int i, j, k;
@@ -555,17 +555,17 @@ void fprint_Matrix(term *Matrix, int MaxR, int MaxC, int MaxV)
 	FILE *out;
 	out = fopen("a.out", "a");
 
-	t = 0; // í¬ì†Œí–‰ë ¬ìƒì— ì›ì†Œê°€ ì—†ëŠ” ê²½ìš° ì¶œë ¥ë  ê°’.
+	t = 0; // Èñ¼ÒÇà·Ä»ó¿¡ ¿ø¼Ò°¡ ¾ø´Â °æ¿ì Ãâ·ÂµÉ °ª.
 	k = 0;
 	
-	for(i = 0; i < MaxR; i++){ // ìµœëŒ€ í–‰ ë§Œí¼ ìˆ˜í–‰
-		for(j = 0; j < MaxC; j++){ // ìµœëŒ€ ì—´ ë§Œí¼ ìˆ˜í–‰
-			if(k < MaxV){ // í¬ì†Œí–‰ë ¬ìƒì— ì•„ì§ ì›ì†Œê°€ ìžˆëŠ” ê²½ìš° 
-				// í˜„ìž¬ í–‰/ì—´ì— ì›ì†Œê°€ ìžˆë‹¤ë©´ ê·¸ ê°’ì„ ì¶œë ¥í•˜ì—¬ ì¤€ë‹¤.
+	for(i = 0; i < MaxR; i++){ // ÃÖ´ë Çà ¸¸Å­ ¼öÇà
+		for(j = 0; j < MaxC; j++){ // ÃÖ´ë ¿­ ¸¸Å­ ¼öÇà
+			if(k < MaxV){ // Èñ¼ÒÇà·Ä»ó¿¡ ¾ÆÁ÷ ¿ø¼Ò°¡ ÀÖ´Â °æ¿ì 
+				// ÇöÀç Çà/¿­¿¡ ¿ø¼Ò°¡ ÀÖ´Ù¸é ±× °ªÀ» Ãâ·ÂÇÏ¿© ÁØ´Ù.
 				if(Matrix[k].row == i && Matrix[k].col == j){ fprintf(out, "%f  ", Matrix[k].value); k++; }
-				else fprintf(out, "%f  ", t); // ì›ì†Œê°€ ì—†ëŠ” ê²½ìš° 0ì„ ì¶œë ¥.
+				else fprintf(out, "%f  ", t); // ¿ø¼Ò°¡ ¾ø´Â °æ¿ì 0À» Ãâ·Â.
 			}
-			else fprintf(out, "%f  ", t); // ë”ì´ìƒ í¬ì†Œí–‰ë ¬ì— ì›ì†Œê°€ ì—†ë‹¤ë©´ ë‚¨ì€ ë¶€ë¶„ì—ëŠ” 0ì„ ì¶œë ¥.
+			else fprintf(out, "%f  ", t); // ´õÀÌ»ó Èñ¼ÒÇà·Ä¿¡ ¿ø¼Ò°¡ ¾ø´Ù¸é ³²Àº ºÎºÐ¿¡´Â 0À» Ãâ·Â.
 		}
 		fprintf(out, "\n");
 	}
@@ -577,7 +577,7 @@ void fprint_Matrix(term *Matrix, int MaxR, int MaxC, int MaxV)
 void fprint_SpaseMatrix(term *Matrix, int MaxV)
 {
 	//////////////////////////////////////////////////////////
-	/*í¬ì†Œí–‰ë ¬ì„ ì¶œë ¥í•˜ì—¬ ì£¼ëŠ” í•¨ìˆ˜.                        */
+	/*Èñ¼ÒÇà·ÄÀ» Ãâ·ÂÇÏ¿© ÁÖ´Â ÇÔ¼ö.                        */
 	//////////////////////////////////////////////////////////
 	int i;
 	FILE *out;
@@ -595,38 +595,38 @@ void fprint_SpaseMatrix(term *Matrix, int MaxV)
 int Get_intData()
 {
 	/////////////////////////////////////////////////////////////////////
-	/*ì •ìˆ˜ê°’ì„ ìž…ë ¥ë°›ì•„ì•¼ í•˜ëŠ” ê²½ìš° ì •ìƒì ì¸ ìž…ë ¥ì´ ì´ë£¨ì–´ ì¡ŒëŠ” ì§€ ê²€ì‚¬ /
-	/ í•œ í›„ atoií•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ í•´ë‹¹ ì •ìˆ˜ê°’ì„ ë°˜í™”í•˜ì—¬ ì£¼ëŠ” ì—­í• ì„ í•˜ëŠ” /
-	/ í•¨ìˆ˜. ìµœì´ˆ ìž…ë ¥ì€ stringìœ¼ë¡œ ë°›ì•„ì˜¨ë‹¤.                           */
+	/*Á¤¼ö°ªÀ» ÀÔ·Â¹Þ¾Æ¾ß ÇÏ´Â °æ¿ì Á¤»óÀûÀÎ ÀÔ·ÂÀÌ ÀÌ·ç¾î Á³´Â Áö °Ë»ç /
+	/ ÇÑ ÈÄ atoiÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© ÇØ´ç Á¤¼ö°ªÀ» ¹ÝÈ­ÇÏ¿© ÁÖ´Â ¿ªÇÒÀ» ÇÏ´Â /
+	/ ÇÔ¼ö. ÃÖÃÊ ÀÔ·ÂÀº stringÀ¸·Î ¹Þ¾Æ¿Â´Ù.                           */
 	/////////////////////////////////////////////////////////////////////
 
-	char temp[10];  // ìž…ë ¥ ë°›ì„ ë¬¸ìžì—´ì„ ì €ìž¥í•  ë°°ì—´
+	char temp[10];  // ÀÔ·Â ¹ÞÀ» ¹®ÀÚ¿­À» ÀúÀåÇÒ ¹è¿­
 	int flag;
 	flag = 1;
 
 	while(flag){
 		int len, i;
 		scanf("%s", temp);
-		len = strlen(temp); // ìž…ë ¥ë°›ì€ ë¬¸ìžì—´ì˜ ê¸¸ì´ë¥¼ ì•Œì•„ì˜´.
+		len = strlen(temp); // ÀÔ·Â¹ÞÀº ¹®ÀÚ¿­ÀÇ ±æÀÌ¸¦ ¾Ë¾Æ¿È.
 		flag = 0;
 
-		for(i = 0; i < len;){ // ìž…ë ¥ë°›ì€ ê° ë¬¸ìžë“¤ì´ ì •ìˆ˜ì— í•´ë‹¹í•˜ëŠ”ì§€ ê²€ì‚¬.
-			if(temp[i] < 48 || temp[i] > 57){ // 0~9ì— í•´ë‹¹í•˜ì§€ ì•ŠëŠ” ê²½ìš°ëŠ” ë‹¤ì‹œ ìž…ë ¥ë°›ìŒ.
-				printf("ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.\n");
+		for(i = 0; i < len;){ // ÀÔ·Â¹ÞÀº °¢ ¹®ÀÚµéÀÌ Á¤¼ö¿¡ ÇØ´çÇÏ´ÂÁö °Ë»ç.
+			if(temp[i] < 48 || temp[i] > 57){ // 0~9¿¡ ÇØ´çÇÏÁö ¾Ê´Â °æ¿ì´Â ´Ù½Ã ÀÔ·Â¹ÞÀ½.
+				printf("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n");
 				flag = 1; break;
 			} // end of if
 			else i++;
 		} // end of for
 	} // end of while
 
-	return atoi(temp); // ì •ìƒì ì¸ ìž…ë ¥ì´ ì´ë£¨ì–´ì¡Œë‹¤ë©´ atoií•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ë¦¬í„´ì‹œí‚´.
+	return atoi(temp); // Á¤»óÀûÀÎ ÀÔ·ÂÀÌ ÀÌ·ç¾îÁ³´Ù¸é atoiÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© ¸®ÅÏ½ÃÅ´.
 }
 
 float Get_floatData()
 {
 	////////////////////////////////////////////////////////////////////////////////////
-	/*ì‹¤ìˆ˜í˜•ì— í•´ë‹¹ë˜ëŠ” ê°’ì„ ë°›ì•„ì™€ì•¼ í•˜ëŠ” ê²½ìš° ì •ìƒì ì¸ ìž…ë ¥ì´ ì´ë£¨ì–´ì¡ŒëŠ”ì§€ë£° í™•ì¸í•˜ì—¬/
-	/ atofí•¨ìˆ˜ë¡œ ì‹¤ìˆ˜ê°’ì„ ë¦¬í„´í•´ì£¼ëŠ” í•¨ìˆ˜.                                            */
+	/*½Ç¼öÇü¿¡ ÇØ´çµÇ´Â °ªÀ» ¹Þ¾Æ¿Í¾ß ÇÏ´Â °æ¿ì Á¤»óÀûÀÎ ÀÔ·ÂÀÌ ÀÌ·ç¾îÁ³´ÂÁö·ê È®ÀÎÇÏ¿©/
+	/ atofÇÔ¼ö·Î ½Ç¼ö°ªÀ» ¸®ÅÏÇØÁÖ´Â ÇÔ¼ö.                                            */
 	////////////////////////////////////////////////////////////////////////////////////
 
 	char temp[10];
@@ -634,33 +634,33 @@ float Get_floatData()
 	flag = 1;
 
 	while(flag){
-		int len, i, dotcnt, mnscnt; // dotcntëŠ” '.'ì´ ì˜¬ë°”ë¥¸ ìœ„ì¹˜ì— í•˜ë‚˜ë§Œ ë“¤ì–´ê°€ëŠ” ê²ƒì„ ì¡°ì ˆí•˜ëŠ” ë³€ìˆ˜.
-		                            // mnscntëŠ” '-'ë¶€í˜¸ê°€ ì˜¬ë°”ë¥´ê²Œ ì“°ì—¬ì¡ŒëŠ”ì§€ë¥¼ í™•ì¸í•˜ëŠ” ë³€ìˆ˜.
+		int len, i, dotcnt, mnscnt; // dotcnt´Â '.'ÀÌ ¿Ã¹Ù¸¥ À§Ä¡¿¡ ÇÏ³ª¸¸ µé¾î°¡´Â °ÍÀ» Á¶ÀýÇÏ´Â º¯¼ö.
+		                            // mnscnt´Â '-'ºÎÈ£°¡ ¿Ã¹Ù¸£°Ô ¾²¿©Á³´ÂÁö¸¦ È®ÀÎÇÏ´Â º¯¼ö.
 		scanf("%s", temp);
 		len = strlen(temp);
 		flag = dotcnt = mnscnt = 0;
 
 		for(i = 0; i < len;){
-			if((len == 1) && (temp[0] < 48 || temp[0] > 57)){ // í•œê°œì˜ ë¬¸ìžë§Œ ìž…ë ¥í•œ ê²½ìš°ëŠ” 0~9ì— í•´ë‹¹í•˜ëŠ” ê²½ìš°ë§Œ 
-				                                              // ì˜¬ë°”ë¥¸ ìž…ë ¥ìœ¼ë¡œ ê°„ì£¼í•œë‹¤.
-				printf("ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.\n");
+			if((len == 1) && (temp[0] < 48 || temp[0] > 57)){ // ÇÑ°³ÀÇ ¹®ÀÚ¸¸ ÀÔ·ÂÇÑ °æ¿ì´Â 0~9¿¡ ÇØ´çÇÏ´Â °æ¿ì¸¸ 
+				                                              // ¿Ã¹Ù¸¥ ÀÔ·ÂÀ¸·Î °£ÁÖÇÑ´Ù.
+				printf("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n");
 				flag = 1; break;
 			}
 
-			else{ // í•œê°œë¥¼ ì´ˆê³¼í•˜ëŠ” ë¬¸ìžê°€ ìž…ë ¥ëœ ê²½ìš°.
-				if(temp[i] < 48 || temp[i] > 57){ // 0~9ì— í•´ë‹¹ë˜ì§€ ì•ŠëŠ” ë¬¸ìžê°€ ì¡´ìž¬í•˜ëŠ” ê²½ìš°.
-					if(i == 0 && temp[i] == '-'){ mnscnt++; i++; } // ì²« ë¬¸ìžë¡œì„œëŠ” '-'ê°’ë§Œì´ 0~9ë¥¼ ì œì™¸í•˜ê³  ë“¤ì–´ê°ˆ ìˆ˜ ìžˆë‹¤.
+			else{ // ÇÑ°³¸¦ ÃÊ°úÇÏ´Â ¹®ÀÚ°¡ ÀÔ·ÂµÈ °æ¿ì.
+				if(temp[i] < 48 || temp[i] > 57){ // 0~9¿¡ ÇØ´çµÇÁö ¾Ê´Â ¹®ÀÚ°¡ Á¸ÀçÇÏ´Â °æ¿ì.
+					if(i == 0 && temp[i] == '-'){ mnscnt++; i++; } // Ã¹ ¹®ÀÚ·Î¼­´Â '-'°ª¸¸ÀÌ 0~9¸¦ Á¦¿ÜÇÏ°í µé¾î°¥ ¼ö ÀÖ´Ù.
 
-					else if(i != 0 && temp[i] == '.' && dotcnt == 0) { // ì²« ë¬¸ìžê°€ ì•„ë‹Œ ê²½ìš°ëŠ” '.'ì´ ë“¤ì–´ê°ˆ ìˆ˜ ìžˆë‹¤.
-						if(mnscnt > 0 && i == 1){ // '.'ì€ '-'ê°€ ì“°ì—¬ì§„ ê²½ìš°ëŠ” ë‘ë²ˆì§¸ ìžë¦¬ì— ì˜¬ ìˆ˜ ì—†ë‹¤.
-							printf("ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.\n");
+					else if(i != 0 && temp[i] == '.' && dotcnt == 0) { // Ã¹ ¹®ÀÚ°¡ ¾Æ´Ñ °æ¿ì´Â '.'ÀÌ µé¾î°¥ ¼ö ÀÖ´Ù.
+						if(mnscnt > 0 && i == 1){ // '.'Àº '-'°¡ ¾²¿©Áø °æ¿ì´Â µÎ¹øÂ° ÀÚ¸®¿¡ ¿Ã ¼ö ¾ø´Ù.
+							printf("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n");
 							flag = 1; break;
 						}
-						else{ dotcnt++; i++; } // '.'ì€ í•˜ë‚˜ë§Œ ë“¤ì–´ê°ˆ ìˆ˜ ìžˆìœ¼ë¯€ë¡œ ì´ë¥¼ í‘œì‹œí•´ì¤€ë‹¤.
+						else{ dotcnt++; i++; } // '.'Àº ÇÏ³ª¸¸ µé¾î°¥ ¼ö ÀÖÀ¸¹Ç·Î ÀÌ¸¦ Ç¥½ÃÇØÁØ´Ù.
 					}
 
 					else{
-						printf("ìž˜ëª» ìž…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.\n");
+						printf("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n");
 						flag = 1; break;
 					}
 				} // end of if
@@ -670,102 +670,102 @@ float Get_floatData()
 		} // end of for
 	} // end of while
 
-	return (float)atof(temp); // ì •ìƒì ì¸ ìž…ë ¥ì´ ì´ë£¨ì–´ì§„ ê²½ìš°ëŠ” atofë¥¼ ì´ìš©í•˜ì—¬ ë¦¬í„´í•´ì¤€ë‹¤.
+	return (float)atof(temp); // Á¤»óÀûÀÎ ÀÔ·ÂÀÌ ÀÌ·ç¾îÁø °æ¿ì´Â atof¸¦ ÀÌ¿ëÇÏ¿© ¸®ÅÏÇØÁØ´Ù.
 }
 
 
 ///////////////////////////////////////////////////
-/*ì‹œê°„,ê³µê°„ë³µìž¡ë„ ê³„ì‚° ë° ì†ŒìŠ¤ì½”ë“œ ì„¤ëª….         */
+/*½Ã°£,°ø°£º¹Àâµµ °è»ê ¹× ¼Ò½ºÄÚµå ¼³¸í.         */
 ///////////////////////////////////////////////////
 /*
 
-1. ê³µê°„ë³µìž¡ë„ì˜ ê³„ì‚°
- ì´ë²ˆ í”„ë¡œê·¸ëž¨ì—ì„œëŠ” 4ê°œì˜ ë™ì ë°°ì—´ì´ ì‚¬ìš©ë˜ì—ˆë‹¤. Aí–‰ë ¬, Bí–‰ë ¬ ë° ì „ì¹˜í–‰ë ¬, A,Bì˜ ê³±ì…ˆ ê²°ê³¼ë¥¼ ì €ìž¥í•˜ê²Œ ë  êµ¬ì¡°ì²´ ë°°ì—´ì´ë©°, 
- ì´ì¤‘ ì „ì¹˜í–‰ë ¬ì€ Bí–‰ë ¬ê³¼ ë™ì¼í•œ ì‚¬ì´ì¦ˆë¡œ ìž¡í˜€ìžˆë‹¤.ê·¸ì™¸ ì§€ì—­ë³€ìˆ˜ë“¤ì€ Big-Oh notationìœ¼ë¡œ ê³µê°„ ë³µìž¡ë„ë¥¼ í‘œí˜„í•˜ëŠ” ê²½ìš° ìƒìˆ˜ê°œ 
- ì‚¬ìš©ë˜ì—ˆìœ¼ë¯€ë¡œ ì œì™¸í•´ë„ ìƒê´€ì´ ì—†ë‹¤. 4ê°œì˜ ë™ì ë°°ì—´ ì¤‘ ì „ì¹˜í–‰ë ¬ì€ Bí–‰ë ¬ê³¼ ì‚¬ì´ì¦ˆê°€ í•­ìƒ ë™ì¼í•˜ë¯€ë¡œ Bí–‰ë ¬ì˜ ì‚¬ì´ì¦ˆë¥¼ n2ë¼ 
- í• ë•Œ 2*(n2)ê°€ë˜ì–´ Big-Ohë¡œ í‘œí˜„í•˜ëŠ” ê²½ìš° ë³µìž¡ë„ì— ì˜í–¥ì´ ì—†ë‹¤. ë”°ë¼ì„œ Aí–‰ë ¬ ì‚¬ì´ì¦ˆë¥¼ n1, ê²°ê³¼í–‰ë ¬ì‚¬ì´ì¦ˆë¥¼ n3ì´ë¼ í• ë•Œ 
- í”„ë¡œê·¸ëž¨ì˜ ê³µê°„ ë³µìž¡ë„ë¥¼ Big-Ohë¡œ í‘œí˜„í•˜ë©´ O(n1+n2+n3)ì´ ëœë‹¤.
+1. °ø°£º¹ÀâµµÀÇ °è»ê
+ ÀÌ¹ø ÇÁ·Î±×·¥¿¡¼­´Â 4°³ÀÇ µ¿Àû¹è¿­ÀÌ »ç¿ëµÇ¾ú´Ù. AÇà·Ä, BÇà·Ä ¹× ÀüÄ¡Çà·Ä, A,BÀÇ °ö¼À °á°ú¸¦ ÀúÀåÇÏ°Ô µÉ ±¸Á¶Ã¼ ¹è¿­ÀÌ¸ç, 
+ ÀÌÁß ÀüÄ¡Çà·ÄÀº BÇà·Ä°ú µ¿ÀÏÇÑ »çÀÌÁî·Î ÀâÇôÀÖ´Ù.±×¿Ü Áö¿ªº¯¼öµéÀº Big-Oh notationÀ¸·Î °ø°£ º¹Àâµµ¸¦ Ç¥ÇöÇÏ´Â °æ¿ì »ó¼ö°³ 
+ »ç¿ëµÇ¾úÀ¸¹Ç·Î Á¦¿ÜÇØµµ »ó°üÀÌ ¾ø´Ù. 4°³ÀÇ µ¿Àû¹è¿­ Áß ÀüÄ¡Çà·ÄÀº BÇà·Ä°ú »çÀÌÁî°¡ Ç×»ó µ¿ÀÏÇÏ¹Ç·Î BÇà·ÄÀÇ »çÀÌÁî¸¦ n2¶ó 
+ ÇÒ¶§ 2*(n2)°¡µÇ¾î Big-Oh·Î Ç¥ÇöÇÏ´Â °æ¿ì º¹Àâµµ¿¡ ¿µÇâÀÌ ¾ø´Ù. µû¶ó¼­ AÇà·Ä »çÀÌÁî¸¦ n1, °á°úÇà·Ä»çÀÌÁî¸¦ n3ÀÌ¶ó ÇÒ¶§ 
+ ÇÁ·Î±×·¥ÀÇ °ø°£ º¹Àâµµ¸¦ Big-Oh·Î Ç¥ÇöÇÏ¸é O(n1+n2+n3)ÀÌ µÈ´Ù.
 
-2. ì‹œê°„ë³µìž¡ë„ì˜ ê³„ì‚°
- í¬ì†Œí–‰ë ¬ì˜ ê³±ì…ˆ í”„ë¡œê·¸ëž¨ì€ ê³±ì…ˆì„ ìˆ˜í–‰í•˜ëŠ” ë¶€ë¶„ì´ í•µì‹¬ì´ë©°, ì´ ë¶€ë¶„ì˜ ì‹œê°„ ë³µìž¡ë„ê°€ í”„ë¡œê·¸ëž¨ì˜ ì„±ëŠ¥ì„ ì¢Œìš°í•˜ê²Œëœë‹¤. í–‰ë ¬ì˜
- ê³±ì…ˆì— ê´€ì—¬ë˜ëŠ” í•¨ìˆ˜ëŠ” ì´ 4ê°œì´ë©°, ì´ ì¤‘ Aí–‰ë ¬ì˜ í–‰ ê°’ë“¤ê³¼ Bì „ì¹˜í–‰ë ¬ì˜ í–‰ê°’ë“¤ì„ ê³±í•˜ì—¬ ë”í•œ ê²°ê³¼ë¥¼ ê²°ê³¼í–‰ë ¬ì— ì €ìž¥í•˜ëŠ” í•¨ìˆ˜ì¸
- InputSumì˜ ê²½ìš°ëŠ” ìƒìˆ˜ì‹œê°„ì— ìˆ˜í–‰ë˜ì–´ ì‹œê°„ë³µìž¡ë„ì— ì˜í–¥ì´ ì—†ìœ¼ë©°, ê²°ê³¼í–‰ë ¬ì˜ ë©”ëª¨ë¦¬ í™•ìž¥ì„ ìœ„í•œ ê³¼ì •ì—ì„œ ì‚¬ìš©ë˜ëŠ” ë°ì´í„° êµí™˜
- í•¨ìˆ˜ì¸ MatrixCpyë„ ìƒìˆ˜ì‹œê°„ì— ìˆ˜í–‰ë˜ë¯€ë¡œ ì‹œê°„ë³µìž¡ë„ ê³„ì‚°ì—ì„œ ì œì™¸í•œë‹¤. ë‚¨ì€ ê²ƒì€ ì „ì¹˜í–‰ë ¬ì„ ë§Œë“œëŠ” Get_TransposeMatrixì™€ ê³±ì…ˆì„
- ìˆ˜í–‰í•˜ëŠ” ResultOfMultiplicationì´ë‹¤. ì „ì¹˜í–‰ë ¬ì„ ë§Œë“œëŠ” ìž‘ì—…ì€ í•œë²ˆë§Œ í•˜ë©´ ë˜ë¯€ë¡œ ì´ë¥¼ ë¨¼ì € ê³„ì‚°í•œë‹¤. ìš°ì„  ì „ì¹˜í–‰ë ¬ì„ ê³„ì‚°í•˜ëŠ”
- í•¨ìˆ˜ì—ì„œëŠ” 4ê°œì˜ forë¬¸ì´ ì¡´ìž¬í•˜ë©°, ì´ëŠ” ê°ê° MaxCol, MaxValue, MaxCol, MaxValue ë§Œí¼ ìˆ˜í–‰ëœë‹¤. ì—¬ê¸°ì„œ MaxColì€ Bí–‰ë ¬ì˜ ì—´ì‚¬ì´ì¦ˆ
- ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ê²ƒì´ë©° MaxValueëŠ” ì›ì†Œì˜ ìˆ˜ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤. ë°˜ë³µë¬¸ ì•ˆì˜ ë¬¸ìž¥ì€ ìƒìˆ˜ì‹œê°„ì— ìˆ˜í–‰ë˜ë¯€ë¡œ ì‹œê°„ë³µìž¡ë„ì— ì˜í–¥ì´ ì—†ê³ , forë¬¸ì€
- 2*MaxCol + 2*MaxValue ë§Œí¼ ìˆ˜í–‰ë˜ë¯€ë¡œ Big-Oh notationìœ¼ë¡œ í‘œí˜„í•˜ë©´ O(MaxCol + MaxValue)ê°€ ëœë‹¤. ë‹¤ìŒìœ¼ë¡œ ê³±ì…ˆ í•¨ìˆ˜ë¥¼ ë¶„ì„í•˜ë©´,
- ì—¬ê¸°ì—ëŠ” forë¬¸ì´ ì´ì¤‘ìœ¼ë¡œ ë“¤ì–´ê°€ ìžˆìœ¼ë©°, ìƒìœ„ forë¬¸ì€ MaxValueA(Aí–‰ë ¬ ì›ì†Œìˆ˜), í•˜ìœ„ forë¬¸ì€ MaxValueB(Bí–‰ë ¬ ì›ì†Œìˆ˜)ë¥¼ ì¢…ë£Œ ì¡°ê±´
- ìœ¼ë¡œ í•œë‹¤. í•˜ì§€ë§Œ ìƒìœ„ forë¬¸ì€ iê°’ì´ ìž¬ì„¤ì • ë˜ëŠ” ê²½ìš°ê°€ ìžˆìœ¼ë¯€ë¡œ ì´ë¥¼ ê³ ë ¤í•´ì•¼ í•˜ëŠ”ë°, Kë¥¼ Aí–‰ë ¬ì˜ í˜„ìž¬ í–‰ì— ìžˆëŠ” í•­ì˜ ì´ ìˆ˜ë¼ë©´
- iê°€ Aí–‰ë ¬ì˜ ë‹¤ìŒ í–‰ìœ¼ë¡œ ì´ë™í•˜ê¸° ì „ì— ë§Žì•„ì•¼ kë²ˆ ë§Œí¼ ì¦ê°€í•  ìˆ˜ ìžˆë‹¤. ì´ ê²½ìš° ië¥¼ ìž¬ì„¤ì •í•˜ëŠ” ë™ì‹œì— colì€ ë‹¤ìŒ ì—´ë¡œ ë³´ë‚´ê²Œ ëœë‹¤.
- ë”°ë¼ì„œ ì´ ìž¬ì„¤ì •ì€ ë§Žì•„ì•¼ MaxColB(Bí–‰ë ¬ì˜ ì—´ì˜ ìˆ˜)ë²ˆì´ê³ , iì˜ ìµœëŒ€ ì´ ì¦ê°€ëŸ‰ì€ MaxColB*kê°€ ëœë‹¤. ê·¸ì—ë”°ë¼ ìƒìœ„ forë¬¸ì˜ ìµœëŒ€
- ë°˜ë³µìˆ˜ëŠ” MaxColB+MaxColB*k+MaxValueBì´ë‹¤. í˜„ìž¬ í–‰ì´ ê³±í•´ì§€ëŠ” ë™ì•ˆ í•˜ìœ„ foraë¬¸ì— ì†Œìš”ë˜ëŠ” ì‹œê°„ì€ O(MaxColB*k+MaxValueB)ì´ë©°, ë‹¤ìŒ
- í–‰ìœ¼ë¡œ ì§„í–‰í•˜ëŠ” ë° ê±¸ë¦¬ëŠ” ì‹œê°„ì€ O(k)ê°€ ëœë‹¤. ê·¸ëŸ¬ë¯€ë¡œ ìƒìœ„ forë¬¸ì´ í•œë²ˆ ë°˜ë³µí•˜ëŠ” ë° ê±¸ë¦¬ëŠ” ì‹œê°„ì€ O(MaxColB*k+MaxValueB)ì´ë‹¤.
- ê·¸ê²°ê³¼ ì „ì²´ ì†Œìš”ì‹œê°„ì€ O(sigma(MaxColB*k+MaxValueB))=O(MaxColB*MaxValueA + MaxRowA*MaxValueB) ì´ë‹¤. ì´ ê²°ê³¼ì— ë”°ë¼ ìµœì•…ì˜ ì‹œê°„
- ë³µìž¡ë„ë¥¼ êµ¬í•´ë³´ë©´, MaxValueA<=MaxRowA*MaxColA, MaxValueB<=MaxRowB*MaxColA ì´ë¯€ë¡œ, ìµœì•…ì˜ ê²½ìš° O(MaxRowA*MaxColA*MaxColB)ì˜ ì‹œê°„
- ë³µìž¡ë„ë¥¼ ê°™ê²Œëœë‹¤.
+2. ½Ã°£º¹ÀâµµÀÇ °è»ê
+ Èñ¼ÒÇà·ÄÀÇ °ö¼À ÇÁ·Î±×·¥Àº °ö¼ÀÀ» ¼öÇàÇÏ´Â ºÎºÐÀÌ ÇÙ½ÉÀÌ¸ç, ÀÌ ºÎºÐÀÇ ½Ã°£ º¹Àâµµ°¡ ÇÁ·Î±×·¥ÀÇ ¼º´ÉÀ» ÁÂ¿ìÇÏ°ÔµÈ´Ù. Çà·ÄÀÇ
+ °ö¼À¿¡ °ü¿©µÇ´Â ÇÔ¼ö´Â ÃÑ 4°³ÀÌ¸ç, ÀÌ Áß AÇà·ÄÀÇ Çà °ªµé°ú BÀüÄ¡Çà·ÄÀÇ Çà°ªµéÀ» °öÇÏ¿© ´õÇÑ °á°ú¸¦ °á°úÇà·Ä¿¡ ÀúÀåÇÏ´Â ÇÔ¼öÀÎ
+ InputSumÀÇ °æ¿ì´Â »ó¼ö½Ã°£¿¡ ¼öÇàµÇ¾î ½Ã°£º¹Àâµµ¿¡ ¿µÇâÀÌ ¾øÀ¸¸ç, °á°úÇà·ÄÀÇ ¸Þ¸ð¸® È®ÀåÀ» À§ÇÑ °úÁ¤¿¡¼­ »ç¿ëµÇ´Â µ¥ÀÌÅÍ ±³È¯
+ ÇÔ¼öÀÎ MatrixCpyµµ »ó¼ö½Ã°£¿¡ ¼öÇàµÇ¹Ç·Î ½Ã°£º¹Àâµµ °è»ê¿¡¼­ Á¦¿ÜÇÑ´Ù. ³²Àº °ÍÀº ÀüÄ¡Çà·ÄÀ» ¸¸µå´Â Get_TransposeMatrix¿Í °ö¼ÀÀ»
+ ¼öÇàÇÏ´Â ResultOfMultiplicationÀÌ´Ù. ÀüÄ¡Çà·ÄÀ» ¸¸µå´Â ÀÛ¾÷Àº ÇÑ¹ø¸¸ ÇÏ¸é µÇ¹Ç·Î ÀÌ¸¦ ¸ÕÀú °è»êÇÑ´Ù. ¿ì¼± ÀüÄ¡Çà·ÄÀ» °è»êÇÏ´Â
+ ÇÔ¼ö¿¡¼­´Â 4°³ÀÇ for¹®ÀÌ Á¸ÀçÇÏ¸ç, ÀÌ´Â °¢°¢ MaxCol, MaxValue, MaxCol, MaxValue ¸¸Å­ ¼öÇàµÈ´Ù. ¿©±â¼­ MaxColÀº BÇà·ÄÀÇ ¿­»çÀÌÁî
+ ¸¦ ³ªÅ¸³»´Â °ÍÀÌ¸ç MaxValue´Â ¿ø¼ÒÀÇ ¼ö¸¦ ³ªÅ¸³½´Ù. ¹Ýº¹¹® ¾ÈÀÇ ¹®ÀåÀº »ó¼ö½Ã°£¿¡ ¼öÇàµÇ¹Ç·Î ½Ã°£º¹Àâµµ¿¡ ¿µÇâÀÌ ¾ø°í, for¹®Àº
+ 2*MaxCol + 2*MaxValue ¸¸Å­ ¼öÇàµÇ¹Ç·Î Big-Oh notationÀ¸·Î Ç¥ÇöÇÏ¸é O(MaxCol + MaxValue)°¡ µÈ´Ù. ´ÙÀ½À¸·Î °ö¼À ÇÔ¼ö¸¦ ºÐ¼®ÇÏ¸é,
+ ¿©±â¿¡´Â for¹®ÀÌ ÀÌÁßÀ¸·Î µé¾î°¡ ÀÖÀ¸¸ç, »óÀ§ for¹®Àº MaxValueA(AÇà·Ä ¿ø¼Ò¼ö), ÇÏÀ§ for¹®Àº MaxValueB(BÇà·Ä ¿ø¼Ò¼ö)¸¦ Á¾·á Á¶°Ç
+ À¸·Î ÇÑ´Ù. ÇÏÁö¸¸ »óÀ§ for¹®Àº i°ªÀÌ Àç¼³Á¤ µÇ´Â °æ¿ì°¡ ÀÖÀ¸¹Ç·Î ÀÌ¸¦ °í·ÁÇØ¾ß ÇÏ´Âµ¥, K¸¦ AÇà·ÄÀÇ ÇöÀç Çà¿¡ ÀÖ´Â Ç×ÀÇ ÃÑ ¼ö¶ó¸é
+ i°¡ AÇà·ÄÀÇ ´ÙÀ½ ÇàÀ¸·Î ÀÌµ¿ÇÏ±â Àü¿¡ ¸¹¾Æ¾ß k¹ø ¸¸Å­ Áõ°¡ÇÒ ¼ö ÀÖ´Ù. ÀÌ °æ¿ì i¸¦ Àç¼³Á¤ÇÏ´Â µ¿½Ã¿¡ colÀº ´ÙÀ½ ¿­·Î º¸³»°Ô µÈ´Ù.
+ µû¶ó¼­ ÀÌ Àç¼³Á¤Àº ¸¹¾Æ¾ß MaxColB(BÇà·ÄÀÇ ¿­ÀÇ ¼ö)¹øÀÌ°í, iÀÇ ÃÖ´ë ÃÑ Áõ°¡·®Àº MaxColB*k°¡ µÈ´Ù. ±×¿¡µû¶ó »óÀ§ for¹®ÀÇ ÃÖ´ë
+ ¹Ýº¹¼ö´Â MaxColB+MaxColB*k+MaxValueBÀÌ´Ù. ÇöÀç ÇàÀÌ °öÇØÁö´Â µ¿¾È ÇÏÀ§ fora¹®¿¡ ¼Ò¿äµÇ´Â ½Ã°£Àº O(MaxColB*k+MaxValueB)ÀÌ¸ç, ´ÙÀ½
+ ÇàÀ¸·Î ÁøÇàÇÏ´Â µ¥ °É¸®´Â ½Ã°£Àº O(k)°¡ µÈ´Ù. ±×·¯¹Ç·Î »óÀ§ for¹®ÀÌ ÇÑ¹ø ¹Ýº¹ÇÏ´Â µ¥ °É¸®´Â ½Ã°£Àº O(MaxColB*k+MaxValueB)ÀÌ´Ù.
+ ±×°á°ú ÀüÃ¼ ¼Ò¿ä½Ã°£Àº O(sigma(MaxColB*k+MaxValueB))=O(MaxColB*MaxValueA + MaxRowA*MaxValueB) ÀÌ´Ù. ÀÌ °á°ú¿¡ µû¶ó ÃÖ¾ÇÀÇ ½Ã°£
+ º¹Àâµµ¸¦ ±¸ÇØº¸¸é, MaxValueA<=MaxRowA*MaxColA, MaxValueB<=MaxRowB*MaxColA ÀÌ¹Ç·Î, ÃÖ¾ÇÀÇ °æ¿ì O(MaxRowA*MaxColA*MaxColB)ÀÇ ½Ã°£
+ º¹Àâµµ¸¦ °°°ÔµÈ´Ù.
 
-3. ì‚¬ìš©ëœ í•¨ìˆ˜ì˜ ì„¤ëª…
+3. »ç¿ëµÈ ÇÔ¼öÀÇ ¼³¸í
 (1) void Get_MatrixFromUser();
-	ê³±ì…ˆì„ í•  ë‘ í–‰ë ¬ì„ ì§ì ‘ìž…ë ¥ë°›ì•„ì˜¤ëŠ” ê²½ìš° í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜ì´ë‹¤. ì´ í•¨ìˆ˜ëŠ” í–‰ë ¬A,Bì˜ 
-	í–‰/ì—´ ë° ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì˜¨ í›„ ê° ì›ì†Œë¥¼ ì €ìž¥í•œë‹¤.ì €ìž¥ì´ ëë‚˜ë©´ Bí–‰ë ¬ì„ ì „ì¹˜í–‰ë ¬
-	ë¡œ ë³€í™˜í•œ í›„ ê³±ì…ˆì„ í•˜ë„ë¡ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤.                                      
+	°ö¼ÀÀ» ÇÒ µÎ Çà·ÄÀ» Á÷Á¢ÀÔ·Â¹Þ¾Æ¿À´Â °æ¿ì È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù. ÀÌ ÇÔ¼ö´Â Çà·ÄA,BÀÇ 
+	Çà/¿­ ¹× ¿ø¼ÒÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿Â ÈÄ °¢ ¿ø¼Ò¸¦ ÀúÀåÇÑ´Ù.ÀúÀåÀÌ ³¡³ª¸é BÇà·ÄÀ» ÀüÄ¡Çà·Ä
+	·Î º¯È¯ÇÑ ÈÄ °ö¼ÀÀ» ÇÏµµ·Ï ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.                                      
 
 (2) int Get_MatrixFromFile(); 
-	ì´ í•¨ìˆ˜ëŠ” íŒŒì¼ë¡œ ë¶€í„° í–‰ë ¬ì„ ë°›ì•„ì˜¤ëŠ” ê²½ìš° ì‚¬ìš©ë˜ëŠ” í•¨ìˆ˜ì´ë‹¤.í•¨ìˆ˜ê°€ í˜¸ì¶œë˜ë©´ íŒŒì¼
-	array.datë¥¼ ì—´ì–´ ì²« ì—´ì—ì„œ í–‰/ì—´/ì›ì†Œì˜ ê°¯ìˆ˜ë¥¼ ë°›ì•„ì™€ì„œ ì €ìž¥í•œë‹¤.ê·¸ í›„ ì›ì†Œì˜ ê°¯ìˆ˜
-	ì—ë”°ë¼ì„œ íŒŒì¼ìƒì—ì„œ ê° ì›ì†Œ ì €ìž¥ì— í•„ìš”í•œ ë°ì´í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤. ì´ëŸ¬í•œ ë°©ì‹ìœ¼ë¡œ ë‘ í–‰
-	ë ¬ì„ ëª¨ë‘ ë°›ì•„ì˜¤ë©´ ì „ì¹˜í–‰ë ¬ì„ ìƒì„±í•˜ê³  ê³±ì…ˆì„ í•˜ê¸°ìœ„í•œ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ ì¤€ë‹¤.       
+	ÀÌ ÇÔ¼ö´Â ÆÄÀÏ·Î ºÎÅÍ Çà·ÄÀ» ¹Þ¾Æ¿À´Â °æ¿ì »ç¿ëµÇ´Â ÇÔ¼öÀÌ´Ù.ÇÔ¼ö°¡ È£ÃâµÇ¸é ÆÄÀÏ
+	array.dat¸¦ ¿­¾î Ã¹ ¿­¿¡¼­ Çà/¿­/¿ø¼ÒÀÇ °¹¼ö¸¦ ¹Þ¾Æ¿Í¼­ ÀúÀåÇÑ´Ù.±× ÈÄ ¿ø¼ÒÀÇ °¹¼ö
+	¿¡µû¶ó¼­ ÆÄÀÏ»ó¿¡¼­ °¢ ¿ø¼Ò ÀúÀå¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ¸¦ ¹Þ¾Æ¿Â´Ù. ÀÌ·¯ÇÑ ¹æ½ÄÀ¸·Î µÎ Çà
+	·ÄÀ» ¸ðµÎ ¹Þ¾Æ¿À¸é ÀüÄ¡Çà·ÄÀ» »ý¼ºÇÏ°í °ö¼ÀÀ» ÇÏ±âÀ§ÇÑ ÇÔ¼ö¸¦ È£ÃâÇØ ÁØ´Ù.       
 
 (3) void Get_MatrixValue(term *Matrix, int MaxRow, int MaxCol, int MaxValue);
-	ê³±ì…ˆ ê³„ì‚°ì„ í•  ë‘ í–‰ë ¬ì„ ë°›ì•„ ì˜¤ëŠ” í•¨ìˆ˜. ìµœì´ˆìž…ë ¥ëœ í–‰/ì—´ ê°’ì„ ì´ìš©í•˜ì—¬ ì´ë¥¼ ë„˜ëŠ”
-	ê°’ì´ ìž…ë ¥ë  ê²½ìš°ëŠ” ì˜¤ë¥˜ì²˜ë¦¬ë¥¼ í•˜ê³  ë‹¤ì‹œ ìž…ë ¥í•˜ê²Œ í•œë‹¤. ìž…ë ¥ëœ valueì˜ ê°¯ìˆ˜ ë§Œí¼ ë§Œ
-	forë¬¸ì„ ìˆ˜í–‰í•˜ì—¬ ê° ê°’ì„ ìž…ë ¥ë°›ì•„ì˜¨ë‹¤.                                           
+	°ö¼À °è»êÀ» ÇÒ µÎ Çà·ÄÀ» ¹Þ¾Æ ¿À´Â ÇÔ¼ö. ÃÖÃÊÀÔ·ÂµÈ Çà/¿­ °ªÀ» ÀÌ¿ëÇÏ¿© ÀÌ¸¦ ³Ñ´Â
+	°ªÀÌ ÀÔ·ÂµÉ °æ¿ì´Â ¿À·ùÃ³¸®¸¦ ÇÏ°í ´Ù½Ã ÀÔ·ÂÇÏ°Ô ÇÑ´Ù. ÀÔ·ÂµÈ valueÀÇ °¹¼ö ¸¸Å­ ¸¸
+	for¹®À» ¼öÇàÇÏ¿© °¢ °ªÀ» ÀÔ·Â¹Þ¾Æ¿Â´Ù.                                           
 
 (4) void Get_TransposeMatrix(term *orgMatrix, term *transMatrix, int MaxRow, int MaxCol, int MaxValue);
-	í–‰ë ¬Bì˜ ì „ì¹˜í–‰ë ¬ì„ êµ¬í•´ì£¼ëŠ” í•¨ìˆ˜. row_termsëŠ” ìž…ë ¥ë˜ìžˆëŠ” ê° í–‰ì— í•´ë‹¹í•˜ëŠ” valueì˜ ê°¯ìˆ˜ë¥¼ 
-	ì €ìž¥í•˜ëŠ” ë°°ì—´ì´ë©°, starting_posëŠ” ì „ì¹˜í–‰ë ¬ì˜ ê° í–‰ì— í–‰ì„ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ë˜ë©´ì„œ ì €ìž¥ë ìˆ˜ ìžˆë„
-	ë¡ í˜„ìž¬ì˜ í–‰ì´ ì „ì¹˜í–‰ë ¬ì—ì„œ ì €ìž¥ë  ìœ„ì¹˜ë¥¼ ì§€ì •í•´ì£¼ëŠ” ë°°ì—´ì´ë‹¤. ìµœì´ˆ starting_posëŠ” row_term
-	ì„ ì´ìš©í•˜ì—¬ ì´ˆê¸°ê°’ì„ ìž…ë ¥í•˜ê³ , í•´ë‹¹í•˜ëŠ” í–‰ì— ë°ì´í„°ê°€ ë“¤ì–´ê°€ë©´ ê°’ì„ ì¦ê°€ì‹œí‚¤ë©´ì„œ ì‹œìž‘ìœ„ì¹˜ë¥¼
-	ìœ ì§€í•´ì¤€ë‹¤. ì „ì¹˜í–‰ë ¬ì€ rowì™€ colì„ ë°”ê¾¸ì–´ ì €ìž¥í•œ í–‰ë ¬ì´ ëœë‹¤.                             
+	Çà·ÄBÀÇ ÀüÄ¡Çà·ÄÀ» ±¸ÇØÁÖ´Â ÇÔ¼ö. row_terms´Â ÀÔ·ÂµÇÀÖ´Â °¢ Çà¿¡ ÇØ´çÇÏ´Â valueÀÇ °¹¼ö¸¦ 
+	ÀúÀåÇÏ´Â ¹è¿­ÀÌ¸ç, starting_pos´Â ÀüÄ¡Çà·ÄÀÇ °¢ Çà¿¡ ÇàÀ» ±âÁØÀ¸·Î Á¤·ÄµÇ¸é¼­ ÀúÀåµÉ¼ö ÀÖµµ
+	·Ï ÇöÀçÀÇ ÇàÀÌ ÀüÄ¡Çà·Ä¿¡¼­ ÀúÀåµÉ À§Ä¡¸¦ ÁöÁ¤ÇØÁÖ´Â ¹è¿­ÀÌ´Ù. ÃÖÃÊ starting_pos´Â row_term
+	À» ÀÌ¿ëÇÏ¿© ÃÊ±â°ªÀ» ÀÔ·ÂÇÏ°í, ÇØ´çÇÏ´Â Çà¿¡ µ¥ÀÌÅÍ°¡ µé¾î°¡¸é °ªÀ» Áõ°¡½ÃÅ°¸é¼­ ½ÃÀÛÀ§Ä¡¸¦
+	À¯ÁöÇØÁØ´Ù. ÀüÄ¡Çà·ÄÀº row¿Í colÀ» ¹Ù²Ù¾î ÀúÀåÇÑ Çà·ÄÀÌ µÈ´Ù.                             
 
 (5) void Get_ResultOfMultiplication(term *M_A, term *M_B, term *trans, int MaxRowA, int MaxColA, int MaxValueA, int MaxRowB, int MaxColB, int MaxValueB);
-	í–‰ë ¬Aì™€ í–‰ë ¬Bë¥¼ ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ì—¬ ê³±ì…ˆ í›„ ê·¸ ê²°ê³¼ë¥¼ Resultì— ì €ìž¥í•´ì£¼ëŠ” í•¨ìˆ˜. í–‰ë ¬ì˜ ê³±ì…ˆì€  
-	ì²« í–‰ë ¬ì€ í–‰ìˆœì„œë¡œ ë‘ë²ˆì§¸ í–‰ë ¬ì€ ì—´ ìˆœì„œë¡œ ì´ë™í•˜ë©´ì„œ ê³±ì…ˆì„ ìˆ˜í–‰í•˜ê²Œ ë˜ë¯€ë¡œ ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ 
-	ë©´ ê³±ì…ˆì„ í•˜ê¸°ê°€ ìˆ˜ì›”í•´ ì§„ë‹¤. ì´ í•¨ìˆ˜ì—ì„œëŠ” ì „ì¹˜í–‰ë ¬ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ì•„ì™€ ê³±ì…ˆì— ì´ìš©í•˜ë©°, ì‹œìž‘ 
-	í–‰ì˜ ê° ì—´ê°’ê³¼ ëŒ€ì‘í•˜ëŠ” ì „ì¹˜í–‰ë ¬ì˜ í•´ë‹¹í•˜ëŠ” í–‰ì˜ ì—´ê°’ë“¤ì„ ê³±í•œ í›„ ìµœì¢…ì ìœ¼ë¡œ ë”í•´ì„œ ê²°ê³¼ë¥¼ ì‚°ì¶œ
-	í•˜ê²Œ ëœë‹¤. ê³±ì…ˆì„ ìˆ˜í–‰í•˜ëŠ” í–‰ë ¬Aì˜ í–‰ê°’ì€ ë³€ìˆ˜ rowë¡œ ìœ ì§€í•˜ë©°, í•´ë‹¹ í–‰ì´ í¬ì†Œí–‰ë ¬ìƒì—ì„œ ì‹œìž‘ë˜ 
-	ëŠ” ìœ„ì¹˜ëŠ” ë³€ìˆ˜ row_beginìœ¼ë¡œ ìœ ì§€í•œë‹¤. ì „ì¹˜í–‰ë ¬ì˜ ê³„ì‚°ì´ ìˆ˜í–‰ë˜ê³ ìžˆëŠ” í–‰ì€ ë³€ìˆ˜ colë¡œ ìœ ì§€í•˜ë©°,
-	í•´ë‹¹ í–‰ì—ì„œì˜ ì—´ì€ jë¡œ ìœ ì§€í•´ ì¤€ë‹¤. í–‰ë ¬Aì™€ ì „ì¹˜í–‰ë ¬ì˜ ì—´ê°’ì´ ë™ì¼í•œ ê²½ìš°ë¡œì„œ ì›ì†Œê°€ ì¡´ìž¬í•˜ë©´, 
-	ê³±ì…ˆì„ í•˜ì—¬ sumì— ë”í•´ì¤€ë‹¤. ê³„ì‚°ì— ì´ìš©ë˜ëŠ” í–‰ë ¬ì€ í¬ì†Œí–‰ë ¬ë¡œ ì €ìž¥ë˜ì–´ ìžˆìœ¼ë¯€ë¡œ í–‰ë ¬A,Bì˜ ì›ì†Œ 
-	ê°¯ìˆ˜ ë§Œí¼ë§Œ ê° forë¬¸ì„ ìˆ˜í–‰í•˜ë©´ ëœë‹¤. ì €ìž¥ë˜ëŠ” í–‰ë ¬ Resultë„ í¬ì†Œí–‰ë ¬ì´ì§€ë§Œ ì´ˆê¸°ì—ëŠ” ì›ì†Œê°€ ëª‡ 
-	ê°œ ë“¤ì–´ê°€ì•¼ í•˜ëŠ”ì§€ ì•Œ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ í–‰ë ¬A,Bì˜ ì›ì†Œìˆ˜ë¥¼ í•©í•œ ë§Œí¼ ë©”ëª¨ë¦¬ë¥¼ ìž¡ì•„ì£¼ê³  ëª¨ìžë¥´ê²Œ ë˜ëŠ”
-	ê²½ìš°ëŠ” í˜„ìž¬ í¬ê¸°ì˜ 2ë°°ë§Œí¼ ë©”ëª¨ë¦¬ë¥¼ ëŠ˜ë ¤ì£¼ëŠ” ì‹ìœ¼ë¡œ í¬ì†Œí–‰ë ¬ì„ ìž¡ì•„ì¤€ë‹¤.                      
+	Çà·ÄA¿Í Çà·ÄB¸¦ ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ¿© °ö¼À ÈÄ ±× °á°ú¸¦ Result¿¡ ÀúÀåÇØÁÖ´Â ÇÔ¼ö. Çà·ÄÀÇ °ö¼ÀÀº  
+	Ã¹ Çà·ÄÀº Çà¼ø¼­·Î µÎ¹øÂ° Çà·ÄÀº ¿­ ¼ø¼­·Î ÀÌµ¿ÇÏ¸é¼­ °ö¼ÀÀ» ¼öÇàÇÏ°Ô µÇ¹Ç·Î ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ 
+	¸é °ö¼ÀÀ» ÇÏ±â°¡ ¼ö¿ùÇØ Áø´Ù. ÀÌ ÇÔ¼ö¿¡¼­´Â ÀüÄ¡Çà·ÄÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Þ¾Æ¿Í °ö¼À¿¡ ÀÌ¿ëÇÏ¸ç, ½ÃÀÛ 
+	ÇàÀÇ °¢ ¿­°ª°ú ´ëÀÀÇÏ´Â ÀüÄ¡Çà·ÄÀÇ ÇØ´çÇÏ´Â ÇàÀÇ ¿­°ªµéÀ» °öÇÑ ÈÄ ÃÖÁ¾ÀûÀ¸·Î ´õÇØ¼­ °á°ú¸¦ »êÃâ
+	ÇÏ°Ô µÈ´Ù. °ö¼ÀÀ» ¼öÇàÇÏ´Â Çà·ÄAÀÇ Çà°ªÀº º¯¼ö row·Î À¯ÁöÇÏ¸ç, ÇØ´ç ÇàÀÌ Èñ¼ÒÇà·Ä»ó¿¡¼­ ½ÃÀÛµÇ 
+	´Â À§Ä¡´Â º¯¼ö row_beginÀ¸·Î À¯ÁöÇÑ´Ù. ÀüÄ¡Çà·ÄÀÇ °è»êÀÌ ¼öÇàµÇ°íÀÖ´Â ÇàÀº º¯¼ö col·Î À¯ÁöÇÏ¸ç,
+	ÇØ´ç Çà¿¡¼­ÀÇ ¿­Àº j·Î À¯ÁöÇØ ÁØ´Ù. Çà·ÄA¿Í ÀüÄ¡Çà·ÄÀÇ ¿­°ªÀÌ µ¿ÀÏÇÑ °æ¿ì·Î¼­ ¿ø¼Ò°¡ Á¸ÀçÇÏ¸é, 
+	°ö¼ÀÀ» ÇÏ¿© sum¿¡ ´õÇØÁØ´Ù. °è»ê¿¡ ÀÌ¿ëµÇ´Â Çà·ÄÀº Èñ¼ÒÇà·Ä·Î ÀúÀåµÇ¾î ÀÖÀ¸¹Ç·Î Çà·ÄA,BÀÇ ¿ø¼Ò 
+	°¹¼ö ¸¸Å­¸¸ °¢ for¹®À» ¼öÇàÇÏ¸é µÈ´Ù. ÀúÀåµÇ´Â Çà·Ä Resultµµ Èñ¼ÒÇà·ÄÀÌÁö¸¸ ÃÊ±â¿¡´Â ¿ø¼Ò°¡ ¸î 
+	°³ µé¾î°¡¾ß ÇÏ´ÂÁö ¾Ë ¼ö ¾øÀ¸¹Ç·Î Çà·ÄA,BÀÇ ¿ø¼Ò¼ö¸¦ ÇÕÇÑ ¸¸Å­ ¸Þ¸ð¸®¸¦ Àâ¾ÆÁÖ°í ¸ðÀÚ¸£°Ô µÇ´Â
+	°æ¿ì´Â ÇöÀç Å©±âÀÇ 2¹è¸¸Å­ ¸Þ¸ð¸®¸¦ ´Ã·ÁÁÖ´Â ½ÄÀ¸·Î Èñ¼ÒÇà·ÄÀ» Àâ¾ÆÁØ´Ù.                      
 
 (6) int InputSum(term *r, int total, int row, int col, float sum);
-	í–‰ë ¬A ë° ì „ì¹˜í–‰ë ¬ì„ ì´ìš©í•˜ì—¬ ê³±ì…ˆì„ ìˆ˜í–‰í•œ ê²°ê³¼ë¥¼ Result 
-	í–‰ë ¬ì— ì €ìž¥í•´ì£¼ëŠ” í•¨ìˆ˜.                                 
+	Çà·ÄA ¹× ÀüÄ¡Çà·ÄÀ» ÀÌ¿ëÇÏ¿© °ö¼ÀÀ» ¼öÇàÇÑ °á°ú¸¦ Result 
+	Çà·Ä¿¡ ÀúÀåÇØÁÖ´Â ÇÔ¼ö.                                 
 
 (7) void MatrixCpy(term *a, term *b, int i);
-	í¬ì†Œí–‰ë ¬aë¥¼ í¬ì†Œí–‰ë ¬bì— ë³µì‚¬í•˜ëŠ” í•¨ìˆ˜.     
+	Èñ¼ÒÇà·Äa¸¦ Èñ¼ÒÇà·Äb¿¡ º¹»çÇÏ´Â ÇÔ¼ö.     
 
 (8) void fprint_Matrix(term *Matrix, int MaxR, int MaxC, int MaxV);
-	í–‰ë ¬ì˜ ì „ì²´ ëª¨ìŠµì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜. í¬ì†Œí–‰ë ¬ ìƒì— ì›ì†Œê°€
-	ì—†ëŠ” ê²½ìš°ëŠ” 0ì„ ì¶œë ¥í•˜ì—¬ ì¤€ë‹¤.                        
+	Çà·ÄÀÇ ÀüÃ¼ ¸ð½ÀÀ» Ãâ·ÂÇÏ´Â ÇÔ¼ö. Èñ¼ÒÇà·Ä »ó¿¡ ¿ø¼Ò°¡
+	¾ø´Â °æ¿ì´Â 0À» Ãâ·ÂÇÏ¿© ÁØ´Ù.                        
 
 (9) void fprint_SpaseMatrix(term *Matrix, int MaxV);
-	í¬ì†Œí–‰ë ¬ì„ ì¶œë ¥í•˜ì—¬ ì£¼ëŠ” í•¨ìˆ˜.                        
+	Èñ¼ÒÇà·ÄÀ» Ãâ·ÂÇÏ¿© ÁÖ´Â ÇÔ¼ö.                        
 
 (10)void fprint_WholeResult(term *MatrixA, term *MatrixB, term *MatrixT, term *MatrixR, int MaxRA, int MaxCA, int MaxCB, int MaxA, int MaxB, int MaxR);
-	í”„ë¡œê·¸ëž¨ì— ì‚¬ìš©ëœ ëª¨ë“  í¬ì†Œí–‰ë ¬ ë° ì •ìƒì ì¸ í–‰ë ¬ì˜ ëª¨ìŠµì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜.   
+	ÇÁ·Î±×·¥¿¡ »ç¿ëµÈ ¸ðµç Èñ¼ÒÇà·Ä ¹× Á¤»óÀûÀÎ Çà·ÄÀÇ ¸ð½ÀÀ» Ãâ·ÂÇÏ´Â ÇÔ¼ö.   
 
 (11)int Get_intData();
-	ì •ìˆ˜ê°’ì„ ìž…ë ¥ë°›ì•„ì•¼ í•˜ëŠ” ê²½ìš° ì •ìƒì ì¸ ìž…ë ¥ì´ ì´ë£¨ì–´ ì¡ŒëŠ” ì§€ ê²€ì‚¬ 
-	í•œ í›„ atoií•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ í•´ë‹¹ ì •ìˆ˜ê°’ì„ ë°˜í™”í•˜ì—¬ ì£¼ëŠ” ì—­í• ì„ í•˜ëŠ” 
-	í•¨ìˆ˜. ìµœì´ˆ ìž…ë ¥ì€ stringìœ¼ë¡œ ë°›ì•„ì˜¨ë‹¤.                           
+	Á¤¼ö°ªÀ» ÀÔ·Â¹Þ¾Æ¾ß ÇÏ´Â °æ¿ì Á¤»óÀûÀÎ ÀÔ·ÂÀÌ ÀÌ·ç¾î Á³´Â Áö °Ë»ç 
+	ÇÑ ÈÄ atoiÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© ÇØ´ç Á¤¼ö°ªÀ» ¹ÝÈ­ÇÏ¿© ÁÖ´Â ¿ªÇÒÀ» ÇÏ´Â 
+	ÇÔ¼ö. ÃÖÃÊ ÀÔ·ÂÀº stringÀ¸·Î ¹Þ¾Æ¿Â´Ù.                           
 
 (12)float Get_floatData();
-	ì‹¤ìˆ˜í˜•ì— í•´ë‹¹ë˜ëŠ” ê°’ì„ ë°›ì•„ì™€ì•¼ í•˜ëŠ” ê²½ìš° ì •ìƒì ì¸ ìž…ë ¥ì´ ì´ë£¨ì–´ì¡ŒëŠ”ì§€ë£° í™•ì¸í•˜ì—¬
-	atofí•¨ìˆ˜ë¡œ ì‹¤ìˆ˜ê°’ì„ ë¦¬í„´í•´ì£¼ëŠ” í•¨ìˆ˜.                                            
+	½Ç¼öÇü¿¡ ÇØ´çµÇ´Â °ªÀ» ¹Þ¾Æ¿Í¾ß ÇÏ´Â °æ¿ì Á¤»óÀûÀÎ ÀÔ·ÂÀÌ ÀÌ·ç¾îÁ³´ÂÁö·ê È®ÀÎÇÏ¿©
+	atofÇÔ¼ö·Î ½Ç¼ö°ªÀ» ¸®ÅÏÇØÁÖ´Â ÇÔ¼ö.                                            
 
 */

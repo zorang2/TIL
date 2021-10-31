@@ -1,3 +1,5 @@
+[Notion에서 Chap. 2 보기](https://cyber-podium-310.notion.site/2-OpenCV-d50fd306ad5f45d7bfbc9abe103f6756)
+
 # 2장, OpenCV으로 데이터 작업
 
 2장 에서는 몇가지 기본적인 OpenCV 기능을 살펴본다.

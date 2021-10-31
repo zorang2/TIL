@@ -1,3 +1,5 @@
+[Notion에서 Chap.1 보기](https://cyber-podium-310.notion.site/1-d4941dba30ac43bea320b150515b8497)
+
 # 1장, 머신러닝 시작
 
 1장 에서는 이 책에 필요한 소프트웨어와 파이썬 모듈을 설치하는 방법을 설명한다.

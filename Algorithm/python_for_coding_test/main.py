@@ -1,1 +1,1 @@
-print('hello')
+print('main.py is 실행파일.')

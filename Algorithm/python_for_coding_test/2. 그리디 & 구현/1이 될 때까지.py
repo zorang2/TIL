@@ -15,8 +15,8 @@ while True:
       break
     
     # k로 나누기
-    result += 1 # k로 나눠주는 연산을 1번 수행한 것이므로 +1 시킨다.
-    n //= k # n을 k로 나눈다.
+    n //= k# n을 k로 나눈다.
+    result += 1
 
 # 마지막으로 남은 수에 대하여 1씩 빼기
 result += (n-1)

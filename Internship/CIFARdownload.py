@@ -1,19 +1,32 @@
 import torch
 import torchvision
-import torchvision.transforms as transforms
+import torchvision.transforms as tr
+from torch.utils.data import DataLoader, Dataset
+import numpy as np
 
-transform = transforms.Compose(
-    [transforms.ToTensor(),
-     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+transf = tr.Compose([tr.Resize(8), tr.ToTensor()])
 
-batch_size = 4
+trainset = torchvision.datasets.CIFAR10(root='/home/sldev1/Project/hyeongeun_test/data', train=True, download=True, transform=transf)
+testet = torchvision.datasets.CIFAR10(root='/home/sldev1/Project/hyeongeun_test/data', train=False, download=True, transform=transf)
+
+#print(trainset[0][0].size()) #img
+#print(trainset[0][1]) #label
+
+trainloader = DataLoader(trainset, batch_size=50, shuffle=True, num_workers=2)
+testloader = DataLoader(testet, batch_size=50, shuffle=True, num_workers=2)
+
+print(len(trainloader))
+
+
+
+'''
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
-                                        download=True, transform=transform)
+                                        download=True, transform=transf)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
                                           shuffle=True, num_workers=2)
 testset = torchvision.datasets.CIFAR10(root='./data', train=False,
-                                          download=True, transform=transform)
+                                          download=True, transform=transf)
 testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
                                          shuffle=False, num_workers=2)
 
@@ -41,3 +54,4 @@ imshow(torchvision.utils.make_grid(images))
 #정답(label) 출력
 print(' '.join(f'{classes[labels[j]]:5s}' for j in range(batch_size)))
 
+'''

@@ -76,7 +76,8 @@ class BottleNeck(nn.Module):
         out = F.relu(out)
         return out
 
-
+# ResNet50(batch[0])
+# ResNet(ResNet(BottleNeck, [3, 4, 6, 3])
 class ResNet(nn.Module):
     def __init__(self, block, num_blocks, num_classes=10):
         super(ResNet, self).__init__()

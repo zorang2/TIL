@@ -31,6 +31,6 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 2. Model, FLOPs, Params, Accuracy, TestDataset 작성하기.
 |Model|FLOPs|Params|Accuracy(%)|TestDataset|
 |--|--|--|--|--|
-|EmoNet|16.94G|14 M|75.89|16.94G|AffectNet-8(Partial)|
-|VggNet|---.---G|-- M|--.--|--.--G|AffectNet-8(Partial)|
-|ResNet|---.---G|-- M|--.--|--.--G|AffectNet-8(Partial)|
+|EmoNet|16.94G|14 M|75.89|AffectNet-8(Partial)|
+|VggNet|---.---G|-- M|--.--|AffectNet-8(Partial)|
+|ResNet|---.---G|-- M|--.--|AffectNet-8(Partial)|

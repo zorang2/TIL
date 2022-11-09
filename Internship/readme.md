@@ -27,8 +27,9 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 # Nov
 11/09(수)   
 "VggNet, ResNet" FER dataset train 후
-1. tensorboard를 활용한 실시간 데이터 학습 점검
-2. Model, FLOPs, Params, Accuracy, TestDataset 작성하기.
+1. tensorboard를 활용한 실시간 데이터 학습 점검   
+2. Model, FLOPs, Params, Accuracy, TestDataset 작성하기.   
+
 |Model|FLOPs|Params|Accuracy(%)|TestDataset|
 |--|--|--|--|--|
 |EmoNet|16.94G|14 M|75.89|AffectNet-8(Partial)|

@@ -27,11 +27,17 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 10/20(목) 유튜브 실습 + dataload + 전처리 포스팅하기.   
 
 # Nov
+<<<<<<< HEAD
 ---
 ### 11/09(수), 11/10(목)   
 "VggNet, ResNet, MobileNet" FER dataset train 후
 1. tensorboard를 활용한 실시간 모델 학습 점검하기   
     - 유의미한 insight 도출해보기
+=======
+11/09(수)   
+"VggNet, ResNet" FER dataset train 후
+1. tensorboard를 활용한 실시간 데이터 학습 점검   
+>>>>>>> 1c282d33b75ee4513585b5f315870e19a36eaabb
 2. Model, FLOPs, Params, Accuracy, TestDataset 작성하기.   
 
 |Model|FLOPs|Params|Accuracy(%)|TestDataset|

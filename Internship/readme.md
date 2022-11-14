@@ -53,6 +53,18 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 |MobileNet|0.53 G|3.2 M|AffectNet-8(상명대, 8-Labels)|10|42.9 % (9)|- %|47|
 |MobileNet|0.53 G|3.2 M|AffectNet-8(상명대, 8-Labels)|200|45.2 % (33)|95.9 %|47|
 
+<details>
+<summary>결과 그래프</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
+##### VggNet
+<img src="./img/vgg_fer.png" width="300" height="300">
+<img src="./img/resnet_fer.png" width="300" height="300">
+<img src="./img/mobilenet_fer.png" width="300" height="300">
+</details>
+
+<img src="./img/vgg_fer.png" width="300" height="300">
+
 ![VggNet](./img/vgg_fer.png "VggNet")
 ![ResNet](./img/resnet_fer.png "ResNet")
 ![MobileNet](./img/mobilenet_fer.png "MobileNet")

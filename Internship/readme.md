@@ -65,5 +65,5 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 # 참고자료
 ---
-[옵티마이저에 대한 좋은 고찰](https://pozalabs.github.io/Optimizer/)
+[옵티마이저에 대한 좋은 고찰](https://pozalabs.github.io/Optimizer/)   
 [Learning Rate Scheduler에 대한 Skill](https://gaussian37.github.io/dl-pytorch-lr_scheduler/)

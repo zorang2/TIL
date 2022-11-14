@@ -54,20 +54,14 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 |MobileNet|0.53 G|3.2 M|AffectNet-8(상명대, 8-Labels)|200|45.2 % (33)|95.9 %|47|
 
 <details>
-<summary>결과 그래프</summary>
+<summary>더보기(결과 그래프)</summary>
 
 <!-- summary 아래 한칸 공백 두어야함 -->
-##### VggNet
+### VggNet, ResNet, MobileNet 순서
 <img src="./img/vgg_fer.png" width="300" height="300">
 <img src="./img/resnet_fer.png" width="300" height="300">
 <img src="./img/mobilenet_fer.png" width="300" height="300">
 </details>
-
-<img src="./img/vgg_fer.png" width="300" height="300">
-
-![VggNet](./img/vgg_fer.png "VggNet")
-![ResNet](./img/resnet_fer.png "ResNet")
-![MobileNet](./img/mobilenet_fer.png "MobileNet")
 
 
 
@@ -88,7 +82,13 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 4. Dataloader부분, 1, 2의 시간 비교 해봐라
     1. init에서 통째로 load
     2. getitem에서 차례로
-![ResNet after feedback](./img/resnet_fer_after_feedback.png "ResNet_feedback")
+<details>
+<summary>더보기(결과 그래프)</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
+### ResNet
+<img src="./img/resnet_fer_after_feedback.png" width="300" height="300">
+</details>
 
 ---
 

@@ -53,9 +53,9 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 |MobileNet|0.53 G|3.2 M|AffectNet-8(상명대, 8-Labels)|10|42.9 % (9)|- %|47|
 |MobileNet|0.53 G|3.2 M|AffectNet-8(상명대, 8-Labels)|200|45.2 % (33)|95.9 %|47|
 
-![VggNet](./Internship/img/vgg_fer.png "VggNet")
-![ResNet](./Internship/img/resnet_fer.png "ResNet")
-![MobileNet](./Internship/img/mobilenet_fer.png "MobileNet")
+![VggNet](./img/vgg_fer.png "VggNet")
+![ResNet](./img/resnet_fer.png "ResNet")
+![MobileNet](./img/mobilenet_fer.png "MobileNet")
 
 
 
@@ -76,7 +76,7 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 4. Dataloader부분, 1, 2의 시간 비교 해봐라
     1. init에서 통째로 load
     2. getitem에서 차례로
-![ResNet after feedback](./Internship/img/resnet_fer_after_feedback.png "ResNet")
+![ResNet after feedback](./img/resnet_fer_after_feedback.png "ResNet_feedback")
 
 ---
 

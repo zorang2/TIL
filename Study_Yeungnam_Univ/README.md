@@ -7,9 +7,9 @@ Data on subjects taken by Yeungnam University from 2019 to 2022 (total : 4years)
 
 | 수강 학기  | 과목명(한글) | Subject (English)|
 |--|--|--|
-|2022-1|운영체제설계|(예정)|
-|2022-1|알고리즘|(예정)|
-|2022-1|프로그래밍언어|(예정)|
+|2022-1|운영체제|operating system|
+|2022-1|자동차공학과제2(캡스톤디자인)|Capstone Design2|
+|2022-1|프로그래밍언어|Programming Language|
 |2021-2|자동차공학과제1(캡스톤디자인)|Capstone Design1|
 |2021-2|자율주행인공지능|Autonomous driving Artificial intelligence|
 |2021-2|소프트웨어공학|Software Enginnering|

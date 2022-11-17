@@ -10,7 +10,7 @@
 
 ## Nov
 
-
+<br/><br/>
 ### 11/18(금)
 
 #### Conv2d 실습
@@ -21,7 +21,7 @@
 
 
 
-
+<br/><br/>
 ### 11/17(목)
 
 
@@ -57,11 +57,10 @@
 
 
 
-
+<br/><br/>
 ### 11/15(화)
 
 #### 상준 선임님 과제
----
 1. MobileNet Epoch 끝까지 돌려서 보고하기. ***(11/18. 학습 끝)***
 
 <details>
@@ -71,7 +70,7 @@
 ### MobileNet
 <img src="./img/mobilenet_200epoch.png" width="300" height="300">
 </details>
---- 
+
 
 
 
@@ -80,7 +79,7 @@
 
     
     
-    
+<br/><br/>
 ### 11/14(월)
 
 #### 민규 사원님 Feedback   
@@ -101,15 +100,14 @@
     긋긋긋 ~!
 </details>
 
----
 
 
 
 
 
 
-
-### 11/11(금). 11/14(월)
+<br/><br/>
+### 11/11(금), 11/14(월)
 
 |Model|FLOPs|Params|TestDataset|Total Epoch|val Acc (Epoch)|train Acc|MaxEpoch 걸리는 시간(h)|
 |--|--|--|--|--|--|--|--|
@@ -139,11 +137,11 @@
 - MobileNet 파일 위치: 
     - "Internship/MobileNet_FER/[11.11][tensorboard, 200에폭, valid acc 45.2%] MobileNet.ipynb"   
 </details>
----
 
 
 
 
+<br/><br/>
 ### 11/09(수), 11/10(목)   
 
 1. tensorboard를 활용한 실시간 데이터 학습 점검   
@@ -160,6 +158,7 @@
 
 
 
+<br/><br/><br/><br/><br/>
 
 
     
@@ -179,7 +178,14 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 
 
+
+
+
 <br/><br/><br/><br/><br/>
+
+
+
+
 
 ## Sep
 
@@ -201,7 +207,11 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 
 
+
+
+<br/><br/><br/><br/><br/>
+
+
 ## 조현근 선정 참고자료
----
 [옵티마이저에 대한 좋은 고찰](https://pozalabs.github.io/Optimizer/)   
 [Learning Rate Scheduler에 대한 Skill](https://gaussian37.github.io/dl-pytorch-lr_scheduler/)

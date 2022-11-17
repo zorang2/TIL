@@ -126,6 +126,14 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 #### 11/15 실험을 통해 알게된 부분.
 1. step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.
+
+
+#### Conv2d안에 숫자의 의미를 잘 모르며, 실습해보면서 output찍어봐야할 것 같다.
+- 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
+- VGG code review.ipynb file 참고
+
+
+
 <details>
 <summary>더보기(결과 그래프)</summary>
 

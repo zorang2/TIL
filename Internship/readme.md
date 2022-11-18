@@ -169,19 +169,21 @@
 1. train, valid loss 관련,
     - 학습은 잘 됬지만,, 그래프로 시각화 할 때 내가 잘못한 부분 :
         - `train_loss_visual = loss.item()` 부분 잘못 함. ==> `loss.item()`이 아니라, `train_loss`임.
-    - backward 메소드 잘못 배치 함 (?) ==> 11.18(금) 수정중
-<br/>
+    - backward 메소드 잘못 배치 함 (?) ==> 11.18(금) 수정중   
+
 2. MobileNet train, val loss + acc 관련,
-    - 모바일 넷 그래프를 보면, 지혼
-    - learning rate scheduler에서 patience를 너무 낮게 설정해서 그래프 이상하게 나왔다.
+    - 모바일 넷 그래프를 보면, 혼자 이상한 그래프를 그리고 있다.
+    - 코드가 다르기도 하지만, 가장 큰 이유는, learning rate scheduler에서 patience를 너무 낮게 설정해서 lr이 낮아졌고, 그 결과 그래프가 이상하게 나왔다.
+    
 <br/><br/>
+
+
 - VggNet 파일 위치 : 
     - "Internship/VGG_FER/[11.11][tensorboard, 17에폭, valid acc 29%] VGG.ipynb"
 - ResNet 파일 위치 : 
     - "Internship/ResNet_FER/[11.11][tensorboard, 35에폭, valid acc 43%] ResNet.ipynb"   
 - MobileNet 파일 위치: 
-    - "Internship/MobileNet_FER/[11.11][tensorboard, 200에폭, valid acc 45.2%] MobileNet.ipynb"   
-</details>
+    - "Internship/MobileNet_FER/[11.11][tensorboard, 200에폭, valid acc 45.2%] MobileNet.ipynb"</details>
 
 
 

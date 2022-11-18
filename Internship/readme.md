@@ -195,7 +195,7 @@
 |VggNet|---.---G|-- M|--.--|AffectNet-8(상명대, 8-Labels)|
 |ResNet|---.---G|-- M|--.--|AffectNet-8(상명대, 8-Labels)|
 <br/>
-따라서, 내가 할 일은 아래와 같다.
+따라서, 내가 할 일은 아래와 같다.<br/>
 1. tensorboard를 활용한 실시간 데이터 학습 점검하는 방법 숙지   
 2. Model, FLOPs, Params, Accuracy, TestDataset 작성해보기   
 

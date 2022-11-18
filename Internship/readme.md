@@ -67,7 +67,7 @@
 
 #### 11/15 실험을 통해 알게된 부분.
 1. ***step, batch For문 안에 writer*** VS ***Epoch For문 안에 writer***
-step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.
+    - step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.
 
 
 

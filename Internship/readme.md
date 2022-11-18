@@ -126,7 +126,10 @@
 ### VggNet, ResNet, MobileNet 순서
 <img src="./img/vgg_fer.png" width="300" height="300">
 <img src="./img/resnet_fer.png" width="300" height="300">
-<img src="./img/mobilenet_fer.png" width="300" height="300">   
+<img src="./img/mobilenet_fer.png" width="300" height="300">
+
+<br/>
+    
 ### 11/15(화) 확인된 내용 = 그래프 이상한 원인
 1. train, valid loss 관련,
     - backward 메소드 잘못 배치 함 + train_loss_visual = loss.item() 부분 잘못 함.

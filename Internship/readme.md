@@ -9,10 +9,11 @@
 
 
 ## Nov
+===
 
 <br/><br/>
 ### 11/18(금)
-
+---
 #### Conv2d 실습
 - 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
 - VGG code review.ipynb file 참고
@@ -23,7 +24,7 @@
 
 <br/><br/>
 ### 11/17(목)
-
+---
 
 #### 11월17일 발견사항 : 현재 실험 코드 차질 생김
 [backward후 loss접근, Bad 예상+tensorboard for문안으로] ResNet.ipynb"   

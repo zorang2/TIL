@@ -9,9 +9,9 @@
 
 
 ## Nov
-===
 
-<br/><br/>
+
+<br/><br/><br/>
 ### 11/18(금)
 ---
 #### Conv2d 실습
@@ -22,7 +22,7 @@
 
 
 
-<br/><br/>
+<br/><br/><br/>
 ### 11/17(목)
 ---
 
@@ -33,6 +33,7 @@
 기존에 loss.item()으로 진행함...ㅠ...   
 안돼ㅐㅐㅐㅐㅐ (다시 학습중..)
 
+<br/><br/>
 
 #### 11/15 실험을 통해 알게된 부분.
 1. step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.
@@ -49,6 +50,7 @@
 - step, batch for문 안에 writer 학습 코드 경로 : 
     - "Internship/ResNet_FER/[11.15][backward후 loss접근, Bad 예상+tensorboard for문안으로] ResNet.ipynb" </details>
 
+<br/><br/>
 
 #### 나는 Conv2d안에 숫자의 의미를 잘 모르며, 실습해보면서 output찍어봐야할 것 같다.
 - 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
@@ -58,9 +60,9 @@
 
 
 
-<br/><br/>
+<br/><br/><br/>
 ### 11/15(화)
-
+---
 #### 상준 선임님 과제
 1. MobileNet Epoch 끝까지 돌려서 보고하기. ***(11/18. 학습 끝)***
 
@@ -80,7 +82,7 @@
 
     
     
-<br/><br/>
+<br/><br/><br/>
 ### 11/14(월)
 
 #### 민규 사원님 Feedback   
@@ -107,7 +109,7 @@
 
 
 
-<br/><br/>
+<br/><br/><br/>
 ### 11/11(금), 11/14(월)
 
 |Model|FLOPs|Params|TestDataset|Total Epoch|val Acc (Epoch)|train Acc|MaxEpoch 걸리는 시간(h)|
@@ -142,7 +144,7 @@
 
 
 
-<br/><br/>
+<br/><br/><br/>
 ### 11/09(수), 11/10(목)   
 
 1. tensorboard를 활용한 실시간 데이터 학습 점검   

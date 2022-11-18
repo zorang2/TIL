@@ -14,10 +14,13 @@
 <br/><br/><br/>
 ### 11/18(금)
 ---
+
 #### Conv2d 실습
 - 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
 - VGG code review.ipynb file 참고
 
+#### 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 진행 중.
+- 경로 : "Internship/ResNet_FER/[11.18][loss접근 후 backward+step] ResNet.ipynb"
 
 
 
@@ -119,10 +122,10 @@
 ---
 #### 민규 사원님 Feedback   
 
-1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 진행 중.
-2. train_loss_visual = loss.item() 이 아니라, = train_loss다. 고쳐라. ==> Complite.
-3. 학습 시키고 valid loss 차이점 체크해봐라(because 원인 미상) ==> ?
-4. Dataloader부분, 아래의 1, 2의 시간 비교 해봐라 ==> ??
+1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 11.18 진행 중.
+2. train_loss_visual = loss.item() 이 아니라, = train_loss다. 고쳐라. ==> ~~완료~~
+3. 학습 시키고 valid loss 차이점 체크해봐라(because 원인 미상) ==> 아직도 모르겠음. valid 데이터셋 라벨링이 잘못된 것 때문인 것으로 추정됨.
+4. Dataloader부분, 아래의 1, 2의 시간 비교 해봐라 ==> 민규 사원님 출근하면 물어보기
     1. init에서 통째로 load
     2. getitem에서 차례로
 
@@ -133,9 +136,10 @@
 ### "1 번 Feedback"의 결과
 
 ### "2 번 Feedback"의 결과
-<img src="./img/resnet_fer_after_feedback.png" width="300" height="300">   
-    긋긋긋 ~!   
-    vgg, resnet, mobilenet 모두 고침.
+<img src="./img/resnet_fer_after_feedback.png" width="300" height="300"><br/>
+
+긋긋긋 ~!   
+vgg, resnet, mobilenet 모두 고침.
 </details>
 
 
@@ -147,7 +151,7 @@
 <br/><br/><br/>
 ### 11/11(금), 11/14(월)
 ---
-|Model|FLOPs|Params|TestDataset|Total Epoch|val Acc (Epoch)|train Acc|MaxEpoch 걸리는 시간(h)|
+|Model|FLOPs|Params|TestDataset|Total Epoch|val Acc (Epoch)|train Acc|총 학습 시간(h)|
 |--|--|--|--|--|--|--|--|
 |VggNet|15.48 G|138 M|AffectNet-8(상명대, 8-Labels)|17|29.1 % (2)|70.1 %|298|
 |ResNet|3.86 G|23 M|AffectNet-8(상명대, 8-Labels)|35|43.9 % (15)|98.3 %|134|
@@ -168,8 +172,7 @@
 ### 11/15(화) 그래프 이상한 원인 확인.
 1. train, valid loss 관련,
     - 학습은 잘 됬지만,, 그래프로 시각화 할 때 내가 잘못한 부분 :
-        - `train_loss_visual = loss.item()` 부분 잘못 함. ==> `loss.item()`이 아니라, `train_loss`임.
-    - backward 메소드 잘못 배치 함 (?) ==> 11.18(금) 수정중   
+        - `train_loss_visual = loss.item()` 부분 잘못 함. ==> `loss.item()`이 아니라, `train_loss`임. 
 
 2. MobileNet train, val loss + acc 관련,
     - 모바일 넷 그래프를 보면, 혼자 이상한 그래프를 그리고 있다.

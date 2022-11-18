@@ -26,17 +26,43 @@
 ### 11/17(목)
 ---
 
-#### 11월17일 발견사항 : 현재 실험 코드 차질 생김
+#### 11/17 발견사항 + 11/15 실험을 통해 알게된 부분 결론.
+결론 : `step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.`
+
+<br/><br/>
+
+
+
+#### 11/17 발견사항 : 현재 실험 코드 차질 생김
 [backward후 loss접근, Bad 예상+tensorboard for문안으로] ResNet.ipynb"   
 [backward후 loss접근, Bad 예상] ResNet.ipynb"   
 위 코드 파일 둘다 train_loss로 바꿔서 학습시켜야 했는데.,,,,,   
 기존에 loss.item()으로 진행함...ㅠ...   
-안돼ㅐㅐㅐㅐㅐ (다시 학습중..)
+안돼ㅐㅐㅐㅐㅐ (~~다시 학습중.. // 11.18 학습 완료~~)
+
+<details>
+<summary>더보기(결과 그래프)</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
+### 왼쪽(Epoch for문 안에 writer), 오른쪽(step, batch for문 안에 writer)
+<img src="./img/resnet_fer_11.17_epoch_for문_안에_writer.png" width="300" height="300">
+<img src="./img/resnet_fer_11.17_step+batch_for문_안에_writer.png" width="300" height="300">
+
+- Epoch for문 안에 writer 학습 코드 경로 : 
+    - "Internship/ResNet_FER/[11.17][loss.item()->train_loss 수정본][11.15][backward후 loss접근, Bad 예상] ResNet.ipynb"   
+- step, batch for문 안에 writer 학습 코드 경로 : 
+    - "Internship/ResNet_FER/[11.17][loss.item()->train_loss 수정본][11.15][backward후 loss접근, Bad 예상+tensorboard for문안으로] ResNet.ipynb" </details>
+
 
 <br/><br/>
 
+
 #### 11/15 실험을 통해 알게된 부분.
-1. step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.
+1. ***step, batch For문 안에 writer*** VS ***Epoch For문 안에 writer***
+step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.
+
+
+
 <details>
 <summary>더보기(결과 그래프)</summary>
 
@@ -50,7 +76,28 @@
 - step, batch for문 안에 writer 학습 코드 경로 : 
     - "Internship/ResNet_FER/[11.15][backward후 loss접근, Bad 예상+tensorboard for문안으로] ResNet.ipynb" </details>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br/><br/>
+
 
 #### 나는 Conv2d안에 숫자의 의미를 잘 모르며, 실습해보면서 output찍어봐야할 것 같다.
 - 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
@@ -130,9 +177,12 @@
 
 <br/>
     
-### 11/15(화) 확인된 내용 = 그래프 이상한 원인
+### 11/15(화) 확인된 내용, 그래프 이상한 원인
 1. train, valid loss 관련,
-    - backward 메소드 잘못 배치 함 + train_loss_visual = loss.item() 부분 잘못 함.
+    - 학습은 잘 됬지만,, 그래프로 시각화 할 때 내가 잘못한 부분 :
+        - train_loss_visual = loss.item() 부분 잘못 함.
+        - loss.item()이 아니라, train_loss임.
+    - backward 메소드 잘못 배치 함 (?) ==> 11.18(금) 수정중
 2. MobileNet train, val loss + acc 관련,
     - learning rate scheduler에서 patience를 너무 낮게 설정해서 그래프 이상하게 나왔다.
 
@@ -150,14 +200,18 @@
 <br/><br/><br/>
 ### 11/09(수), 11/10(목)   
 ---
-1. tensorboard를 활용한 실시간 데이터 학습 점검   
-2. Model, FLOPs, Params, Accuracy, TestDataset 작성하기.   
-
+현업에서 성능평가 진행시 아래 표와 같이 정리하여 보고한다.<br/>
 |Model|FLOPs|Params|Accuracy(%)|TestDataset|
 |--|--|--|--|--|
 |EmoNet|16.94G|14 M|75.89|AffectNet-8(상명대, 8-Labels)|
 |VggNet|---.---G|-- M|--.--|AffectNet-8(상명대, 8-Labels)|
 |ResNet|---.---G|-- M|--.--|AffectNet-8(상명대, 8-Labels)|
+<br/>
+따라서, 내가 할 일은 아래와 같다.
+1. tensorboard를 활용한 실시간 데이터 학습 점검하는 방법 숙지   
+2. Model, FLOPs, Params, Accuracy, TestDataset 작성해보기   
+
+
 
 
 

@@ -84,7 +84,7 @@
     
 <br/><br/><br/>
 ### 11/14(월)
-
+---
 #### 민규 사원님 Feedback   
 
 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 진행 중.
@@ -111,7 +111,7 @@
 
 <br/><br/><br/>
 ### 11/11(금), 11/14(월)
-
+---
 |Model|FLOPs|Params|TestDataset|Total Epoch|val Acc (Epoch)|train Acc|MaxEpoch 걸리는 시간(h)|
 |--|--|--|--|--|--|--|--|
 |VggNet|15.48 G|138 M|AffectNet-8(상명대, 8-Labels)|17|29.1 % (2)|70.1 %|298|
@@ -146,7 +146,7 @@
 
 <br/><br/><br/>
 ### 11/09(수), 11/10(목)   
-
+---
 1. tensorboard를 활용한 실시간 데이터 학습 점검   
 2. Model, FLOPs, Params, Accuracy, TestDataset 작성하기.   
 
@@ -156,7 +156,7 @@
 |VggNet|---.---G|-- M|--.--|AffectNet-8(상명대, 8-Labels)|
 |ResNet|---.---G|-- M|--.--|AffectNet-8(상명대, 8-Labels)|
 
----
+
 
 
 

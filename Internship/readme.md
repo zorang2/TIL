@@ -165,15 +165,16 @@
 
 <br/>
     
-### 11/15(화) 확인된 내용, 그래프 이상한 원인
+### 11/15(화) 그래프 이상한 원인 확인.
 1. train, valid loss 관련,
     - 학습은 잘 됬지만,, 그래프로 시각화 할 때 내가 잘못한 부분 :
-        - train_loss_visual = loss.item() 부분 잘못 함.
-        - loss.item()이 아니라, train_loss임.
+        - `train_loss_visual = loss.item()` 부분 잘못 함. ==> `loss.item()`이 아니라, `train_loss`임.
     - backward 메소드 잘못 배치 함 (?) ==> 11.18(금) 수정중
+<br/>
 2. MobileNet train, val loss + acc 관련,
+    - 모바일 넷 그래프를 보면, 지혼
     - learning rate scheduler에서 patience를 너무 낮게 설정해서 그래프 이상하게 나왔다.
-
+<br/><br/>
 - VggNet 파일 위치 : 
     - "Internship/VGG_FER/[11.11][tensorboard, 17에폭, valid acc 29%] VGG.ipynb"
 - ResNet 파일 위치 : 

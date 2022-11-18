@@ -26,6 +26,14 @@
 ### 11/17(목)
 ---
 
+<br/><br/>
+
+#### 나는 Conv2d안에 숫자의 의미를 잘 모르며, 실습해보면서 output찍어봐야할 것 같다.
+- 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
+- VGG code review.ipynb file 참고
+
+<br/><br/>
+
 #### 11/17 발견사항 + 11/15 실험을 통해 알게된 부분 결론.
 결론 : `step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야한다.`
 
@@ -81,37 +89,11 @@ step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야�
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
-
-
-#### 나는 Conv2d안에 숫자의 의미를 잘 모르며, 실습해보면서 output찍어봐야할 것 같다.
-- 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
-- VGG code review.ipynb file 참고
-
-
-
-
-
 <br/><br/><br/>
 ### 11/15(화)
 ---
 #### 상준 선임님 과제
-1. MobileNet Epoch 끝까지 돌려서 보고하기. ***(11/18. 학습 끝)***
+1. MobileNet Epoch 끝까지 돌려서 보고하기. ***~~(11/18. 학습 끝)~~***
 
 <details>
 <summary>더보기(결과 그래프)</summary>
@@ -119,6 +101,9 @@ step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야�
 <!-- summary 아래 한칸 공백 두어야함 -->
 ### MobileNet
 <img src="./img/mobilenet_200epoch.png" width="300" height="300">
+    
+- 학습 코드 경로 : 
+    - "Internship/MoblieNet_FER/[11.15][상준선임님 과제] MobileNet.ipynb"   
 </details>
 
 
@@ -145,9 +130,12 @@ step, batch For문이 아니라 Epoch for문에 tensorboard writer가 있어야�
 <summary>더보기(결과 그래프)</summary>
 
 <!-- summary 아래 한칸 공백 두어야함 -->
-#### "2. train_loss_visual = loss.item() 이 아니라, = train_loss다. 고쳐라" 의 결과
-<img src="./img/resnet_fer_after_feedback.png" width="300" height="300">
-    긋긋긋 ~!
+### "1 번 Feedback"의 결과
+
+### "2 번 Feedback"의 결과
+<img src="./img/resnet_fer_after_feedback.png" width="300" height="300">   
+    긋긋긋 ~!   
+    vgg, resnet, mobilenet 모두 고침.
 </details>
 
 

@@ -20,15 +20,37 @@
 - 11/18 학습 중이던 vgg 그래프 이상 ==> 이유 찾아내고 재학습 필요함.
 
 #### 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> ~~완료(?)~~
-차이는 없는듯..
+
+
+#### 2. 11/14(월) 민규 사원님 Feedback의 결과에 대한 Feedback
+
+1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 완료
+    - 민규 사원님이 전달하고자 했던 메세지
+        - `학습(backward+step)을 다 시키고 loss를 출력하는 것 보다, loss를 다 출력하고 학습을 시키는 것이 더 정석이다.`
+        - 크게 의미는 없지만, 정석? 관례?를 알려줄려고 했던 Feedback.
+<details>
 <img src="./img/resnet_fer_11.17_epoch_for문_안에_writer.png" width="300" height="300">
-<img src="./img/resnet_loss접근 후 backward step.png" width="300" height="300">
+<img src="./img/resnet_loss접근 후 backward step.png" width="300" height="300"> <br/>
+차이는 없는듯 보임.
 
 - 이 항목도 다 됬다고 생각했는데...
     - `logit.max(1)` 이거 때문에 valid loss 값이 튀므로 다시 재학습해야 될 수도 있음.
     - 일단 해놨으니까, 해놓은 부분까지 정리 해놓겠음.
         - 경로 : "Internship/ResNet_FER/[11.17][loss.item()->train_loss 수정본][11.15][backward후 loss접근, Bad 예상] ResNet.ipynb"
         - 경로 : "Internship/ResNet_FER/[11.18][loss접근 후 backward+step] ResNet.ipynb"
+</details>
+    
+2. train_loss_visual = loss.item() 이 아니라, = train_loss다. 고쳐라. ==> ~~완료~~
+    - train loss 관련 추가된 사항.
+        - `train_loss / batch[1].size(0)`이 아니라, `train_loss / total_cnt` 아닌지? ==> ㅇㅇ맞아.
+
+3. 학습 시키고 valid loss 차이점 체크해봐라(because 원인 미상) ==> ~~아직도 모르겠음. valid 데이터셋 라벨링이 잘못된 것 때문인 것으로 추정됨.~~
+여하튼 1~3번 피드백이 찝찝하게 끝남. 지금 code 전체 수정하고 다시 물어봐야됨.
+4. Dataloader부분, 아래의 1, 2의 시간 비교 해봐라
+    1. init에서 통째로 load
+        - class로 불러오는 곳 위 아래에 time 측정해서 정리하고 보여드리기
+    2. getitem에서 차례로
+        - `tqdm` 라이브러리 사용법 익혀서 1 epoch당 걸리는 시간 측정해서 정리하고 보여드리기
 
 
 

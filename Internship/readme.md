@@ -16,11 +16,19 @@
 ---
 
 #### 0. 잘 그려진 학습 그래프 + 표 정리하기 ==> 진행중
-- valid loss 그래프 값들 튀는 이유 발견(logit.max(1)) ==> 아닐 수 도 있지만 유력해보임.
+- valid loss 그래프 값들 튀는 이유 발견(`logit.max(1)`) ==> 아닐 수 도 있지만 유력해보임.
 - 11/18 학습 중이던 vgg 그래프 이상 ==> 이유 찾아내고 재학습 필요함.
 
-#### 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 진행 중.
-- 경로 : "Internship/ResNet_FER/[11.18][loss접근 후 backward+step] ResNet.ipynb"
+#### 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> ~~완료(?)~~
+차이는 없는듯..
+<img src="./img/resnet_fer_11.17_epoch_for문_안에_writer.png" width="300" height="300">
+<img src="./img/resnet_loss접근 후 backward step.png" width="300" height="300">
+
+- 이 항목도 다 됬다고 생각했는데...
+    - `logit.max(1)` 이거 때문에 valid loss 값이 튀므로 다시 재학습해야 될 수도 있음.
+    - 일단 해놨으니까, 해놓은 부분까지 정리 해놓겠음.
+        - 경로 : "Internship/ResNet_FER/[11.17][loss.item()->train_loss 수정본][11.15][backward후 loss접근, Bad 예상] ResNet.ipynb"
+        - 경로 : "Internship/ResNet_FER/[11.18][loss접근 후 backward+step] ResNet.ipynb"
 
 
 

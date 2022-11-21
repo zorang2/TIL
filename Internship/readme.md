@@ -12,15 +12,33 @@
 
 
 <br/><br/><br/>
+### 11/21(월)
+---
+
+#### 0. 잘 그려진 학습 그래프 + 표 정리하기 ==> 진행중
+- valid loss 그래프 값들 튀는 이유 발견(logit.max(1)) ==> 아닐 수 도 있지만 유력해보임.
+- 11/18 학습 중이던 vgg 그래프 이상 ==> 이유 찾아내고 재학습 필요함.
+
+#### 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 진행 중.
+- 경로 : "Internship/ResNet_FER/[11.18][loss접근 후 backward+step] ResNet.ipynb"
+
+
+
+<br/><br/><br/>
 ### 11/18(금)
 ---
 
-#### Conv2d 실습
-- 참고자료 : https://gaussian37.github.io/dl-pytorch-conv2d/
+#### 0. Conv2d 실습
+- 참고자료 :
+    - https://gaussian37.github.io/dl-pytorch-conv2d/
+    - [[딥러닝 일지] Conv2d 알아보기](https://blog.joonas.io/196?category=1016329)
 - VGG code review.ipynb file 참고
 
 #### 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 진행 중.
 - 경로 : "Internship/ResNet_FER/[11.18][loss접근 후 backward+step] ResNet.ipynb"
+#### 2. 잘 그려진 학습 그래프 + 표 정리하기 ==> 진행중
+- 지금 vgg만 있으면 되기 때문에 vgg학습중 (11/18)
+- 월요일에 출근해서 vgg 학습된거 확인하고 학습 그래프+표 정리 해내기.
 
 
 

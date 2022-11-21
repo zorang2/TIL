@@ -44,8 +44,7 @@
     - train loss 관련 추가된 사항.
         - `train_loss / batch[1].size(0)`이 아니라, `train_loss / total_cnt` 아닌지? ==> ㅇㅇ맞아.
 
-3. 학습 시키고 valid loss 차이점 체크해봐라(because 원인 미상) ==> ~~아직도 모르겠음. valid 데이터셋 라벨링이 잘못된 것 때문인 것으로 추정됨.~~
-<br/>
+3. 학습 시키고 valid loss 차이점 체크해봐라(because 원인 미상) ==> ~~아직도 모르겠음. valid 데이터셋 라벨링이 잘못된 것 때문인 것으로 추정됨.~~   
 여하튼 1~3번 피드백이 찝찝하게 끝남. 지금 code 전체 수정하고 다시 물어봐야됨.
 4. Dataloader부분, 아래의 1, 2의 시간 비교 해봐라
     1. init에서 통째로 load

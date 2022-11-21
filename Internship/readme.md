@@ -25,7 +25,7 @@
 #### 2. 11/14(월) 민규 사원님 Feedback의 결과에 대한 Feedback
 
 1. loss 먼저 넣고 backward+step vs backward+step후 loss의 차이점을 찾아보라. ==> 완료
-    - 민규 사원님이 전달하고자 했던 메세지
+    - ***민규 사원님이 전달하고자 했던 메세지***
         - `학습(backward+step)을 다 시키고 loss를 출력하는 것 보다, loss를 다 출력하고 학습을 시키는 것이 더 정석이다.`
         - 크게 의미는 없지만, 정석? 관례?를 알려줄려고 했던 Feedback.
 <details>
@@ -45,6 +45,7 @@
         - `train_loss / batch[1].size(0)`이 아니라, `train_loss / total_cnt` 아닌지? ==> ㅇㅇ맞아.
 
 3. 학습 시키고 valid loss 차이점 체크해봐라(because 원인 미상) ==> ~~아직도 모르겠음. valid 데이터셋 라벨링이 잘못된 것 때문인 것으로 추정됨.~~
+<br/>
 여하튼 1~3번 피드백이 찝찝하게 끝남. 지금 code 전체 수정하고 다시 물어봐야됨.
 4. Dataloader부분, 아래의 1, 2의 시간 비교 해봐라
     1. init에서 통째로 load

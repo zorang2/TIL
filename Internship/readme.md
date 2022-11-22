@@ -10,6 +10,39 @@
 
 ## Nov
 
+<br/><br/><br/>
+### 11/22(화)
+---
+
+#### 월요일 민규사원님 Feedback 4번
+4. Dataloader부분, 아래의 1, 2의 시간 비교 해봐라
+    1. init에서 통째로 load
+        - class로 불러오는 곳 위 아래에 time 측정해서 정리하고 보여드리기
+        1. train_set(28만 장)은 Kernel Dead, val_set(4천장)은 정상작동 가능 확인 (11/23(수))
+            - Kernel Dead 타개를 위한 조치사항 ~~(아래를 해도 커널 계속 죽음)~~
+                1. [c.NotebookApp.max_buffer_size =10000000000](https://min23th.tistory.com/11)
+                2. [limit 500000수정](https://blog.hbsmith.io/too-many-open-files-%EC%97%90%EB%9F%AC-%EB%8C%80%EC%9D%91%EB%B2%95-9b388aea4d4e)
+                    - /etc/security/limits.conf
+                        - * hard nofile 500000
+                        - * soft nofile 500000
+                        - root hard nofile 500000
+                        - root soft nofile 500000
+                3. if문으로 7만장 단위로 쪼개도 안됨.
+                4. 위 3가지 방법에서 `free -mh` 명령어 수행시 `free 0B`로 거의 수렴함.
+                평상 시
+                |-----|total|used|free|shared|buff/cache|available|
+                |--|--|--|--|--|--|--|
+                |Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
+                |Swap|2.0 G|1.6 G|406 M|-|-|-|
+                죽을 때
+                |-----|total|used|free|shared|buff/cache|available|
+                |--|--|--|--|--|--|--|
+                |Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|
+                |Swap|2.0 G|2.0 G|0 B|-|-|-|
+                
+    2. getitem에서 차례로
+        - `tqdm` 라이브러리 사용법 익혀서 1 epoch당 걸리는 시간 측정해서 정리하고 보여드리기
+
 
 <br/><br/><br/>
 ### 11/21(월)

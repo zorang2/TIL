@@ -28,19 +28,19 @@
                         - root hard nofile 500000
                         - root soft nofile 500000
                 3. if문으로 7만장 단위로 쪼개도 안됨.
-                4. 위 3가지 방법에서 `free -mh` 명령어 수행시 `free 0B`로 거의 수렴함.   
-<br/><br/>
+                4. 위 3가지 방법에서 `free -mh` 명령어 수행시 `free 0B`로 거의 수렴함.
+<br/>
 `평상 시`   
-|-----|total|used|free|shared|buff/cache|available|
+|/|total|used|free|shared|buff/cache|available|
 |--|--|--|--|--|--|--|
 |Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
-|Swap|2.0 G|1.6 G|406 M|-|-|-|
+|Swap|2.0 G|1.6 G|406 M|/|/|/|
 <br/><br/>
 `죽을 때`   
-|-----|total|used|free|shared|buff/cache|available|
+|/|total|used|free|shared|buff/cache|available|
 |--|--|--|--|--|--|--|
 |Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|
-|Swap|2.0 G|2.0 G|0 B|-|-|-|
+|Swap|2.0 G|2.0 G|0 B|/|/|/|
                 
     2. getitem에서 차례로
         - `tqdm` 라이브러리 사용법 익혀서 1 epoch당 걸리는 시간 측정해서 정리하고 보여드리기

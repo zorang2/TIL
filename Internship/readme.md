@@ -11,7 +11,7 @@
 ## Nov
 
 <br/><br/><br/>
-### 11/22(화)
+### 11/22(화), 11/23(수)
 ---
 
 #### 월요일 민규사원님 Feedback 4번
@@ -23,13 +23,13 @@
                 1. [c.NotebookApp.max_buffer_size =10000000000](https://min23th.tistory.com/11)
                 2. [limit 500000수정](https://blog.hbsmith.io/too-many-open-files-%EC%97%90%EB%9F%AC-%EB%8C%80%EC%9D%91%EB%B2%95-9b388aea4d4e)
                     - /etc/security/limits.conf
-                        - * hard nofile 500000
-                        - * soft nofile 500000
-                        - root hard nofile 500000
-                        - root soft nofile 500000
+                        - `* hard nofile 500000`
+                        - `* soft nofile 500000`
+                        - `root hard nofile 500000`
+                        - `root soft nofile 500000`
                 3. if문으로 7만장 단위로 쪼개도 안됨.
                 <details>
-                <summary>`free -mh` 명령어 수행시</summary>
+                <summary>***free -mh*** 명령어 수행 시</summary>
                 
                 <br/><br/>
     
@@ -56,7 +56,7 @@
                 |Swap|2.0 G|2.0 G|0 B|/|/|/|
                 </details>
 
-                
+                4. 다른 방법이 있는지 여쭤보기.
                 
                 
                 

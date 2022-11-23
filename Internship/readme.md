@@ -29,27 +29,22 @@
                         - `root soft nofile 500000`
                 3. if문으로 7만장 단위로 쪼개도 안됨.
                 <details>
-                <summary>***free -mh*** 명령어 수행 시</summary>
+                <summary>free -mh 명령어 수행 결과</summary>
                 
-                <br/><br/>
-    
+                <br/>
     
                 ***평상 시***
-
-                <br/>
-
+    
                 |목차|total|used|free|shared|buff/cache|available|
                 |--|--|--|--|--|--|--|
                 |Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
                 |Swap|2.0 G|1.6 G|406 M|/|/|/|
 
 
-                <br/><br/>
-
-                ***죽을 때***
-
                 <br/>
 
+                ***Dead kernel***
+    
                 |목차|total|used|free|shared|buff/cache|available|
                 |--|--|--|--|--|--|--|
                 |Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|

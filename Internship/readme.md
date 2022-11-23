@@ -28,9 +28,8 @@
                         - root hard nofile 500000
                         - root soft nofile 500000
                 3. if문으로 7만장 단위로 쪼개도 안됨.
-                4. 위 3가지 방법에서 `free -mh` 명령어 수행시 `free 0B`로 거의 수렴함.
-                
                 <details>
+                <summary>`free -mh` 명령어 수행시</summary>
                 
                 <br/><br/>
     

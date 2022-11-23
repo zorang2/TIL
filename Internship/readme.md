@@ -22,11 +22,14 @@
             - Kernel Dead 타개를 위한 조치사항 ~~(아래를 해도 커널 계속 죽음)~~
                 1. [c.NotebookApp.max_buffer_size =10000000000](https://min23th.tistory.com/11)
                 2. [limit 500000수정](https://blog.hbsmith.io/too-many-open-files-%EC%97%90%EB%9F%AC-%EB%8C%80%EC%9D%91%EB%B2%95-9b388aea4d4e)
-                    - /etc/security/limits.conf
-                        - `* hard nofile 500000`
-                        - `* soft nofile 500000`
-                        - `root hard nofile 500000`
-                        - `root soft nofile 500000`
+                    <details>
+                    <summary>/etc/security/limits.conf</summary>
+                    `* hard nofile 500000`
+                    `* soft nofile 500000`
+                    `root hard nofile 500000`
+                    `root soft nofile 500000`
+                    </details>
+
                 3. if문으로 7만장 단위로 쪼개도 안됨.
                 <details>
                 <summary>free -mh 명령어 수행 결과</summary>

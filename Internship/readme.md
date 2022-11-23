@@ -31,27 +31,27 @@
                 4. 위 3가지 방법에서 `free -mh` 명령어 수행시 `free 0B`로 거의 수렴함.
                 
                 <details>
-<br/>
-`평상 시`   
+                <br/>
+                `평상 시`   
 
-<br/>
+                <br/>
 
-|목차|total|used|free|shared|buff/cache|available|
-|--|--|--|--|--|--|--|
-|Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
-|Swap|2.0 G|1.6 G|406 M|/|/|/|
+                |목차|total|used|free|shared|buff/cache|available|
+                |--|--|--|--|--|--|--|
+                |Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
+                |Swap|2.0 G|1.6 G|406 M|/|/|/|
 
 
-<br/><br>
+                <br/><br>
 
-`죽을 때`   
+                `죽을 때`   
 
-<br/>
+                <br/>
 
-|목차|total|used|free|shared|buff/cache|available|
-|--|--|--|--|--|--|--|
-|Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|
-|Swap|2.0 G|2.0 G|0 B|/|/|/|
+                |목차|total|used|free|shared|buff/cache|available|
+                |--|--|--|--|--|--|--|
+                |Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|
+                |Swap|2.0 G|2.0 G|0 B|/|/|/|
                 </details>
 
                 

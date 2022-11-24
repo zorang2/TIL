@@ -3,15 +3,13 @@
 
 
 
-
-
-
-
-
 ## Nov
 
+
+
+
 <br/><br/><br/>
-### 11/22(화), 11/23(수)
+### 11/22(화), 11/23(수), 11/24(목)
 ---
 
 #### 월요일 민규사원님 Feedback 4번
@@ -24,42 +22,59 @@
                 2. [limit 500000수정](https://blog.hbsmith.io/too-many-open-files-%EC%97%90%EB%9F%AC-%EB%8C%80%EC%9D%91%EB%B2%95-9b388aea4d4e)
                     <details>
                     <summary>/etc/security/limits.conf</summary>
-                    `* hard nofile 500000`
-                    `* soft nofile 500000`
-                    `root hard nofile 500000`
-                    `root soft nofile 500000`
+                    
+                    <br/>
+    
+                    `* hard nofile 500000` <br/>
+                    `* soft nofile 500000` <br/>
+                    `root hard nofile 500000` <br/>
+                    `root soft nofile 500000` <br/>
                     </details>
 
                 3. if문으로 7만장 단위로 쪼개도 안됨.
-                <details>
-                <summary>free -mh 명령어 수행 결과</summary>
-                
-                <br/>
-    
-                ***평상 시***
-    
-                |목차|total|used|free|shared|buff/cache|available|
-                |--|--|--|--|--|--|--|
-                |Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
-                |Swap|2.0 G|1.6 G|406 M|/|/|/|
+                    <details>
+                    <summary>free -mh 명령어 수행 결과</summary>
+
+                    <br/>
+
+                    ***평상 시***
+
+                    |목차|total|used|free|shared|buff/cache|available|
+                    |--|--|--|--|--|--|--|
+                    |Mem|15 G|1.0 G|14 G|5.5 M|400 M|14 G|
+                    |Swap|2.0 G|1.6 G|406 M|/|/|/|
 
 
-                <br/>
+                    <br/>
 
-                ***Dead kernel***
-    
-                |목차|total|used|free|shared|buff/cache|available|
-                |--|--|--|--|--|--|--|
-                |Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|
-                |Swap|2.0 G|2.0 G|0 B|/|/|/|
-                </details>
+                    ***Dead kernel***
 
-                4. 다른 방법이 있는지 여쭤보기.
+                    |목차|total|used|free|shared|buff/cache|available|
+                    |--|--|--|--|--|--|--|
+                    |Mem|15 G|15 G|141 M|8.9 M|98 M|18 M|
+                    |Swap|2.0 G|2.0 G|0 B|/|/|/|
+                    </details>
+
+                4. ***다른 방법이 있는지 여쭤보기.***
+                    - 이미지 init에서 불러오는게 28만장이라서 안되는 것 같다라고 말씀드리자 메모리 때문에 당연한거라고 하심.
+                    - ~~(그럼 난 뭘하고 있던건지..?)~~
+                    - 그래서 np.load만 init에서 진행해보라 하심.
+                    - 즉, annotation npy file만 init에서 통째로 로드 하고 train코드에서 걸리는 시간 얼마나 줄어드는지(1), Dataset class load시 얼마나 걸리는지(2) 체크해서 말씀 드리기.
+        
+        2. init에서 label load 코드 정상 작동 확인 (11/24(목))
+            - 그러나, getitem 차례로 load(134h), init 통째로 load(143h)으로 측정 되므로 `코드 검토` 및 `tqdm` 활용법 확인 중.
+            - `tqdm` 활용법 숙지 완료.
+            - 코드 수정을 통한 143h -> 137h로 성능 확보 but, 134시간 보다 단축될 수 있을 것으로 예상하기 때문에 아래 조치 중.
+                - 현재 num_workers 0으로 수정된 부분 확인 -> 2로 다시 고정(동일환경구축)
+                - `for step, batch in tqdm(enumerate(train_loader), desc="train_loader 1epoch"):`
+                    - train_loader부분 집중적으로 보기 위한 tqdm설정.
+                    - init통째로 vs getitem차례로 1epoch당 시간 측정중
                 
                 
                 
      2. getitem에서 차례로
         - `tqdm` 라이브러리 사용법 익혀서 1 epoch당 걸리는 시간 측정해서 정리하고 보여드리기
+            
 
 
 <br/><br/><br/>

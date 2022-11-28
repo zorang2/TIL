@@ -4,15 +4,35 @@
 <br/><br/><br/><br/><br/>
 
 ## Nov
-### 11월 한줄 요약 : FER Custom Dataset 네트워크별 학습 및 정확한, 신속한 학습을 위한 실험 진행
+### 11월 한줄 요약 : FER Custom Dataset 네트워크 별 학습 및 정확한, 신속한 학습을 위한 실험 진행
 
+<br/><br/><br/>
 
+#### 네크워크 별 성능비교
+|Model|FLOPs|Params|Total Epoch|val Acc (Epoch)|Total hour(h)|TestDataset|
+|--|--|--|--|--|--|--|--|
+|VggNet|15.48 G|138 M|17|29.1 % (2)|298|AffectNet-8|
+|ResNet|3.86 G|23 M|128|43.9 % (14)|134|AffectNet-8|
+|MobileNet|0.53 G|3.2 M|200|45.2 % (33)|47|AffectNet-8|
+
+<details>
+<summary>네트워크 별 학습 그래프</summary>
+    
+vgg, resnet, mobilenet순서
+<img src="./img/vgg_fer.png" width="300" height="300">
+<img src="./img/resnet_fer_final.png" width="300" height="300">
+<img src="./img/mobilenet_200epoch.png" width="300" height="300">
+    
+    vgg 재학습 후 고쳐야됨
+</details>
+
+<br/><br/><br/>
 
 
 <details>
-<summary>11월 날짜별 보기</summary>
+<summary>11월 날짜별 자세히 보기</summary>
 
-<br/>
+
 
 
 <br/><br/><br/>
@@ -42,7 +62,9 @@
 
 
 
-
+### 11/28 (월) 연차
+    ***대학연합특허셀럽캠프 장려상 !!***   
+    ***연차 쓴 보람이 있다 !!***
 
 
 

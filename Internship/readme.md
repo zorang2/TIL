@@ -92,7 +92,8 @@ vgg, resnet, mobilenet순서
 `Internship/ResNet_FER/[11.24][ init통째로 ] ResNet-dataloader부분 시간계산비교.ipynb` <br/>
 </details>
 
-    
+#### jupyter notebook에서 cv2.imshow()쓰면 kernel died !!
+    대신 `from matplotlib import pyplot as plt`을 써야한다.
     
 
 <br/><br/><br/>

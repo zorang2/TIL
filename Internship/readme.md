@@ -60,7 +60,7 @@ vgg, resnet, mobilenet순서
 
 
 
-
+### 날짜별 정리
 <details>
 <summary>11월 날짜별 자세히 보기</summary>
 
@@ -92,9 +92,11 @@ vgg, resnet, mobilenet순서
 `Internship/ResNet_FER/[11.24][ init통째로 ] ResNet-dataloader부분 시간계산비교.ipynb` <br/>
 </details>
 
+    
+    
 
-
-### 11/28 (월) 연차
+<br/><br/><br/>
+### 11/25 (금) 연차
     ***대학연합특허셀럽캠프 장려상 !!***   
     ***연차 쓴 보람이 있다 !!***
 

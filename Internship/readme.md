@@ -6,9 +6,13 @@
 ## Nov
 ### 11월 한줄 요약 : FER Custom Dataset 네트워크 별 학습 및 정확한, 신속한 학습을 위한 실험 진행
 
+
+
 <br/><br/><br/>
 
-#### 네크워크 별 성능비교
+
+
+### 네크워크 별 성능비교
 |Model|FLOPs|Params|Total Epoch|val Acc (Epoch)|Total hour(h)|TestDataset|
 |--|--|--|--|--|--|--|
 |VggNet|15.48 G|138 M|17|29.1 % (2)|298|AffectNet-8|
@@ -17,8 +21,9 @@
 
 <details>
 <summary>네트워크 별 학습 그래프</summary>
-    
-vgg, resnet, mobilenet순서
+
+vgg, resnet, mobilenet순서   
+
 <img src="./img/vgg_fer.png" width="300" height="300">
 <img src="./img/resnet_fer_final.png" width="300" height="300">
 <img src="./img/mobilenet_200epoch.png" width="300" height="300">
@@ -26,7 +31,34 @@ vgg, resnet, mobilenet순서
     vgg 재학습 후 고쳐야됨
 </details>
 
+
+
 <br/><br/><br/>
+
+
+
+### init 통째로 vs getitem 차례로 "결론"
+
+
+|목차|init|getitem|차이|
+|--|--|--|--|
+|train_loader 학습 부분 1 epoch당 걸린 시간|40분 20초|41분 40초|1분 20초|
+|dataset class 변수에 담는 부분 걸린 시간|29.9분|10초|29.8분|
+<details>
+<summary>파일 경로</summary>
+
+<br/>
+
+`Internship/ResNet_FER/[11.24][ getitem차례로 ] ResNet.ipynb` <br/>
+`Internship/ResNet_FER/[11.24][ init통째로 ] ResNet-dataloader부분 시간계산비교.ipynb` <br/>
+</details>
+
+
+
+
+<br/><br/><br/>
+
+
 
 
 <details>

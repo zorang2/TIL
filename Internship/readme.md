@@ -10,7 +10,7 @@
 
 #### 네크워크 별 성능비교
 |Model|FLOPs|Params|Total Epoch|val Acc (Epoch)|Total hour(h)|TestDataset|
-|--|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|--|
 |VggNet|15.48 G|138 M|17|29.1 % (2)|298|AffectNet-8|
 |ResNet|3.86 G|23 M|128|43.9 % (14)|134|AffectNet-8|
 |MobileNet|0.53 G|3.2 M|200|45.2 % (33)|47|AffectNet-8|

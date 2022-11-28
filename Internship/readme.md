@@ -362,13 +362,13 @@ vgg, resnet, mobilenet 모두 고침.
 
 
 
-
+</details>
 
 
 
 <br/><br/><br/><br/><br/>
 
-</details>
+
     
 
 

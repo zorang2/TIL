@@ -9,6 +9,12 @@
 
 
 
+<details>
+<summary>11월 날짜별 보기</summary>
+
+<br/>
+
+
 <br/><br/><br/>
 ### 11/28 (월)
 ---
@@ -362,7 +368,7 @@ vgg, resnet, mobilenet 모두 고침.
 
 <br/><br/><br/><br/><br/>
 
-
+</details>
     
 
 

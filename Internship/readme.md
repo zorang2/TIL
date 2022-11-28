@@ -1,11 +1,11 @@
 # This repository is a TIL created during an internship at [SL Corporation](http://www.slworld.com/).
 
 
-
+<br/><br/><br/><br/><br/>
 
 ## Nov
-### 11월 한줄 요약
-#### FER Custom Dataset 네트워크별 학습 및 정확한, 신속한 학습을 위한 실험 진행
+### 11월 한줄 요약 : FER Custom Dataset 네트워크별 학습 및 정확한, 신속한 학습을 위한 실험 진행
+
 
 
 
@@ -375,8 +375,7 @@ vgg, resnet, mobilenet 모두 고침.
 
 ## Oct
 
-### 10월 한줄 요약
-#### 현대자동차 'CNN이란 무엇인가?' PPT 제작 및 Pytorch CIFAR10 실습
+### 10월 한줄 요약 : 현대자동차 'CNN이란 무엇인가?' PPT 제작 및 Pytorch CIFAR10 실습
 
 
 <details>
@@ -408,8 +407,7 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 ## Sep
 
-### 9월 한줄 요약
-#### SL Cloud 자료 확인 및 개발 환경 세팅
+### 9월 한줄 요약 : SL Cloud 자료 정독 및 개발 환경 세팅
 <details>
 <summary>더보기(버전 정리)</summary>
 

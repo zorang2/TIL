@@ -4,6 +4,40 @@
 
 
 ## Nov
+### 11월 한줄 요약
+#### FER Custom Dataset 네트워크별 학습 및 정확한, 신속한 학습을 위한 실험 진행
+
+
+
+<br/><br/><br/>
+### 11/28 (월)
+---
+
+#### init 통째로 vs getitem 차례로 "결론"
+
+
+|목차|init|getitem|차이|
+|--|--|--|--|
+|train_loader 학습 부분 1 epoch당 걸린 시간|40분 20초|41분 40초|1분 20초|
+|dataset class 변수에 담는 부분 걸린 시간|29.9분|10초|29.8분|
+
+1. train_loader 부분 1 epoch당 약 `1분 20초` 정도 차이남.
+2. dataset class 부분 약 `29.8분` 정도 차이남.
+3. 학습 도중 정지 시키고 `jupyter notebook` 껏다 키니까 `tqdm` 다시 확인 못한다!!
+
+<details>
+<summary>파일 경로</summary>
+
+<br/>
+
+`Internship/ResNet_FER/[11.24][ getitem차례로 ] ResNet.ipynb` <br/>
+`Internship/ResNet_FER/[11.24][ init통째로 ] ResNet-dataloader부분 시간계산비교.ipynb` <br/>
+</details>
+
+
+
+
+
 
 
 
@@ -65,8 +99,8 @@
             - 그러나, getitem 차례로 load(134h), init 통째로 load(143h)으로 측정 되므로 `코드 검토` 및 `tqdm` 활용법 확인 중.
             - `tqdm` 활용법 숙지 완료.
             - 코드 수정을 통한 143h -> 137h로 성능 확보 but, 134시간 보다 단축될 수 있을 것으로 예상하기 때문에 아래 조치 중.
-                - 현재 num_workers 0으로 수정된 부분 확인 -> 2로 다시 고정(동일환경구축)
-                - `for step, batch in tqdm(enumerate(train_loader), desc="train_loader 1epoch"):`
+                1. 현재 num_workers 0으로 수정된 부분 확인 -> 2로 다시 고정(동일환경구축)
+                2. `for step, batch in tqdm(enumerate(train_loader), desc="train_loader 1epoch"):`
                     - train_loader부분 집중적으로 보기 위한 tqdm설정.
                     - init통째로 vs getitem차례로 1epoch당 시간 측정중
                 
@@ -335,6 +369,14 @@ vgg, resnet, mobilenet 모두 고침.
 
 ## Oct
 
+### 10월 한줄 요약
+#### 현대자동차 'CNN이란 무엇인가?' PPT 제작 및 Pytorch CIFAR10 실습
+
+
+<details>
+<summary>더보기(버전 정리)</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
 목표 : 15333   
 torch vision mnist dataset 불러오기   
 classification cifar-100   
@@ -343,6 +385,9 @@ classification cifar-100
 https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sIiHD&index=16
 
 10/20(목) 유튜브 실습 + dataload + 전처리 포스팅하기.   
+</details>
+
+
 
 
 
@@ -357,6 +402,8 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 ## Sep
 
+### 9월 한줄 요약
+#### SL Cloud 자료 확인 및 개발 환경 세팅
 <details>
 <summary>더보기(버전 정리)</summary>
 

@@ -67,6 +67,32 @@ vgg, resnet, mobilenet순서
 
 
 
+    
+<br/><br/><br/>
+### 11/29 (화)
+---
+
+#### detectron2
+
+<br/>
+
+1. AR CMS Dataset/221124/LH *.MP4 File Dectection부분만 진행(상준 선임님)
+    - Segmentation 말고.
+    - 일단 1~2개 영상만 먼저 해보기.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 <br/><br/><br/>
 ### 11/28 (월)
 ---

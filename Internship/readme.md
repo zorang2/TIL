@@ -12,9 +12,9 @@
 
 
 ### AR_CMS_Dataset Detectron
-
-<img src="./img/detectron_detection.png">
-<img src="./img/detectron_segment.png">
+왼쪽 detection box, 오른쪽 segment
+<img src="./img/detectron_detection.png" width="300" height="300">
+<img src="./img/detectron_segment.png" width="300" height="300">
 
 
 <br/><br/><br/>
@@ -75,6 +75,26 @@ vgg, resnet, mobilenet순서
 
 
 
+<br/><br/><br/>
+### 11/30 (수)
+---
+
+#### Detectron2 Detection
+
+<br/>
+
+1. AR CMS Dataset/221124/LH *.MP4 File Dectection부분만 진행(상준 선임님) ~~완료~~
+    - Segmentation 말고.
+    - 일단 1~2개 영상만 먼저 해보기.   
+<br/>
+왼쪽 detection box, 오른쪽 segment
+<img src="./img/detectron_detection.png" width="300" height="300">
+<img src="./img/detectron_segment.png" width="300" height="300">
+
+<br/>
+2. 아래 class만 남기고 나머지 제외 + Frame Count로 class별 총 갯수 txt로 추출하기.
+    - bicycle, person, car, bus, motorcycle, truck
+
 
     
 <br/><br/><br/>
@@ -85,7 +105,7 @@ vgg, resnet, mobilenet순서
 
 <br/>
 
-1. AR CMS Dataset/221124/LH *.MP4 File Dectection부분만 진행(상준 선임님)
+1. AR CMS Dataset/221124/LH *.MP4 File Detection부분만 진행(상준 선임님)
     - Segmentation 말고.
     - 일단 1~2개 영상만 먼저 해보기.
     

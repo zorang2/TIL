@@ -89,12 +89,14 @@ vgg, resnet, mobilenet순서
     - 일단 1~2개 영상만 먼저 해보기.   
 <br/>
     
-`cd demo/
-python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
+`cd demo/`
+<br/>    
+`python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
   --input input1.jpg input2.jpg \
   [--other-options]
   --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl`
-
+여기 위에부분 좀 고쳐서 돌리면 아래 그림 나옴.<br/>
+    
 
 왼쪽 detection box, 오른쪽 segment   
 <img src="./img/detectron_detection.png" width="500" height="300">

@@ -13,12 +13,9 @@
 
 ### AR_CMS_Dataset Detectron
 
-왼쪽 detection box, 오른쪽 segment
-
-<br/>
-
-<img src="./img/detectron_detection.png" width="300" height="300">
-<img src="./img/detectron_segment.png" width="300" height="300">
+왼쪽 detection box, 오른쪽 segment   
+<img src="./img/detectron_detection.png" width="500" height="300">
+<img src="./img/detectron_segment.png" width="500" height="300">
 
 
 <br/><br/><br/>

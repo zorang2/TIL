@@ -7,6 +7,15 @@
 ### 11월 한줄 요약 : FER Custom Dataset 네트워크 별 학습 및 정확한, 신속한 학습을 위한 실험 진행
 
 
+<br/><br/><br/>
+
+
+
+### AR_CMS_Dataset Detectron
+
+<img src="./img/detectron_detection.png">
+<img src="./img/detectron_segment.png">
+
 
 <br/><br/><br/>
 

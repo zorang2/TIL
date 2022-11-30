@@ -88,7 +88,8 @@ vgg, resnet, mobilenet순서
     - Segmentation 말고.
     - 일단 1~2개 영상만 먼저 해보기.   
 <br/>
-왼쪽 detection box, 오른쪽 segment
+
+왼쪽 detection box, 오른쪽 segment   
 <img src="./img/detectron_detection.png" width="500" height="300">
 <img src="./img/detectron_segment.png" width="500" height="300">
 

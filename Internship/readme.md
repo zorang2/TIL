@@ -94,7 +94,7 @@ vgg, resnet, mobilenet순서
 <img src="./img/detectron_segment.png" width="500" height="300">
 
 <br/>
-2. 아래 class만 남기고 나머지 제외 + Frame Count로 class별 총 갯수 txt로 추출하기.
+2. 아래 class만 남기고 나머지 제외 + Frame Count로 class별 총 갯수 txt로 추출하기.   
     - bicycle, person, car, bus, motorcycle, truck
 
 

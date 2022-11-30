@@ -12,7 +12,11 @@
 
 
 ### AR_CMS_Dataset Detectron
+
 왼쪽 detection box, 오른쪽 segment
+
+<br/>
+
 <img src="./img/detectron_detection.png" width="300" height="300">
 <img src="./img/detectron_segment.png" width="300" height="300">
 
@@ -88,8 +92,8 @@ vgg, resnet, mobilenet순서
     - 일단 1~2개 영상만 먼저 해보기.   
 <br/>
 왼쪽 detection box, 오른쪽 segment
-<img src="./img/detectron_detection.png" width="300" height="300">
-<img src="./img/detectron_segment.png" width="300" height="300">
+<img src="./img/detectron_detection.png" width="500" height="300">
+<img src="./img/detectron_segment.png" width="500" height="300">
 
 <br/>
 2. 아래 class만 남기고 나머지 제외 + Frame Count로 class별 총 갯수 txt로 추출하기.

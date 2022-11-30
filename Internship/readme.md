@@ -88,13 +88,21 @@ vgg, resnet, mobilenet순서
     - Segmentation 말고.
     - 일단 1~2개 영상만 먼저 해보기.   
 <br/>
+    
+`cd demo/
+python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
+  --input input1.jpg input2.jpg \
+  [--other-options]
+  --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl`
+
 
 왼쪽 detection box, 오른쪽 segment   
 <img src="./img/detectron_detection.png" width="500" height="300">
 <img src="./img/detectron_segment.png" width="500" height="300">
 
 <br/>
-2. 아래 class만 남기고 나머지 제외 + Frame Count로 class별 총 갯수 txt로 추출하기.   
+2. 아래 class만 남기고 나머지 제외 + Frame Count로 class별 총 갯수 txt로 추출하기.<br/>
+
     - bicycle, person, car, bus, motorcycle, truck
 
 

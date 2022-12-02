@@ -74,6 +74,34 @@ vgg, resnet, mobilenet순서
 <details>
 <summary>11월 날짜별 자세히 보기</summary>
 
+<br/><br/><br/>
+### 12/2 (금)
+---
+
+#### Detectron2 Detection
+1. ~~AR CMS Dataset/221124/LH *.MP4 File detection~~ ***complete***
+2. ~~각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중~~ ***complete***
+3. 각 동영상의 Class 갯수를 프레임 누적을 통해서 Count + text file로 저장하는 방법 찾는 중
+   - Custom Class index (총 6Class)
+     - 0 = person
+     - 1 = bicycle
+     - 2 = car
+     - 3 = motorcycle
+     - ~~4 = airplane~~
+     - 5 = bus
+     - ~~6 = train~~
+     - 7 = truck
+
+
+
+<br/><br/><br/>
+### 12/1 (목)
+---
+
+#### Detectron2 Detection
+1. ~~AR CMS Dataset/221124/LH *.MP4 File detection~~ complete
+2. 각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중
+
 
 
 <br/><br/><br/>

@@ -59,7 +59,7 @@
 </details>
 
 
-
+<br/><br/><br/>
 ## Nov.
 ### 11월 한줄 요약 : FER Custom Dataset 네트워크 별 학습 및 정확한, 신속한 학습을 위한 실험 진행
 

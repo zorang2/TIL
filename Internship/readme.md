@@ -3,7 +3,64 @@
 
 <br/><br/><br/><br/><br/>
 
-## Nov
+## Dec.
+### 12월 한줄 요약 : Detectron2 ~~(추후수정)~~
+
+
+<br/><br/><br/>
+
+### 날짜별 정리
+<details>
+<summary>12월 날짜별 자세히 보기</summary>
+
+<br/><br/><br/>
+### 12/5 (월)
+---
+
+#### Detectron2 Detection
+1. ~~AR CMS Dataset월/221124/LH *.MP4 File detection~~ ***complete***
+2. ~~각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중~~ ***complete***
+3. ~~각 동영상의 Class 갯수를 프레임 누적을 통해서 Count + text file로 저장하는 방법 찾는 중~~ ***complete***
+    - 그러나, text file이 1epoch가 돌 때마다 텍스트를 "추가"하는 것으로 세팅했다고 생각했는데, text file이 갱신되는 현상 진행중.
+      - 추후에 수정 필요.
+
+#### 상준 선임님께 보고하기 + mAP, IOU 블로그 포스팅하기
+
+
+
+<br/><br/><br/>
+### 12/2 (금)
+---
+
+#### Detectron2 Detection
+1. ~~AR CMS Dataset/221124/LH *.MP4 File detection~~ ***complete***
+2. ~~각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중~~ ***complete***
+3. 각 동영상의 Class 갯수를 프레임 누적을 통해서 Count + text file로 저장하는 방법 찾는 중
+   - Custom Class index (총 6Class)
+     - 0 = person
+     - 1 = bicycle
+     - 2 = car
+     - 3 = motorcycle
+     - ~~4 = airplane~~
+     - 5 = bus
+     - ~~6 = train~~
+     - 7 = truck
+
+
+
+<br/><br/><br/>
+### 12/1 (목)
+---
+
+#### Detectron2 Detection
+1. ~~AR CMS Dataset/221124/LH *.MP4 File detection~~ complete
+2. 각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중
+
+</details>
+
+
+
+## Nov.
 ### 11월 한줄 요약 : FER Custom Dataset 네트워크 별 학습 및 정확한, 신속한 학습을 위한 실험 진행
 
 
@@ -73,34 +130,6 @@ vgg, resnet, mobilenet순서
 ### 날짜별 정리
 <details>
 <summary>11월 날짜별 자세히 보기</summary>
-
-<br/><br/><br/>
-### 12/2 (금)
----
-
-#### Detectron2 Detection
-1. ~~AR CMS Dataset/221124/LH *.MP4 File detection~~ ***complete***
-2. ~~각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중~~ ***complete***
-3. 각 동영상의 Class 갯수를 프레임 누적을 통해서 Count + text file로 저장하는 방법 찾는 중
-   - Custom Class index (총 6Class)
-     - 0 = person
-     - 1 = bicycle
-     - 2 = car
-     - 3 = motorcycle
-     - ~~4 = airplane~~
-     - 5 = bus
-     - ~~6 = train~~
-     - 7 = truck
-
-
-
-<br/><br/><br/>
-### 12/1 (목)
----
-
-#### Detectron2 Detection
-1. ~~AR CMS Dataset/221124/LH *.MP4 File detection~~ complete
-2. 각 동영상의 Class 갯수를 프레임 누적을 통해서 Count 하는 방법 찾는 중
 
 
 
@@ -529,7 +558,7 @@ vgg, resnet, mobilenet 모두 고침.
 
 
 
-## Oct
+## Oct.
 
 ### 10월 한줄 요약 : 현대자동차 'CNN이란 무엇인가?' PPT 제작 및 Pytorch CIFAR10 실습
 
@@ -561,7 +590,7 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 
 
 
-## Sep
+## Sep.
 
 ### 9월 한줄 요약 : SL Cloud 자료 정독 및 개발 환경 세팅
 <details>

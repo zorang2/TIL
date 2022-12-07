@@ -26,7 +26,7 @@
 1. mAP 포스팅 (이번 주 내로)
 2. IoU 포스팅 (그림 부분만 수정할 것)
 3. 터미널로 Detectron2 구동 할 수 있도록 PyCharm기반 세팅해보기
-   - argparse 공  
+   - argparse 공부
 
 
 <br/><br/><br/>

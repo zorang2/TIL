@@ -14,11 +14,28 @@
 <summary>12월 날짜별 자세히 보기</summary>
 
 <br/><br/><br/>
+### 12/8 (목)
+--- 
+#### already did
+1. mAP 포스팅 시작
+2. IoU 포스팅 수정 (그림 해야됨)
+
+
+<br/>
+
+#### should do
+1. mAP 포스팅 (이번 주 내로)
+2. IoU 포스팅 (그림 부분만 수정할 것)
+
+
+<br/><br/><br/>
 ### 12/7 (수)
 ---
 
 #### already did
-1. ~~
+1. 터미널로 Detectron2 구동 할 수 있도록 PyCharm기반 세팅해보기 / **Complete, Customdemo.py Run시키면 됨**
+   - argparse 공부
+2. Detectron2 기반 6Classes 객체 수 검출 결과 공유 완료
 
 <br/>
 

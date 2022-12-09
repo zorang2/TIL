@@ -13,19 +13,38 @@
 <details>
 <summary>12월 날짜별 자세히 보기</summary>
 
+
+
+<br/><br/><br/>
+### 12/9 (금)
+--- 
+#### already did
+1. mAP 포스팅 2/3 완료
+   - 아무 것도 모르는 사람에게 설명한다고 생각하고 글 적으니까 엄청 길어짐..
+   - 그리고 뭔가 두서없이 적히는 듯
+2. Detectron2 AR_CMS_RH Dataset 각 class별 객체 수 뽑아내는 중.
+<br/>
+
+#### should do
+1. mAP 포스팅 (이번 주 내로)
+2. IoU 포스팅 (그림 부분만 수정할 것)
+
+
+
+
 <br/><br/><br/>
 ### 12/8 (목)
 --- 
 #### already did
 1. mAP 포스팅 시작
 2. IoU 포스팅 수정 (그림 해야됨)
-
-
 <br/>
 
 #### should do
 1. mAP 포스팅 (이번 주 내로)
 2. IoU 포스팅 (그림 부분만 수정할 것)
+
+
 
 
 <br/><br/><br/>
@@ -36,7 +55,6 @@
 1. 터미널로 Detectron2 구동 할 수 있도록 PyCharm기반 세팅해보기 / **Complete, Customdemo.py Run시키면 됨**
    - argparse 공부
 2. Detectron2 기반 6Classes 객체 수 검출 결과 공유 완료
-
 <br/>
 
 #### should do

@@ -15,6 +15,18 @@
 
 
 <br/><br/><br/>
+### 12/27 (화)
+--- 
+#### already did
+1. AR_CMS 데이터셋 오/미인식 사례 frame별 검출 중
+   - RH 完
+2. 코너케이스 프레임 싱크 맞추기 half 完
+
+#### should do
+동일
+
+
+<br/><br/><br/>
 ### 12/26 (월)
 --- 
 #### already did

@@ -13,6 +13,16 @@
 <details>
 <summary>12월 날짜별 자세히 보기</summary>
 
+<br/><br/><br/>
+### 12/28 (수)
+--- 
+#### already did
+1. 코너케이스 프레임 싱크 맞추기 RH half 完
+
+#### should do
+동일
+
+
 
 <br/><br/><br/>
 ### 12/27 (화)

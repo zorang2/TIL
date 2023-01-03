@@ -15,6 +15,19 @@
 
 
 <br/><br/><br/>
+### 1/3 (화)
+--- 
+#### already did
+1. H-Mobility 수강 중
+   - 공통 完
+   - 인지 기초 1/2 完
+
+#### should do
+1. mAP 포스팅 마무리
+2. 이코테 DFS 파트 포스팅 하기
+3. H-Mobility 수강 완료 하기
+
+<br/><br/><br/>
 ### 1/2 (월)
 --- 
 #### already did
@@ -24,6 +37,7 @@
 #### should do
 1. mAP 포스팅 마무리
 2. 이코테 DFS 파트 포스팅 하기
+3. H-Mobility 수강 완료 하기
 
 
 

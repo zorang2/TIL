@@ -13,6 +13,23 @@
 <details>
 <summary>1월 날짜별 자세히 보기</summary>
 
+<br/><br/><br/>
+### 1/4 (수)
+--- 
+#### already did
+1. H-Mobility 수강 중
+   - 공통 完
+   - 인지 기초 3/5 完
+2. AR CMS Frame 추출 관련 싱크 맞추기
+   - 흥용 책임님 excel file 기반 / 태동 선임님 .py file baseline
+
+#### should do
+1. mAP 포스팅 마무리 (~01/08)
+2. 이코테 DFS 파트 포스팅 하기 (~01/08)
+3. H-Mobility 수강 완료 하기 (~01/E)
+4. AR CMS Frame 추출 관련 싱크 맞추기(~01/06)
+
+
 
 <br/><br/><br/>
 ### 1/3 (화)
@@ -23,9 +40,9 @@
    - 인지 기초 1/2 完
 
 #### should do
-1. mAP 포스팅 마무리
-2. 이코테 DFS 파트 포스팅 하기
-3. H-Mobility 수강 완료 하기
+1. mAP 포스팅 마무리 (~01/08)
+2. 이코테 DFS 파트 포스팅 하기 (~01/08)
+3. H-Mobility 수강 완료 하기 (~01/E)
 
 <br/><br/><br/>
 ### 1/2 (월)

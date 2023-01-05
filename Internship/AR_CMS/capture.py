@@ -13,15 +13,22 @@ def search(dirname, image_list):
             search(full_filename, image_list)
         else:
             ext = os.path.splitext(full_filename)[-1]
-            if ext == '.mp4':
+            if ext == '.MP4':
                 image_list.append(full_filename)
 
 video_list = []
-search("/home/ubuntu/NAS_CIF/IN_CABIN/YOUTUBE", video_list)
+search("/media/sldev1/T7/AR CMS Dataset/221118/LH", video_list)
 
 # random.shuffle(image_list)
 
-save_dir = "/home/ubuntu/250GB_SSD/YOUTUBE/"
+save_dir = "/media/sldev1/T7/AR CMS Dataset/frame_output"
+
+
+
+
+
+
+
 
 for video_str in video_list:
 

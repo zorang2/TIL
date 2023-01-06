@@ -14,24 +14,19 @@
 <summary>1월 날짜별 자세히 보기</summary>
 
 <br/><br/><br/>
-### 1/4 (수)
+### 1/4 (수), 1/5 (목), 1/6(금)
 --- 
 #### already did
-https://malchooni.name/entry/%ED%99%88%EC%84%9C%EB%B2%84-%EC%9A%B0%EB%B6%84%ED%88%AC%EC%97%90%EC%84%9C-CIFSSMB-%EB%A7%88%EC%9A%B4%ED%8A%B8
-<br/>
-https://malchooni.name/entry/%EC%9A%B0%EB%B6%84%ED%88%AC-SMB-mount-error2-No-such-file-or-directory-%EC%98%A4%EB%A5%98
-<br/>
-https://askubuntu.com/questions/1162199/mount-cifs-fails-with-mount-error2-no-such-file-or-directory
-<br/>
-https://dotmanblog.tistory.com/31
-<br/>
-https://noel-embedded.tistory.com/877
+1. 잡일 하다가 시간 많이 지체됨(Excel 작업 + 물품 수령 + 노트북 교체 등)
+2. AR CMS Frame 추출 코드 작성 중.
+    - 뭐가 문제인지 모르겠음..
+    - 코드 한번 날아감.
 
 #### should do
 1. mAP 포스팅 마무리 (~01/08)
 2. 이코테 DFS 파트 포스팅 하기 (~01/08)
 3. H-Mobility 수강 완료 하기 (~01/E)
-4. AR CMS Frame 추출 관련 싱크 맞추기(~01/06)
+4. AR CMS Frame 추출 관련 코드 작성(~01/11)
 
 
 

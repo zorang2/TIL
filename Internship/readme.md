@@ -14,6 +14,21 @@
 <summary>1월 날짜별 자세히 보기</summary>
 
 <br/><br/><br/>
+### 1/9 (월), 1/10 (화)
+--- 
+#### already did
+1. AR CMS Frame 추출 code 작성 完
+   - 태동 선임 Feedback(cap.set(-,-))기반 code 작성 完
+2. H-Mobility 수강
+   - 인지 기술 (심화), ~8차시 完
+
+#### should do
+1. mAP 포스팅 마무리 (~01/08)
+2. 이코테 DFS 파트 포스팅 하기 (~01/08)
+3. H-Mobility 수강 완료 하기 (~01/E)
+
+
+<br/><br/><br/>
 ### 1/4 (수), 1/5 (목), 1/6(금)
 --- 
 #### already did

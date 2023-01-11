@@ -14,6 +14,24 @@
 <summary>1월 날짜별 자세히 보기</summary>
 
 <br/><br/><br/>
+### 1/11 (수)
+--- 
+#### already did
+1. FER Frame 추출 code 작성 중
+   - 상명대 .h5 파일 활용 및 44명 데이터에 관한 Valence, Arousal 데이터 .csv로 출력하는 것이 목표
+   - `Internship/DMS2/readme.md` 에서 구체적으로 풀어나갈 예정
+2. H-Mobility 수강
+   - 인지 기술 (심화), ~12차시 完
+
+#### should do
+1. mAP 포스팅 마무리 (~01/E)
+2. 이코테 DFS 파트 포스팅 하기 (~01/E)
+3. H-Mobility 수강 완료 하기 (~01/E)
+4. FER Frame 추출 (상명대 건, ~01/13)
+
+
+
+<br/><br/><br/>
 ### 1/9 (월), 1/10 (화)
 --- 
 #### already did

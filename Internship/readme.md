@@ -14,6 +14,24 @@
 <summary>1월 날짜별 자세히 보기</summary>
 
 <br/><br/><br/>
+### 1/12 (목)
+--- 
+#### already did
+1. FER Frame 추출 code 작성 중
+   - dms2 가상환경 작업 완료
+2. H-Mobility 수강
+   - 인지 기술 (심화) 完
+   - 판단 기초/심화 남음.
+
+#### should do
+1. mAP 포스팅 마무리 (~01/E)
+2. 이코테 DFS 파트 포스팅 하기 (~01/E)
+3. H-Mobility 수강 완료 하기 (~01/E)
+4. FER Frame 추출 (상명대 건, ~01/13)
+
+
+
+<br/><br/><br/>
 ### 1/11 (수)
 --- 
 #### already did

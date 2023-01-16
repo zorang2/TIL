@@ -15,6 +15,24 @@
 
 
 <br/><br/><br/>
+### 1/16 (월)
+--- 
+#### already did
+1. FER Frame 추출 code 돌리는 중
+2. H-Mobility 노션 정리
+   - 자율주행 자동차 인지 기술 (기초) ~12차시 完 
+
+#### should do
+1. mAP 포스팅 마무리 (~01/E)
+2. 이코테 DFS 파트 포스팅 하기 (~01/E)
+3. H-Mobility 수강 완료 하기 (~01/E)
+   - 노션에 정리하기(~01/E)
+4. FER Frame 추출 (상명대 건, ~01/13)
+   - 월요일에 출근해서 Emotion 8classes에 대한 Valence 작성
+   - 흥용 책임님 메일에 기준 작성 되어있으니 참고.
+
+
+<br/><br/><br/>
 ### 1/13 (금)
 --- 
 #### already did

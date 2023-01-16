@@ -14,11 +14,17 @@
 | 68766 | 3       | 1       |
 
 
+## 어이 없는 점(01/16(월))
+- 주말동안 돌려두고 간 코드가 아래와 같은 오류를 뱉어냄<br/>
+  `error: OpenCV(4.5.5) /io/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'`
+- 위 오류 보고 해결했던건데 또 떠있어서 겨우 3시간 돌리고(3명 분) 멈춰있었음
+- 근데 그냥 다시 실행해보니까 정상작동함...
+- 무엇?
 
 
 <br/><br/><br/>
 ## 걱정 되는 점(01/13(금))
-- 거의 70~80% 이상, Emotion = 6(anger)으로 찍히는 중
+- 거의 70~80% 이상, Emotion = 2(sadness) or 6(anger)으로 찍히는 중
 - 누가봐도 5(disgust)인데, 그것 마저도 6으로 인지하는 중.
 - 그래서 좀 쓸모없는 Output으로 보고될 것이라고 예상 됨.
   - 문제 발생 이유(추측)

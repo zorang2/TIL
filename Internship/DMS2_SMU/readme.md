@@ -45,15 +45,16 @@
   - 값이 작을수록 차분한 감정 (지루함, 편안함, 졸림 등)
   - 값이 클수록 흥분감, 분노, 공포 등이 있음.
 - Expression(Emotion, 8classes)
-  - 0: neutral
-  - 1: joy
-  - 2: sadness
-  - 3: surprise
-  - 4: fear
-  - 5: disgust
-  - 6: anger
-  - 7: contemp
+  - 0: neutral       0
+  - 1: joy           1
+  - 2: sadness      -1
+  - 3: surprise      0
+  - 4: fear         -1
+  - 5: disgust      -1
+  - 6: anger        -1
+  - 7: contempt      0
 
+  - =IF(B2=1,"1",IF(OR(B2=0,B2=3,B2=7),"0",IF(OR(B2=2,B2=4,B2=5,B2=6),"-1","fault")))
 
 <br/><br/><br/>
 ## 환경설정

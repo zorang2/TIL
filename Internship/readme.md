@@ -13,6 +13,18 @@
 <details>
 <summary>1월 날짜별 자세히 보기</summary>
 
+
+<br/><br/><br/>
+### 1/18 (수)
+--- 
+#### already did
+1. FER Frame 추출 code 돌리는 것 完
+   - 흥용 책임님 비교frame (should do 1people)
+
+#### should do
+동일
+
+
 <br/><br/><br/>
 ### 1/17 (화)
 --- 

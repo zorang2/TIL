@@ -18,18 +18,18 @@ class Emotion:
 
     def process(self, img):
 
-        try:
-            image_arr =cv2.resize(img,(256,256))
-            image_arr = image_arr.reshape(1,256,256,3)
-            image_arr = image_arr[...,::-1].astype("float")
-            image_arr = image_arr/255.
-            predicted_saved = self.emoModel.predict(image_arr)
-            return np.argmax(predicted_saved[0]), predicted_saved[1][0][0], predicted_saved[2][0][0]
+#         try:
+        image_arr =cv2.resize(img,(256,256))
+        image_arr = image_arr.reshape(1,256,256,3)
+        image_arr = image_arr[...,::-1].astype("float")
+        image_arr = image_arr/255.
+        predicted_saved = self.emoModel.predict(image_arr)
+        return np.argmax(predicted_saved[0]), predicted_saved[1][0][0], predicted_saved[2][0][0]
 
 
-        except Exception as e:
-            print(str(e))
-            return -1, -2, -2
+#         except Exception as e:
+#             print(str(e))
+#             return -1, -2, -2
 
 #         image_arr =cv2.resize(img,(256,256),cv2.INTER_AREA)
 #         image_arr = image_arr.reshape(1,256,256,3)

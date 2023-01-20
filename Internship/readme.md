@@ -15,11 +15,26 @@
 
 
 <br/><br/><br/>
+### 1/19 (목)
+--- 
+#### already did
+1. FER Frame 추출 code 돌리는 것 完
+   - 흥용 책임님 결론에 필요한 근거 비교frame 추출
+     - 남은 1명 완료.
+     - `08. ㅈㅅㅇ` 님, 동일성 확인을 위한 2차 프레임 추출 完 
+       - SL 자체 모델과 결과 비교해봤는데 이상함
+         - SL mobilenetV2 기반으로 다시 한번 돌리기
+
+#### should do
+동일
+
+
+<br/><br/><br/>
 ### 1/18 (수)
 --- 
 #### already did
 1. FER Frame 추출 code 돌리는 것 完
-   - 흥용 책임님 비교frame (should do 1people)
+   - 흥용 책임님 결론에 필요한 근거 비교frame 추출 중 (1명 남음)
 
 #### should do
 동일

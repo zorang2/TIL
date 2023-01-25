@@ -15,6 +15,28 @@
 
 
 <br/><br/><br/>
+### 1/20 (금), 1/25 (수)
+--- 
+#### already did
+1. FER Frame 추출 code 돌리는 것 完
+   - SL mobilenetV2 기반으로 다시 한번 돌리기 (민규 사원님이 진행 完)
+   - PRLab VS SL 결과 상이함.
+     - PRLab에서 검토 진행(코드&설명자료 정리 후 전달)
+2. H-Mobility Class
+   - 자율주행 자동차 판단 기술 (기초) 수강 完
+
+#### should do
+1. mAP 포스팅 마무리 (~01/E)
+2. 이코테 DFS 파트 포스팅 하기 (~01/E)
+3. H-Mobility 수강 완료 하기 (~01/27)
+   - 노션에 정리하기(~01/E)
+4. FER Frame 추출 (상명대 건, ~01/E)
+
+
+
+
+
+<br/><br/><br/>
 ### 1/19 (목)
 --- 
 #### already did

@@ -13,6 +13,16 @@
 <details>
 <summary>1월 날짜별 자세히 보기</summary>
 
+<br/><br/><br/>
+### 1/26 (목)
+--- 
+#### already did
+1. H-Mobility Class
+   - 자율주행 자동차 판단 기술 (심화) 수강 完
+
+#### should do
+동일
+
 
 <br/><br/><br/>
 ### 1/20 (금), 1/25 (수)

@@ -13,6 +13,24 @@
 <details>
 <summary>1월 날짜별 자세히 보기</summary>
 
+<br/><br/><br/>
+### 1/31 ()
+--- 
+#### already did
+3. 이코테 DFS&BFS
+   - DFS&BFS 포스팅 마무리
+   - DFS&BFS 예제 이해하기
+     - DFS&BFS 예제 각각 1문제 -> 총 2문제
+     - 음료수 얼려 먹기(dfs) 1문제
+     - 미로 찾기(bfs) 1문제
+   - [DFS&BFS 기본문제 1문제씩](https://cafe.naver.com/startdevelopercareer?iframe_url_utf8=%2FArticleRead.nhn%3FreferrerAllArticles%3Dtrue%26clubid%3D30372458%26articleid%3D6)
+     - [단지 번호 붙이기](https://www.acmicpc.net/problem/2667) DFS풀이 + BFS 풀이.
+
+
+#### should do
+1. 이코테 DFS 파트 포스팅 하기 (~01/E)
+
+
 
 <br/><br/><br/>
 ### 1/30 (월)

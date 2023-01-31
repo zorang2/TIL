@@ -17,7 +17,7 @@
 ### 1/31 (화)
 --- 
 #### already did
-3. 이코테 DFS&BFS
+1. 이코테 DFS&BFS
    - DFS&BFS 포스팅 마무리
    - DFS&BFS 예제 이해하기
      - DFS&BFS 예제 각각 1문제 -> 총 2문제

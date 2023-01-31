@@ -17,7 +17,11 @@
 ### 1/31 (화)
 --- 
 #### already did
-1. 이코테 DFS&BFS
+1. 면접 대비(Notion 정리 중)
+
+
+#### should do
+1. 이코테 DFS&BFS (~01/E)
    - DFS&BFS 포스팅 마무리
    - DFS&BFS 예제 이해하기
      - DFS&BFS 예제 각각 1문제 -> 총 2문제
@@ -26,10 +30,6 @@
    - [DFS&BFS 기본문제 1문제씩](https://cafe.naver.com/startdevelopercareer?iframe_url_utf8=%2FArticleRead.nhn%3FreferrerAllArticles%3Dtrue%26clubid%3D30372458%26articleid%3D6)
      - [단지 번호 붙이기](https://www.acmicpc.net/problem/2667)
        - DFS 접근 + BFS 접근으로 각각 풀어보시오
-
-
-#### should do
-1. 이코테 DFS 파트 포스팅 하기 (~01/E)
 
 
 

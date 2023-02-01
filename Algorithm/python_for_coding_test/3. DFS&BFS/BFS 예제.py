@@ -34,5 +34,5 @@ graph = [
 # 각 노드가 방문된 정보를 표현 (1차원 리스트)
 visited = [False] * 9
 
-# 정의된 BFS 함수 호출
+# 정의된 BFS 함수 호출ㅇ
 bfs(graph, 1, visited)

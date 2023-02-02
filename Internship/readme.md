@@ -14,6 +14,18 @@
 <summary>2월 날짜별 자세히 보기</summary>
 
 
+<br/><br/><br/>
+### 2/3 (금)
+--- 
+#### already did
+1. 면접 대비 스피치
+
+
+#### should do
+동일
+
+
+
 
 <br/><br/><br/>
 ### 2/2 (목)

@@ -14,6 +14,30 @@
 <summary>2월 날짜별 자세히 보기</summary>
 
 
+
+<br/><br/><br/>
+### 2/6 (월)
+--- 
+#### already did
+1. 이코테 정렬 강의 수강 및 포스팅 중
+   - 퀵, 계수 정렬 이해 필요함.
+2. H-Mobility Class 제어 (기초)
+   - 9차시 까지 완료.
+
+
+#### should do
+1. 이코테 DFS&BFS, 정렬 (~02/10)
+   - DFS&BFS 예제 이해하기
+     - DFS&BFS 예제 각각 1문제 -> [총 2문제] + 음료수 얼려 먹기(dfs) + 미로 찾기(bfs)
+   - [DFS&BFS 기본문제 1문제씩](https://cafe.naver.com/startdevelopercareer?iframe_url_utf8=%2FArticleRead.nhn%3FreferrerAllArticles%3Dtrue%26clubid%3D30372458%26articleid%3D6)
+     - [단지 번호 붙이기](https://www.acmicpc.net/problem/2667)
+       - DFS 접근 + BFS 접근으로 각각 풀어보시오
+   - 정렬 강의 수강 및 포스팅 완료하기
+2. H-Mobility Class 2차시 교육 (~02/E)
+
+
+
+
 <br/><br/><br/>
 ### 2/3 (금) - 최종면접 13시
 --- 

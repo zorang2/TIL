@@ -14,6 +14,17 @@
 <summary>2월 날짜별 자세히 보기</summary>
 
 
+<br/><br/><br/>
+### 2/8 (수)
+--- 
+#### already did
+1. H-Mobility Class 제어 (기초) 강의 수강 完 
+2. 기획팀 노트북 수령 도움
+
+
+#### should do
+동일
+
 
 
 <br/><br/><br/>

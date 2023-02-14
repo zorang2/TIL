@@ -13,6 +13,17 @@
 <details>
 <summary>2월 날짜별 자세히 보기</summary>
 
+<br/><br/><br/>
+### 2/13 (월)
+--- 
+#### already did
+1. 자율주행 노션정리
+2. Ubuntu 18.04 LTS USB 작업 완료
+3. 합격 서류 제출 관련 준비
+
+#### should do
+동일
+
 
 <br/><br/><br/>
 ### 2/13 (월)

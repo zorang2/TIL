@@ -15,6 +15,16 @@
 
 
 <br/><br/><br/>
+### 2/16 (목)
+--- 
+#### already did
+1. 잡무 가득
+
+#### should do
+동일
+
+
+<br/><br/><br/>
 ### 2/15 (수)
 --- 
 #### already did

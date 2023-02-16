@@ -19,6 +19,11 @@
 --- 
 #### already did
 1. 잡무 가득
+2. 노트북으로 딥러닝 서버 원격 연결 실패
+   - 제원
+      - ip : 172.20.33.224 
+      - port : 3389
+      - mstsc / ubuntu xrdp
 
 #### should do
 동일

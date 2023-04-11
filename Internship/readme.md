@@ -4,6 +4,33 @@
 <br/><br/><br/><br/><br/>
 
 
+## Apr.
+### 4월 한줄 요약 : MobileNetV2 FER 성능확보
+
+<br/><br/>
+
+### 날짜별 정리
+<details>
+<summary>2월 날짜별 자세히 보기</summary>
+
+
+<br/><br/><br/>
+### 4/11
+--- 
+
+#### already did
+- Notion에 서버 자격증명 관련 정리
+
+#### should do
+- MobileNet V2 Paper Review
+
+
+<\details>
+
+
+
+
+
 ## Feb.
 ### 2월 한줄 요약 : 미정
 
@@ -36,7 +63,7 @@
       - mstsc / ubuntu xrdp
 
 #### should do
-동일
+동일료
 
 
 <br/><br/><br/>

@@ -11,7 +11,7 @@
 
 ### 날짜별 정리
 <details>
-<summary>2월 날짜별 자세히 보기</summary>
+<summary>4월 날짜별 자세히 보기</summary>
 
 
 <br/><br/><br/>
@@ -24,15 +24,15 @@
 #### should do
 - MobileNet V2 Paper Review
 
-
-<\details>
-
+</details>
 
 
 
 
+
+<br/><br/><br/><br/>
 ## Feb.
-### 2월 한줄 요약 : 미정
+### 2월 한줄 요약 : H-Mobility Class & 면접
 
 <br/><br/>
 

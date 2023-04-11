@@ -20,11 +20,21 @@
 
 #### already did
 - Notion에 서버 자격증명 관련 정리
+- MobileNet V2 논문 읽고 구현하기
+  - 를 위한 MobileNet 복습
+    - [Depthwise Seperable Convolution _ gaussian 블로그](https://gaussian37.github.io/dl-concept-dwsconv/)
+        ![img.png](img.png)
+    - 형광색 부분에서 "왜 저렇게 약어가 생겨 먹었는지?" 몰라서 찾다가 끝남
 
 #### should do
-- MobileNet V2 Paper Review
+- MobileNet V2 논문 읽고 구현하기
 
 </details>
+
+
+<br/><br/><br/><br/>
+## Mar.
+### 3월 한줄 요약 : 신입사원교육(전자,품질,원가 ...etc)
 
 
 
@@ -32,7 +42,7 @@
 
 <br/><br/><br/><br/>
 ## Feb.
-### 2월 한줄 요약 : H-Mobility Class & 면접
+### 2월 한줄 요약 : H-Mobility Class & 면접 & 신입사원 교육
 
 <br/><br/>
 

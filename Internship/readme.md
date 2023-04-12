@@ -14,17 +14,37 @@
 <summary>4월 날짜별 자세히 보기</summary>
 
 
+
+<br/><br/><br/>
+### 4/12
+--- 
+
+#### already did
+- MobileNet V2 논문 읽고 구현하기
+  - 를 위한 MobileNet 복습
+    - [Depthwise Seperable Convolution _ gaussian 블로그](https://gaussian37.github.io/dl-concept-dwsconv/)
+      - ***쭉 훑기 완료***
+        1. Depthwise Seperable Convolution Review
+        2. MobileNetV1 Paper Review
+           - Pytorch code complite
+        3. MobileNetV2 Paper Review
+#### should do
+- MobileNet V2 논문 읽고 구현하기
+
+
+
 <br/><br/><br/>
 ### 4/11
 --- 
 
 #### already did
-- Notion에 서버 자격증명 관련 정리
+- Notion에 서버 자격증명 관련 정리 (포기)
 - MobileNet V2 논문 읽고 구현하기
   - 를 위한 MobileNet 복습
     - [Depthwise Seperable Convolution _ gaussian 블로그](https://gaussian37.github.io/dl-concept-dwsconv/)
         ![img.png](img/img.png)
     - 형광색 부분에서 "왜 저렇게 약어가 생겨 먹었는지?" 몰라서 찾다가 끝남
+      - 답 : 블로그 아래에 바로 나오는데, 출력값을 표현하기 위해 임시적으로 표현한 것 같다. (블로그 참조해!)
 
 #### should do
 - MobileNet V2 논문 읽고 구현하기

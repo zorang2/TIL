@@ -16,7 +16,18 @@
 
 
 <br/><br/><br/>
-### 4/12
+### 4/12, 4/13
+--- 
+
+#### already did
+- MobileNet V2 논문 읽고 구현하기
+일단 PyCharm을 활용하여 학습시키는 방법인지하고 코드 짜기.
+#### should do
+- MobileNet V2 논문 읽고 구현하기
+
+
+<br/><br/><br/>
+### 4/12, 4/13
 --- 
 
 #### already did

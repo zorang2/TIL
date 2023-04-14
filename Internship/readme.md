@@ -21,7 +21,10 @@
 
 #### already did
 - MobileNet V2 논문 읽고 구현하기
-일단 PyCharm을 활용하여 학습시키는 방법인지하고 코드 짜기.
+  - 일단 PyCharm을 활용하여 학습시키는 방법인지하고 코드 짜기.
+  - dataloader를 활용해서 이미지 불러들이기
+  - csv file 시각화해서 이미지가 어떻게 분포하고있는지 class별로 보기.
+
 #### should do
 - MobileNet V2 논문 읽고 구현하기
 

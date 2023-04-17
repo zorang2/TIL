@@ -14,6 +14,20 @@
 <summary>4월 날짜별 자세히 보기</summary>
 
 
+<br/><br/><br/>
+### 4/12, 4/13, 4/14
+--- 
+
+#### already did
+- 이미지별 label(FER) 확인 완료
+  - "/Internship/MobileNetV2_FER/visualizing_FER_Result_Randomly.py"
+    ![Figure_1.png](img%2FFigure_1.png)
+  - 현재 dataloader 커스텀한 code 짜는 중..
+  
+
+#### should do
+- MobileNet V2 논문 읽고 구현하기
+
 
 <br/><br/><br/>
 ### 4/12, 4/13, 4/14

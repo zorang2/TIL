@@ -21,7 +21,7 @@ test_transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
 
-train_set = datasets.ImageFolder("/home/sldev1/Desktop/172.20.33.22/mingyu.kang/5.FER/affectnet_full/Manually_Annotated_Images", transform=train_transform)
+train_set = datasets.ImageFolder("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_Images", transform=train_transform)
 trainloader = DataLoader(train_set, batch_size=bs, shuffle=True, num_workers=2)
 
 # val_set = datasets.ImageFolder("/home/sldev1/Desktop/172.20.33.22/mingyu.kang/5.FER/affectnet_full/Manually_Annotated_Images", transform=test_transform)

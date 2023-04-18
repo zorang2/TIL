@@ -14,10 +14,12 @@ Path_len = len(df['subDirectory_filePath'])
 for i in range(Path_len):
     img_ = []
     label_ = []
-    img = IMG_PATH + df['subDirectory_filePath'][i]
-    label = LABEL_PATH + df['FER'][i]
+    img = [IMG_PATH + df['subDirectory_filePath'][i]]
+    label = [LABEL_PATH + str(df['FER'][i])]
     img_.append(img)
     label_.append(label)
+
+print(label_)
 
 
 '''

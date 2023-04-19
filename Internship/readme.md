@@ -19,6 +19,18 @@
 --- 
 
 #### already did
+- 신입사원 핵심가치 영상 시나리오(감독) 관련 회의
+  
+
+#### should do
+- MobileNet V2 논문 읽고 구현하기
+
+
+<br/><br/><br/>
+### 4/17, 4/18
+--- 
+
+#### already did
 - 이미지별 label(FER) 확인 완료
   - "/Internship/MobileNetV2_FER/visualizing_FER_Result_Randomly.py"
     ![Figure_1.png](img%2FFigure_1.png)

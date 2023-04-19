@@ -10,16 +10,9 @@ LABEL_PATH = "/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_li
 
 
 df = pd.read_csv(LABEL_PATH + "validation.csv")
-Path_len = len(df['subDirectory_filePath'])
-for i in range(Path_len):
-    img_ = []
-    label_ = []
-    img = [IMG_PATH + df['subDirectory_filePath'][i]]
-    label = [LABEL_PATH + str(df['FER'][i])]
-    img_.append(img)
-    label_.append(label)
+print(df.drop([1], axis=0))
+# print(df.iloc[:,[0]])
 
-print(label_)
 
 
 '''

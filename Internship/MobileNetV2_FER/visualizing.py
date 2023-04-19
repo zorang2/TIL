@@ -16,9 +16,9 @@ for i in range(Path_len):
     img = IMG_PATH + df['subDirectory_filePath'][i]
     img_list.append(img)
 '''
+# Affectnet: 0: Neutral, 1: Happy, 2: Sad, 3: Surprise, 4: Fear, 5: Disgust, 6: Anger,
 
-
-class MyFERDataset(Dataset):
+class Affectnet(Dataset):
 
     def __init__(self, train=None, transform=None):
 
@@ -28,7 +28,7 @@ class MyFERDataset(Dataset):
         else:
             df = pd.read_csv(LABEL_PATH + "validation.csv")
             Path_len = len(df['subDirectory_filePath'])
-        for i in range(Path_len):
+        for i in range(Path_len):get
             img_, label_ = []
             img = IMG_PATH + df['subDirectory_filePath'][i]
             label = LABEL_PATH + df['FER'][i]

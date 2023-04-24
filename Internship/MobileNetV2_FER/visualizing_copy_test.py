@@ -24,6 +24,8 @@ num = 0
 
 with open(csv_file, 'r') as csvfile: # with as 구문은 file을 열고서 닫지 않는 실수를 줄이는 용도
     reader = csv.DictReader(csvfile)
+    print(reader)
+    '''
     for row in reader:
         num += 1
         fname = row['subDirectory_filePath']
@@ -50,13 +52,13 @@ with open(csv_file, 'r') as csvfile: # with as 구문은 file을 열고서 닫�
             pass
         imgROI = cv2.resize(imgROI, (224, 224), interpolation=cv2.INTER_AREA)
         gray = cv2.cvtColor(imgROI, cv2.COLOR_BGR2GRAY)
-        if not os.path.isdir(done + floder_dir):
-            os.mkdir(done + floder_dir)
+        if not os.path.isdir('./Manually_train_croped/' + floder_dir):
+            os.mkdir('./Manually_train_croped/' + floder_dir)
         cv2.imwrite(done + floder_dir + '/' + img, gray)
         print(fname)
         cv2.waitKey(0)
 
-    print(num)
+    print(num)'''
 
 
 

@@ -15,7 +15,7 @@
 
 
 <br/><br/><br/>
-### 4/19, 4/20, 4/21, 4/24
+### 4/19 ~ 4/27
 --- 
 
 #### already did
@@ -24,7 +24,10 @@
 - RGB물약 영상 시나리오 작성 및 회의 (4/21)
 - RGB물약 영상 촬영 및 회의, Part 2. 도전 촬영 완료 (4/24)
 - Part 1, 3 영상 시나리오 작성(4/25, 4/26)
-  
+- Part 1, 3 영상 촬영(4/27)
+  - AffectNet DB, DataFrame(Pandas) 기초 작업중,,,
+    - crop_img = img[y:y + h, x:x + w] <<< 이 부분 에러 수정해야함
+    - 에러 코드 : "TypeError: 'NoneType' object is not subscriptable"
 
 #### should do
 - MobileNet V2 논문 읽고 구현하기

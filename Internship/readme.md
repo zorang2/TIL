@@ -32,6 +32,7 @@
   - 근데, 왜 CUDA 버전 확인이 안되지?
     - nvcc --version , torch.cuda.is_available()
       - 조치사항으로 nvcc 설치중. 16분 이상 걸린대
+  - test, valid, train set으로 분할 후 imagefolder로 dataload 완료
 
 #### should do
 - MobileNet V2 논문 읽고 구현하기

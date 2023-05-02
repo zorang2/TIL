@@ -1,3 +1,5 @@
+# https://github.com/JBalbuenaG/proyecto_DL/blob/467fbbf5bea10f02ad422a33b8b99de765a241d3/Pruebas%20AffectNet/1_AffecNet_Read_and_Division.ipynb
+
 import pandas as pd
 import numpy as np
 
@@ -111,6 +113,8 @@ print(d)
 
 import matplotlib.pyplot as plt
 import cv2
+from tqdm import tqdm
+import os
 
 
 # This function only works with the AffectNet data and
@@ -124,9 +128,25 @@ def crop_image_save(df, img_path, emotions_dict, name='train'):
     values = list(np.zeros(len(keys), dtype=np.int32))
     emotions_counter = dict(zip(keys, values))
 
+    def imwrite(filename, img, params=None):
+        try:
+            ext = os.path.splitext(filename)[1]
+            result, n = cv2.imencode(ext, img, params)
+
+            if result:
+                with open(filename, mode='w+b') as f:
+                    n.tofile(f)
+                return True
+            else:
+                return False
+        except Exception as e:
+            print(e)
+            return False
+
+
     # Total number of file
     total_files = len(df['expression'])
-    for idx in range(total_files):
+    for idx in tqdm(range(total_files), desc="total_files"):
         # if idx==20:
         #    break;
         img_dir = df['subDirectory_filePath'][idx]  # reading the path of the image
@@ -140,10 +160,11 @@ def crop_image_save(df, img_path, emotions_dict, name='train'):
         img = cv2.imread(imgs_path + img_dir)
         # cropping the face
         crop_img = img[y:y + h, x:x + w]
-        save_path = './data/' + name + '/' + str(emo) + '/' + name + '-' + emotions_dict[emo] + '-' + str(
+        os.makedirs('/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/' + name + '/' + str(emo), exist_ok=True)
+        save_path = '/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/' + name + '/' + str(emo) + '/' + name + '-' + emotions_dict[emo] + '-' + str(
             emotions_counter[emo]) + '.jpg'
         emotions_counter[emo] += 1
-        cv2.imwrite(save_path, crop_img)
+        imwrite(save_path, crop_img)
 
         # if emo==4:
         #    print(save_path)
@@ -153,7 +174,11 @@ def crop_image_save(df, img_path, emotions_dict, name='train'):
 
 
 # Test of the function
-imgs_path = '/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/'
+imgs_save_path = '/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/'
+imgs_path = '/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_Images/'
 # crop_image_save(df_train, imgs_path, new_emotions_dict, name='train')
 
-crop_image_save(df_train, imgs_path, new_emotions_dict, name='train')
+# crop_image_save(df_train, imgs_save_path, new_emotions_dict, name='train') # 39864
+crop_image_save(df_val, imgs_save_path, new_emotions_dict, name='valid') # 4984
+crop_image_save(df_test, imgs_save_path, new_emotions_dict, name='test') # 4983
+

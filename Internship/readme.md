@@ -28,6 +28,10 @@
   - AffectNet DB, DataFrame(Pandas) 기초 작업중,,,
     - crop_img = img[y:y + h, x:x + w] <<< 이 부분 에러 수정해야함
     - 에러 코드 : "TypeError: 'NoneType' object is not subscriptable"
+- 위 에러 해결 완료(05/02)
+  - 근데, 왜 CUDA 버전 확인이 안되지?
+    - nvcc --version , torch.cuda.is_available()
+      - 조치사항으로 nvcc 설치중. 16분 이상 걸린대
 
 #### should do
 - MobileNet V2 논문 읽고 구현하기

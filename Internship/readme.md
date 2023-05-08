@@ -33,6 +33,8 @@
     - nvcc --version , torch.cuda.is_available()
       - 조치사항으로 nvcc 설치중. 16분 이상 걸린대
   - test, valid, train set으로 분할 후 imagefolder로 dataload 완료
+-  CUDA 에러 완료(포스팅 완료) & 학습 돌리는 중(05/08)
+  - train 약 9시간 소요 예정
 
 #### should do
 - MobileNet V2 논문 읽고 구현하기

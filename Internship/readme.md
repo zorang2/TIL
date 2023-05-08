@@ -1411,6 +1411,15 @@ https://www.youtube.com/watch?v=WjkXTZK3P0A&list=PLHOsBEAyYj3xf4i20sCA5o8MgVW5sI
 <summary>더보기(버전 정리)</summary>
 
 <!-- summary 아래 한칸 공백 두어야함 -->
+
+* 그냥 쌩 version 정리
+    - torch : 1.10.1+cu102
+    - 파이참 터미널 cuda : 9.1.85
+
+* env detectron2_py3.8 version 정리
+    - torch : 1.8.1+cu102
+    - 파이참 터미널 cuda : 9.1.85
+
 * env py3.6 version 정리
     - torch : 1.10.0
     - 파이참 터미널 cuda : 9.1.85

@@ -8,7 +8,6 @@ import torch.nn as nn
 import torch.optim as optim
 import os
 import torchvision.models as models
-from skimage import io, transform
 from torch.utils.tensorboard import SummaryWriter
 
 
@@ -112,7 +111,7 @@ total_cnt = 0
 best_acc = 0
 
 import time
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 
 start = time.time()  # 시작 시간 저장
 # Train

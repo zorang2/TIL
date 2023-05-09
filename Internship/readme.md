@@ -3,6 +3,10 @@
 
 <br/><br/><br/><br/><br/>
 
+## FER 정리 잘 되어있는 곳
+- [Top conferences & Journals focused on Facial expression recognition (FER)/ Facial action unit (FAU)](https://github.com/EvelynFan/AWESOME-FER)
+
+
 
 ## Apr.
 ### 4월 한줄 요약 : MobileNetV2 FER 성능확보

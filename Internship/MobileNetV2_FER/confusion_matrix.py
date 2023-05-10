@@ -1,148 +1,86 @@
-import itertools
-import json
 import random
-
-import imgaug
-import matplotlib.pyplot as plt
-import numpy as np
 import torch
-import torch.nn.functional as F
-
-# for consistent latex font
-from matplotlib import rc
-from sklearn.metrics import confusion_matrix
-
-# rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-## for Palatino and other serif fonts use:
-# rc('font',**{'family':'serif','serif':['Palatino']})
-rc("font", **{"family": "serif", "serif": ["Computer Modern Roman"]})
-rc("text", usetex=True)
-
-seed = 1234
-random.seed(seed)
-imgaug.seed(seed)
-torch.manual_seed(seed)
-torch.cuda.manual_seed_all(seed)
-np.random.seed(seed)
-torch.backends.cudnn.deterministic = True
-torch.backends.cudnn.benchmark = False
-
-
+from torchvision import datasets, transforms
+from torch.utils.data import Dataset, DataLoader
+from torchvision.models import mobilenet_v2
 from tqdm import tqdm
+import numpy as np
+import torch.backends.cudnn as cudnn
 
-from utils.datasets.fer2013dataset import fer2013
-from utils.generals import make_batch
-
-class_names = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
-
-
-def plot_confusion_matrix(
-    cm, classes, normalize=False, title="Confusion matrix", cmap=plt.cm.Blues
-):
-    """
-    This function prints and plots the confusion matrix.
-    Normalization can be applied by setting `normalize=True`.
-    """
-
-    if normalize:
-        cm = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis]
-        print("Normalized confusion matrix")
-    else:
-        print("Confusion matrix, without normalization")
-    print(cm)
-
-    plt.imshow(cm, interpolation="nearest", cmap=cmap)
-    plt.title(title, fontsize=12)
-    plt.colorbar()
-    tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
-    plt.yticks(tick_marks, classes)
-
-    fmt = ".2f" if normalize else "d"
-    thresh = cm.max() / 2.0
-    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(
-            j,
-            i,
-            format(cm[i, j], fmt),
-            horizontalalignment="center",
-            color="white" if cm[i, j] > thresh else "black",
-        )
-
-    plt.ylabel("True label", fontsize=12)
-    plt.xlabel("Predicted label", fontsize=12)
-    plt.tight_layout()
+torch.manual_seed(0)
+torch.cuda.manual_seed(0)
+torch.cuda.manual_seed_all(0)
+np.random.seed(0)
+cudnn.benchmark = False
+cudnn.deterministic = True
+random.seed(0)
+learning_rate = 0.001
 
 
-checkpoint_name = "vgg19_rot30_2019Dec01_14.01"
+model = mobilenet_v2()
+model.load_state_dict(torch.load("./05.02_16:02_test.pth"))
+model.eval()
+
+class_to_idx = {'Happy': 0, 'Sad': 1, 'Surprise': 2, 'Fear': 3, 'Disgust-Contempt': 4, 'Anger': 5}
+idx_to_class = {0: 'Happy', 1: 'Sad', 2: 'Surprise', 3: 'Fear', 4: 'Disgust-Contempt', 5: 'Anger'}
 
 
-def main():
-    with open("./configs/fer2013_config.json") as f:
-        configs = json.load(f)
 
-    state = torch.load("./saved/checkpoints/{}".format(checkpoint_name))
+bs = 64
+crop_size = 224
 
-    from models import vgg19
 
-    model = vgg19
+test_transform = transforms.Compose([
+    transforms.Resize(230),
+    # transforms.CenterCrop(crop_size),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
 
-    model = model(in_channels=3, num_classes=7).cuda()
-    model.load_state_dict(state["net"])
+
+val_set = datasets.ImageFolder("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/valid", transform=test_transform)
+valloader = torch.utils.data.DataLoader(val_set, batch_size=bs, shuffle=False)
+
+
+
+# dataiter = iter(valloader)
+# images, labels = dataiter.next()
+# print(images.size())
+# print(images.unsqueeze_(0).size())
+# print(labels)
+
+
+pre_labels = []
+gt_labels = []
+with torch.no_grad():
+    bingo_cnt = 0
     model.eval()
+    for batch_i, (imgs, targets) in enumerate(valloader):
+        outputs, features = model(imgs.cuda())
+        targets = targets.cuda()
+        _, predicts = torch.max(outputs, 1)
+        _, predicts = torch.max(outputs, 1)
+        correct_or_not = torch.eq(predicts, targets)
+        bingo_cnt += correct_or_not.sum().cpu()
+        pre_labels += predicts.cpu().tolist()
+        gt_labels += targets.cpu().tolist()
 
-    correct = 0
-    total = 0
-    all_target = []
-    all_output = []
+    acc = bingo_cnt.float() / float(test_size)
+    acc = np.around(acc.numpy(), 4)
+    print(f"Test accuracy: {acc:.4f}.")
+    cm = confusion_matrix(gt_labels, pre_labels)
+    # print(cm)
 
-    test_set = fer2013("test", configs, tta=True, tta_size=8)
-    # test_set = fer2013('test', configs, tta=False, tta_size=0)
+y_val, y_scores_val = [], []
 
-    with torch.no_grad():
-        for idx in tqdm(range(len(test_set)), total=len(test_set), leave=False):
-            images, targets = test_set[idx]
+for image, label in tqdm(val_set, desc="valid image scoring"):
+    image.unsqueeze_(0)
+    # image = image.cuda()
+    scores = model(image)
+    scores = scores[0].data.cpu().numpy()
+    y_scores_val.append(scores)
+    y_val.append(label)
 
-            images = make_batch(images)
-            images = images.cuda(non_blocking=True)
-
-            outputs = model(images).cpu()
-            outputs = F.softmax(outputs, 1)
-
-            # outputs.shape [tta_size, 7]
-            outputs = torch.sum(outputs, 0)
-            outputs = torch.argmax(outputs, 0)
-            outputs = outputs.item()
-            targets = targets.item()
-            total += 1
-            correct += outputs == targets
-
-            all_target.append(targets)
-            all_output.append(outputs)
-
-    # acc = 100. * correct / total
-    # print("Accuracy {:.03f}".format(acc))
-
-    all_target = np.array(all_target)
-    all_output = np.array(all_output)
-
-    matrix = confusion_matrix(all_target, all_output)
-    np.set_printoptions(precision=2)
-
-    # plt.figure(figsize=(5, 5))
-    plot_confusion_matrix(
-        matrix,
-        classes=class_names,
-        normalize=True,
-        # title='{} \n Accuracc: {:.03f}'.format(checkpoint_name, acc)
-        title="Vgg19",
-    )
-
-    # plt.show()
-    # plt.savefig('cm_{}.png'.format(checkpoint_name))
-    plt.savefig("./saved/cm/cm_{}.pdf".format(checkpoint_name))
-    plt.close()
-
-
-if __name__ == "__main__":
-    main()
+y_scores_val = np.array(y_scores_val)
+y_val = np.array(y_val)
+print(y_scores_val.shape, y_val.shape)

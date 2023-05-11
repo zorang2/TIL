@@ -76,7 +76,7 @@ df_train_2 = pd.concat([emo_process0, emo_process1, emo_process2, emo_process3, 
 df_train_2 = df_train_2.reset_index(drop=True)
 print('Training shape: ',df_train_2.shape)
 
-# df_train_2.to_csv("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_lists/training.csv")
+# df_train_2.to_csv("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_lists/training_test.csv")
 
 ################ Data Division ###################
 

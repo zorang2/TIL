@@ -8,6 +8,41 @@
 
 
 
+## May.
+### 5월 한줄 요약 : MobileNetV2 FER 성능확보
+
+<br/><br/>
+
+### 날짜별 정리
+<details>
+<summary>5월 날짜별 자세히 보기</summary>
+
+
+<br/><br/><br/>
+### 5/2 ~
+--- 
+
+#### already did
+- Part 1, 3 영상 촬영(4/27)
+  - AffectNet DB, DataFrame(Pandas) 기초 작업중,,,
+    - crop_img = img[y:y + h, x:x + w] <<< 이 부분 에러 수정해야함
+    - 에러 코드 : "TypeError: 'NoneType' object is not subscriptable"
+- 위 에러 해결 완료(05/02)
+  - 근데, 왜 CUDA 버전 확인이 안되지?
+    - nvcc --version , torch.cuda.is_available()
+      - 조치사항으로 nvcc 설치중. 16분 이상 걸린대
+  - test, valid, train set으로 분할 후 imagefolder로 dataload 완료
+-  CUDA 에러 완료(포스팅 완료) & 학습 돌리는 중(05/08)
+  - train 약 9시간 소요 예정
+    - Acc 67~69%사이, 오버피팅됨.
+- confusion matrix 표현 해내야 됨.
+
+#### should do
+- MobileNet V2 논문 읽고 구현하기
+
+
+
+
 ## Apr.
 ### 4월 한줄 요약 : MobileNetV2 FER 성능확보
 

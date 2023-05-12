@@ -36,6 +36,8 @@
   - train 약 9시간 소요 예정
     - Acc 67~69%사이, 오버피팅됨.
 - confusion matrix 표현 해내야 됨.
+- Affectnet 8classes csv 정리 완료(train_test1.csv, validation_test1.csv) (5/11)
+- parser 기반 학습 초안 마련 완료 (Affectnet_8classes_train.py)(5/12) -> (한번 학습 돌려보고 잘 되는지 확인 후) 추후 confution_matrix까지 표현되게 코드짜야됨.
 
 #### should do
 - MobileNet V2 논문 읽고 구현하기

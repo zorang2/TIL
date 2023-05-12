@@ -1,198 +1,213 @@
-import torch
-from torchvision import datasets, transforms
-from torch.utils.data import DataLoader
-from torchvision.models import mobilenet_v2
-
-
-import torch.nn as nn
-import torch.optim as optim
+import argparse
 import os
-import torchvision.models as models
-from torch.utils.tensorboard import SummaryWriter
-
-
-
-
-import torch.backends.cudnn as cudnn
-import torch
-import re
-import PIL
 import numpy as np
-from PIL import Image
-from torch.utils.data import Dataset, DataLoader
-import torchvision
-import torchvision.transforms as tr
-from matplotlib import pyplot as plt
-import time
-
-
-
-######################################################### random seed fixed
-import random
-
-
-torch.manual_seed(0)
-torch.cuda.manual_seed(0)
-torch.cuda.manual_seed_all(0)
-np.random.seed(0)
-cudnn.benchmark = False
-cudnn.deterministic = True
-random.seed(0)
-learning_rate = 0.001
-
-
-########################################################## Simple Learning Rate Scheduler
-def lr_scheduler(optimizer, epoch):
-    lr = learning_rate
-    if epoch == 50:
-        lr /= 2
-    if epoch == 100:
-        lr /= 2
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr
-
-# Xavier
-def init_weights(m):
-    if isinstance(m, nn.Linear):
-        torch.nn.init.xavier_uniform(m.weight)
-        m.bias.data.fill_(0.01)
-
-
-
-bs = 64
-crop_size = 224
-
-train_transform = transforms.Compose([
-    transforms.RandomRotation(10),
-    transforms.RandomResizedCrop(crop_size, scale=(0.8, 1.0)),
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-
-test_transform = transforms.Compose([
-    transforms.Resize(230),
-    transforms.CenterCrop(crop_size),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-
-train_set = datasets.ImageFolder("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/train", transform=train_transform)
-trainloader = DataLoader(train_set, batch_size=bs, shuffle=True, num_workers=2)
-
-val_set = datasets.ImageFolder("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/valid", transform=test_transform)
-valloader = DataLoader(val_set, batch_size=bs, shuffle=True)
-
-test_set = datasets.ImageFolder("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_compressed/test", transform=test_transform)
-testloader = DataLoader(test_set, shuffle=True)
-
-dataiter = iter(trainloader)
-images, labels = dataiter.next()
-print(images.size())
-print(labels)
-
-device = 'cuda:1'
-model = mobilenet_v2()
-
-model.apply(init_weights)
-model = model.to(device)
-
-learning_rate = 0.001
-num_epoch = 50
-# model_name = '05.02_16:02_test.pth'
-
-loss_fn = nn.CrossEntropyLoss()
-# optimizer = optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=0.0001)
-optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-train_loss = 0
-valid_loss = 0
-correct = 0
-total_cnt = 0
-best_acc = 0
-
-import time
+from torchvision import transforms
+import torch
+import torch.utils.data as data
+# from torchsampler import ImbalancedDatasetSampler
+from torchvision.models import mobilenet_v2
+from time import time
+from sklearn.metrics import f1_score, confusion_matrix
 from tqdm import tqdm
 
-start = time.time()  # 시작 시간 저장
-# Train
-writer = SummaryWriter("../runs/11.24_init npyfile load modify 2")
-for epoch in range(num_epoch):
+from data_preprocessing.sam import SAM
+from utils import load_pretrained_weights, LabelSmoothingCrossEntropy
+from data_preprocessing.affectnet_dataset import Affectdataset_8class
 
-    if epoch == 0:
-        start = time.time()  # 시작 시간 저장
-    if epoch == 1:
-        epoch_time_for_1 = time.time() - start
-        timer = epoch_time_for_1 * num_epoch
-        print("학습에 총 걸리는 시간 :", timer)
 
-    print(f"====== {epoch + 1} epoch of {num_epoch} ======")
-    model.train()
-    lr_scheduler(optimizer, epoch)
-    train_loss = 0
-    valid_loss = 0
-    correct = 0
-    total_cnt = 0
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--gpu', type=str, default='0,1', help='assign multi-gpus by comma concat') # 쉼표로 다중 gpus 할당
+    parser.add_argument('--dataset', type=str, default='affectnet8class', help='dataset')
+    parser.add_argument('--batch_size', type=int, default=200, help='Batch size')
+    parser.add_argument('--workers', default=2, type=int, help='Number of data loading workers (default : 4)')
+    parser.add_argument('--val_batch_size', type=int, default=32, help='Batch size for validation')
+    parser.add_argument('-c', '--checkpoint', type=str, default=None, help='Pytorch checkpoint file path')
+    parser.add_argument('--optimizer', type=str, default='adam', help='Optimizer, adam or sgd')
+    parser.add_argument('--lr', type=float, default=0.000002, help='Initial learning rate for sgd')
+    parser.add_argument('--epochs', type=int, default=300, help='Total training epochs.')
 
-    # Train Phase
-    for step, batch in tqdm(enumerate(trainloader), desc="train_loader 1epoch",
-                            total=len(trainloader), position=1, leave=True):
-        #  input and target
-        batch[0], batch[1] = batch[0].to(device), batch[1].to(device)
-        optimizer.zero_grad()
+    return parser.parse_args()
 
-        logits = model(batch[0])  # batch[0]=이미지, batch[1]=라벨
-        loss = loss_fn(logits, batch[1])
-        # loss.backward()
-        # optimizer.step()
 
-        train_loss += loss.item()
-        # _, predict = logits.max(1)
-        _, predict = torch.max(logits, dim=1)
 
-        total_cnt += batch[1].size(0)
-        correct += predict.eq(batch[1]).sum().item()
+def main():
+    args = parse_args()
+    torch.manual_seed(111)
 
-        if step % 1000 == 0 and step != 0:
-            print(f"\n====== {step} Step of {len(trainloader)} ======")
-            print(f"Train Acc : {correct / total_cnt}")
-            print(f"Train Loss : {loss.item() / batch[1].size(0)}")
+    os.environ['CUDA_VISIBLE_DEVICES'] = str(args.gpu)
+    print("Work on GPU: ", os.environ['CUDA_VISIBLE_DEVICES'])
 
-        loss.backward()
-        optimizer.step()
+    data_transforms = transforms.Compose([
+        transforms.ToPILImage(),
+        transforms.RandomHorizontalFlip(),
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        transforms.RandomErasing(scale=(0.02, 0.1)),
+    ])
 
-    train_acc_visual = (correct / total_cnt) * 100
-    # train_loss_visual = train_loss / batch[1].size(0)
-    train_loss_visual = train_loss / total_cnt
-    writer.add_scalar('acc/train', train_acc_visual, epoch)
-    writer.add_scalar('loss/train', train_loss_visual, epoch)
+    data_transforms_val = transforms.Compose([
+        transforms.ToPILImage(),
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
 
-    correct = 0
-    total_cnt = 0
+    # num_classes = 7
 
-    # Test Phase
-    with torch.no_grad():
-        model.eval()
-        for step, batch in enumerate(valloader):
-            # input and target
-            batch[0], batch[1] = batch[0].to(device), batch[1].to(device)
-            total_cnt += batch[1].size(0)
-            logits = model(batch[0])
-            valid_loss += loss_fn(logits, batch[1])
-            _, predict = logits.max(1)
-            correct += predict.eq(batch[1]).sum().item()
-        valid_acc = correct / total_cnt
-        print(f"\nValid Acc : {valid_acc}")
-        print(f"Valid Loss : {valid_loss / total_cnt}")
+    if args.dataset == "affectnet8class":
+        datapath = '/home/sldev1/Desktop/fer/affectnet_full/'
+        num_classes = 8
+        train_dataset = Affectdataset_8class(datapath, train=True, transform=data_transforms, basic_aug=True) # basic_aug가 뭐지?
+        val_dataset = Affectdataset_8class(datapath, train=False, transform=data_transforms_val)
+    else:
+        return print('dataset name is not correct')
 
-        valid_acc_visual = valid_acc * 100
-        valid_loss_visual = valid_loss / total_cnt
-        writer.add_scalar('acc/valid', valid_acc_visual, epoch)
-        writer.add_scalar('loss/valid', valid_loss_visual, epoch)
+    val_num = val_dataset.__len__()
+    print('Train set size:', train_dataset.__len__())
+    print('Validation set size:', val_dataset.__len__())
 
-        if valid_acc > 0.65 and valid_acc > best_acc:
-            torch.save(model.state_dict(), os.path.join('./checkpoint', "epoch" + str(epoch) + "_acc" + str(valid_acc) + ".pth"))
-            print('Model Saved!')
+    train_loader = torch.utils.data.DataLoader(train_dataset,
+                                               # sampler=ImbalancedDatasetSampler(train_dataset),
+                                               batch_size=args.batch_size,
+                                               num_workers=args.workers,
+                                               # shuffle=True,
+                                               pin_memory=True)
 
-        if (valid_acc > best_acc):
-            best_acc = valid_acc
-            print("best_acc" + str(best_acc))
+    val_loader = torch.utils.data.DataLoader(val_dataset,
+                                             batch_size=args.val_batch_size,
+                                             num_workers=args.workers,
+                                             shuffle=False,
+                                             pin_memory=True)
+
+    model = mobilenet_v2()
+    model = model.cuda()
+
+    print("batch_size:", args.batch_size)
+
+    # if args.checkpoint:
+    #     print("Loading pretrained weights...", args.checkpoint)
+    #     checkpoint = torch.load(args.checkpoint)
+    #     # model.load_state_dict(checkpoint["model_state_dict"], strict=False)
+    #     checkpoint = checkpoint["model_state_dict"]
+    #     model = load_pretrained_weights(model, checkpoint)
+
+    params = model.parameters()
+    if args.optimizer == 'adamw':
+        # base_optimizer = torch.optim.AdamW(params, args.lr, weight_decay=1e-4)
+        base_optimizer = torch.optim.AdamW
+    elif args.optimizer == 'adam':
+        # base_optimizer = torch.optim.Adam(params, args.lr, weight_decay=1e-4)
+        base_optimizer = torch.optim.Adam
+    elif args.optimizer == 'sgd':
+        # base_optimizer = torch.optim.SGD(params, args.lr, momentum=args.momentum, weight_decay=1e-4)
+        base_optimizer = torch.optim.SGD
+    else:
+        raise ValueError("Optimizer not supported.")
+
+    optimizer = SAM(model.parameters(), base_optimizer, lr=args.lr, rho=0.05, adaptive=False)
+    scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.98)
+    parameters = filter(lambda p: p.requires_grad, model.parameters())
+    parameters = sum([np.prod(p.size()) for p in parameters]) / 1_000_000
+    print('Total Parameters: %.3fM' % parameters)
+
+    CE_criterion = torch.nn.CrossEntropyLoss()
+    lsce_criterion = LabelSmoothingCrossEntropy(smoothing=0.2)
+
+
+    best_acc = 0
+
+    for i in tqdm(range(1, args.epochs + 1)):
+        train_loss = 0.0
+        correct_sum = 0
+        iter_cnt = 0
+        start_time = time()
+        model.train()
+        for batch_i, (imgs, targets) in enumerate(train_loader):
+            iter_cnt += 1
+            optimizer.zero_grad()
+            imgs = imgs.cuda()
+            outputs, features = model(imgs)
+            targets = targets.cuda()
+
+            CE_loss = CE_criterion(outputs, targets)
+            lsce_loss = lsce_criterion(outputs, targets)
+
+
+
+            loss = 2 * lsce_loss + CE_loss
+            loss.backward()
+            optimizer.first_step(zero_grad=True)
+
+            # second forward-backward pass
+            outputs, features = model(imgs)
+            CE_loss = CE_criterion(outputs, targets)
+            lsce_loss = lsce_criterion(outputs, targets)
+
+            loss = 2 * lsce_loss + CE_loss
+            loss.backward() # make sure to do a full forward pass
+            optimizer.second_step(zero_grad=True)
+
+            train_loss += loss
+            _, predicts = torch.max(outputs, 1)
+            correct_num = torch.eq(predicts, targets).sum()
+            correct_sum += correct_num
+
+        train_acc = correct_sum.float() / float(train_dataset.__len__())
+        train_loss = train_loss / iter_cnt
+        elapsed = (time() - start_time) / 60
+
+
+        print('[Epoch %d] Train time:%.2f, Training accuracy:%.4f. Loss: %.3f LR:%.6f' %
+              (i, elapsed, train_acc, train_loss, optimizer.param_groups[0]["lr"]))
+
+        scheduler.step()
+
+        pre_labels = []
+        gt_labels = []
+        with torch.no_grad():
+            val_loss = 0.0
+            iter_cnt = 0
+            bingo_cnt = 0
+            model.eval()
+            for batch_i, (imgs, targets) in enumerate(val_loader):
+                outputs, features = model(imgs.cuda())
+                targets = targets.cuda()
+
+                CE_loss = CE_criterion(outputs, targets)
+                loss = CE_loss
+
+                val_loss += loss
+                iter_cnt += 1
+                _, predicts = torch.max(outputs, 1)
+                correct_or_not = torch.eq(predicts, targets)
+                bingo_cnt += correct_or_not.sum().cpu()
+                pre_labels += predicts.cpu().tolist()
+                gt_labels += targets.cpu().tolist()
+
+            val_loss = val_loss / iter_cnt
+            val_acc = bingo_cnt.float() / float(val_num)
+            val_acc = np.around(val_acc.numpy(), 4)
+            f1 = f1_score(pre_labels, gt_labels, average='macro')
+            total_socre = 0.67 * f1 + 0.33 * val_acc
+
+            print("[Epoch %d] Validation accuracy:%.4f, Loss:%.3f, f1 %4f, score %4f" % (
+            i, val_acc, val_loss, f1, total_socre))
+
+
+            if val_acc > 0.65 and val_acc > best_acc:
+                torch.save({'iter': i,
+                            'model_state_dict': model.state_dict(),
+                            'optimizer_state_dict': optimizer.state_dict(), },
+                           os.path.join('./checkpoint', "epoch" + str(i) + "_acc" + str(val_acc) + ".pth"))
+                print('Model saved.')
+            if val_acc > best_acc:
+                best_acc = val_acc
+                print("best_acc:" + str(best_acc))
+
+
+
+
+    if __name__ == "__main__":
+        main()

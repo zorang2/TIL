@@ -15,10 +15,8 @@ class Affectdataset_8class(data.Dataset):
 
         NAME_COLUMN = 0
         LABEL_COLUMN = 1
-        df_train = pd.read_csv(os.path.join(self.root, 'train_set/train_annotations_8class.txt'), sep=' ',
-                               header=None)
-        df_valid = pd.read_csv(os.path.join(self.root, 'valid_set/valid_annotations_8class.txt'), sep=' ',
-                               header=None)
+        df_train = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/train_exp.8classes.csv'))
+        df_valid = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/valid_exp_8classes.csv'))
         if self.train:
             dataset = df_train
         else:
@@ -39,9 +37,9 @@ class Affectdataset_8class(data.Dataset):
             # f = f.split(".")[0]
             # f = f + "_aligned.jpg"
             if  self.train:
-                path = os.path.join(self.root,'train_set/images',  f)
+                path = os.path.join(self.root,'ManuallyAnnotated_Images/',  f)
             else:
-                path = os.path.join(self.root, 'valid_set/images', f)
+                path = os.path.join(self.root, 'ManuallyAnnotated_Images/', f)
             self.file_paths.append(path)
 
         self.basic_aug = basic_aug

@@ -32,7 +32,7 @@ df_name = pd.DataFrame(df_name, columns=['subDirectory_filePath'])
 df_exp = pd.DataFrame(df_exp, columns=['expression'])
 df_name.insert(1,'expression',df_exp) # filePath에 expression 삽입
 df_name.drop(df_name[(df_name['expression'] > 7) & (df_name['expression'] < 11)].index, inplace=True)
-# df_name.to_csv("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_lists/training_test1.csv")
+# df_name.to_csv("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_lists/train_exp_8classes.csv")
 # print(df_name['expression'].value_counts())
 
 ############################ expression 추출(valid)
@@ -42,7 +42,7 @@ df_name = pd.DataFrame(df_name, columns=['subDirectory_filePath'])
 df_exp = pd.DataFrame(df_exp, columns=['expression'])
 df_name.insert(1,'expression',df_exp) # filePath에 expression 삽입
 df_name.drop(df_name[(df_name['expression'] > 7) & (df_name['expression'] < 11)].index, inplace=True)
-# df_name.to_csv("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_lists/validation_test1.csv")
+# df_name.to_csv("/home/sldev1/Desktop/fer/affectnet_full/Manually_Annotated_file_lists/valid_exp_8classes.csv")
 # print(df_name['expression'].value_counts())
 
 

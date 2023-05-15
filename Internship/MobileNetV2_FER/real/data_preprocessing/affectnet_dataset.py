@@ -12,10 +12,11 @@ class Affectdataset_8class(data.Dataset):
         self.dataidxs = dataidxs
         self.train = train
         self.transform = transform
+        # os.chdir(root)
 
         NAME_COLUMN = 0
         LABEL_COLUMN = 1
-        df_train = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/train_exp.8classes.csv'))
+        df_train = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/train_exp_8classes.csv'))
         df_valid = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/valid_exp_8classes.csv'))
         if self.train:
             dataset = df_train
@@ -37,10 +38,12 @@ class Affectdataset_8class(data.Dataset):
             # f = f.split(".")[0]
             # f = f + "_aligned.jpg"
             if  self.train:
-                path = os.path.join(self.root,'ManuallyAnnotated_Images/',  f)
+                path = os.path.join(self.root,'Manually_Annotated_Images/',  f)
             else:
-                path = os.path.join(self.root, 'ManuallyAnnotated_Images/', f)
+                path = os.path.join(self.root, 'Manually_Annotated_Images/', f)
             self.file_paths.append(path)
+
+
 
         self.basic_aug = basic_aug
         self.aug_func = [flip_image, add_gaussian_noise]
@@ -53,7 +56,10 @@ class Affectdataset_8class(data.Dataset):
         return self.target
 
     def __getitem__(self, idx):
+
+
         path = self.file_paths[idx]
+
         image = cv2.imread(path)
         image = image[:, :, ::-1]  # BGR to RGB
         target = self.target[idx]

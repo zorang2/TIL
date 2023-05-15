@@ -9,6 +9,8 @@ from torchvision.models import mobilenet_v2
 from time import time
 from sklearn.metrics import f1_score, confusion_matrix
 from tqdm import tqdm
+from torch.utils.tensorboard import SummaryWriter
+
 
 from data_preprocessing.sam import SAM
 from utils import load_pretrained_weights, LabelSmoothingCrossEntropy
@@ -118,6 +120,7 @@ def main():
 
     best_acc = 0
 
+    writer = SummaryWriter("./runs/05.15_test")
     for i in tqdm(range(1, args.epochs + 1)):
         train_loss = 0.0
         correct_sum = 0
@@ -128,7 +131,8 @@ def main():
             iter_cnt += 1
             optimizer.zero_grad()
             imgs = imgs.cuda()
-            outputs, features = model(imgs)
+            # outputs, features = model(imgs)
+            outputs = model(imgs)
             targets = targets.cuda()
 
             CE_loss = CE_criterion(outputs, targets)
@@ -141,7 +145,8 @@ def main():
             optimizer.first_step(zero_grad=True)
 
             # second forward-backward pass
-            outputs, features = model(imgs)
+            # outputs, features = model(imgs)
+            outputs = model(imgs)
             CE_loss = CE_criterion(outputs, targets)
             lsce_loss = lsce_criterion(outputs, targets)
 
@@ -158,6 +163,9 @@ def main():
         train_loss = train_loss / iter_cnt
         elapsed = (time() - start_time) / 60
 
+        writer.add_scalar('acc/train', train_acc, i)
+        writer.add_scalar('loss/train', train_loss, i)
+
 
         print('[Epoch %d] Train time:%.2f, Training accuracy:%.4f. Loss: %.3f LR:%.6f' %
               (i, elapsed, train_acc, train_loss, optimizer.param_groups[0]["lr"]))
@@ -172,7 +180,8 @@ def main():
             bingo_cnt = 0
             model.eval()
             for batch_i, (imgs, targets) in enumerate(val_loader):
-                outputs, features = model(imgs.cuda())
+                # outputs, features = model(imgs.cuda())
+                outputs = model(imgs.cuda())
                 targets = targets.cuda()
 
                 CE_loss = CE_criterion(outputs, targets)
@@ -192,6 +201,9 @@ def main():
             f1 = f1_score(pre_labels, gt_labels, average='macro')
             total_socre = 0.67 * f1 + 0.33 * val_acc
 
+            writer.add_scalar('acc/valid', val_acc, i)
+            writer.add_scalar('loss/valid', val_loss, i)
+
             print("[Epoch %d] Validation accuracy:%.4f, Loss:%.3f, f1 %4f, score %4f" % (
             i, val_acc, val_loss, f1, total_socre))
 
@@ -209,5 +221,5 @@ def main():
 
 
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()

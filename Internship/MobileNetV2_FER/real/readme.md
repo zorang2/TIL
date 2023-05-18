@@ -7,3 +7,7 @@ paser로 구동하기 위해서 새롭게 시작하는 디렉토리입니다.
 ($ python Affectnet_8classes_train.py --epoch=40 --lr=0.001 --batch_size=64 --val_batch_size=16 --gpu=1)
 ![Screenshot from 2023-05-17 08-21-42.png](..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%20from%202023-05-17%2008-21-42.png)
 결과 = Acc 49%로 모델 저장X (40 epoch = 38.5시간 소요)
+
+### 05/18
+- CleanSet(emonet pickle(val_fullpath.pkl)) + Custom MobileNetV2 기반 재 학습 목표
+- 현재 Valid용 CleanSet을 위해서 csv작업중........ㅠ 실패했음

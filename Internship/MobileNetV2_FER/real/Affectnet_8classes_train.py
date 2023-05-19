@@ -5,7 +5,8 @@ from torchvision import transforms
 import torch
 import torch.utils.data as data
 # from torchsampler import ImbalancedDatasetSampler
-from torchvision.models import mobilenet_v2
+# from torchvision.models import mobilenet_v2
+from MoblieNetV2 import MobileNetV2
 from time import time
 from sklearn.metrics import f1_score, confusion_matrix
 from tqdm import tqdm
@@ -83,7 +84,8 @@ def main():
                                              shuffle=False,
                                              pin_memory=True)
 
-    model = mobilenet_v2()
+    # model = mobilenet_v2()
+    model = MobileNetV2()
     model = model.cuda()
 
     print("batch_size:", args.batch_size)
@@ -120,7 +122,7 @@ def main():
 
     best_acc = 0
 
-    writer = SummaryWriter("./runs/05.15_test")
+    writer = SummaryWriter("./runs/05.19")
     for i in tqdm(range(1, args.epochs + 1)):
         train_loss = 0.0
         correct_sum = 0
@@ -208,7 +210,7 @@ def main():
             i, val_acc, val_loss, f1, total_socre))
 
 
-            if val_acc > 0.65 and val_acc > best_acc:
+            if val_acc > 0.55 and val_acc > best_acc:
                 torch.save({'iter': i,
                             'model_state_dict': model.state_dict(),
                             'optimizer_state_dict': optimizer.state_dict(), },

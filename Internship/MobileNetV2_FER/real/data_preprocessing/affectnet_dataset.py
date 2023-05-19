@@ -17,7 +17,8 @@ class Affectdataset_8class(data.Dataset):
         NAME_COLUMN = 0
         LABEL_COLUMN = 1
         df_train = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/train_exp_8classes.csv'))
-        df_valid = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/valid_exp_8classes.csv'))
+        # df_valid = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/valid_exp_8classes.csv'))
+        df_valid = pd.read_csv(os.path.join(self.root, 'Manually_Annotated_file_lists/valid_exp_8classes_cleanset.csv'))
         if self.train:
             dataset = df_train
         else:

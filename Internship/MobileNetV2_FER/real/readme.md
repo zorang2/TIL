@@ -11,3 +11,7 @@ paser로 구동하기 위해서 새롭게 시작하는 디렉토리입니다.
 ### 05/18
 - CleanSet(emonet pickle(val_fullpath.pkl)) + Custom MobileNetV2 기반 재 학습 목표
 - 현재 Valid용 CleanSet을 위해서 csv작업중........ㅠ 실패했음
+
+### 05/19
+- CleanSet csv 작업, MobileNetV2 Class로 구현 및 학습 작업 완료
+- ($ python Affectnet_8classes_train.py --epoch=40 --lr=0.001 --batch_size=64 --val_batch_size=16 --gpu=1)

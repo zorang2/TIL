@@ -23,16 +23,18 @@ fields = ['subDirectory_filePath', 'expression']
 
 
 # 실패작 다시
-for i in range(len(data_keys)+1):
-    a = []
-    b = []
+c = []
+d = []
+for i in range(0, len(data_keys)):
+    c = []
     a = data_keys[i]
-    b = list(str(data_exp[i]))
-    c = a+b
-    c.append(c)
-    print(c)
+    b = str(data_exp[i])
+    c.append(a)
+    c.append(b)
+    d.append(c)
+    # print(c)
 
-# rows =
+rows = d
 
 with open('test.csv', 'w', newline='') as f:
     # using csv.writer method from CSV package

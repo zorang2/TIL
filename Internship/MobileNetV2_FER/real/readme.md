@@ -15,3 +15,6 @@ paser로 구동하기 위해서 새롭게 시작하는 디렉토리입니다.
 ### 05/19
 - CleanSet csv 작업, MobileNetV2 Class로 구현 및 학습 작업 완료
 - ($ python Affectnet_8classes_train.py --epoch=40 --lr=0.001 --batch_size=64 --val_batch_size=16 --gpu=1)
+  - FileNotFoundError: [Errno 2] No such file or directory: './checkpoint/epoch25_acc0.5578.pth'
+    - checkpoint라는 디렉토리 다시 만들고 똑같이 학습돌림(05/23)
+

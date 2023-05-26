@@ -44,6 +44,7 @@ def main():
     data_transforms = transforms.Compose([
         transforms.ToPILImage(),
         transforms.RandomHorizontalFlip(),
+        transforms.RandomVerticalFlip(),
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
@@ -122,7 +123,7 @@ def main():
 
     best_acc = 0
 
-    writer = SummaryWriter("./runs/05.19")
+    writer = SummaryWriter("./runs/05.26")
     for i in tqdm(range(1, args.epochs + 1)):
         train_loss = 0.0
         correct_sum = 0

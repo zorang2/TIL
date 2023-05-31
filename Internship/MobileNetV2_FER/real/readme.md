@@ -21,4 +21,8 @@ paser로 구동하기 위해서 새롭게 시작하는 디렉토리입니다.
       - [Epoch 39] Validation accuracy:0.6491, Loss:1.757, f1 0.622471, score 0.631259
       - best_acc:0.6491 (05/23)
 
+### 05/26 ~ 31
+($ python Affectnet_8classes_train.py --epoch=100 --lr=0.001 --batch_size=64 --val_batch_size=16 --gpu=1)
+![Screenshot from 2023-05-31 09-15-35.png](..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%20from%202023-05-31%2009-15-35.png)
+결과 = Acc 69.6%로 모델 저장O (98 epoch, 총 100epoch로 102시간 39분 소요됨)
 

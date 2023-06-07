@@ -123,7 +123,7 @@ def main():
 
     best_acc = 0
 
-    writer = SummaryWriter("./runs/05.26")
+    writer = SummaryWriter("./runs/06.01")
     for i in tqdm(range(1, args.epochs + 1)):
         train_loss = 0.0
         correct_sum = 0
@@ -211,7 +211,7 @@ def main():
             i, val_acc, val_loss, f1, total_socre))
 
 
-            if val_acc > 0.55 and val_acc > best_acc:
+            if val_acc > 0.7 and val_acc > best_acc:
                 torch.save({'iter': i,
                             'model_state_dict': model.state_dict(),
                             'optimizer_state_dict': optimizer.state_dict(), },

@@ -26,7 +26,7 @@ paser로 구동하기 위해서 새롭게 시작하는 디렉토리입니다.
 ![Screenshot from 2023-05-31 09-15-35.png](..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%20from%202023-05-31%2009-15-35.png)
 결과 = Acc 69.6%로 모델 저장O (98 epoch, 총 100epoch로 102시간 39분 소요됨)
 
-### 06/12
+### 06/12 ~ 13
 [Epoch 199] Train time:61.84, Training accuracy:0.8816. Loss: 4.780 LR:0.000018   
 [Epoch 199] Validation accuracy:0.7827, Loss:1.482, f1 0.746082, score 0.758166   
 Model saved.   

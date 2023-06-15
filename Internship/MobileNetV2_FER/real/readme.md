@@ -39,7 +39,7 @@ best_acc:0.7827
 결과 = Acc 78.27%로 모델 저장 (199 Epoch, 총 200epoch로 205.5시간 소요됨.)   
 
 1. 민규 선임님께 학습 제대로 되었는지 코드 봐달라 하기
-2. Confusion matrix 코드 공유 가능한지 여쭤보기
+2. Confusion matrix 코드 공유 가능한지 여쭤보기   
 
 
 

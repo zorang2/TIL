@@ -7,6 +7,10 @@
 - [Top conferences & Journals focused on Facial expression recognition (FER)/ Facial action unit (FAU)](https://github.com/EvelynFan/AWESOME-FER)
 
 
+## Jun.
+### 6월 ~ 7월 한줄 요약 : 학습세션 과제 & 현장실습세션(진량 전자공장)
+
+
 
 ## May.
 ### 5월 한줄 요약 : MobileNetV2 FER 성능확보
